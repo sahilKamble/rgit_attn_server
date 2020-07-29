@@ -28,7 +28,7 @@ attnRouter.route('/')
     .catch((err) => next(err));
 })
 .delete((req,res,next) => {
-    Attendance.findOneAndDelete(req.query)
+    Attendance.deleteMany(req.query)
     .then((attn) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');

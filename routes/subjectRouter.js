@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const Subjects = require('../models/subjects');
+const Students = require('../models/students');
 
 const subjectRouter = express.Router();
 
@@ -37,7 +38,7 @@ subjectRouter.route('/')
 
 subjectRouter.route('/:subjectId')
 .get((req,res,next) => {
-    Subjects.findById(req.params.subjectsId)
+    Subjects.findById(req.params.subjectId)
     .then((subjects) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
@@ -47,10 +48,10 @@ subjectRouter.route('/:subjectId')
 })
 .post((req, res, next) => {
     res.statusCode = 403;
-    res.end('POST operation not supported on /subjects/'+ req.params.subjectsId);
+    res.end('POST operation not supported on /subjects/'+ req.params.subjectId);
 })
 .put((req,res,next) => {
-    Subjects.findByIdAndUpdate(req.params.subjectsId, {
+    Subjects.findByIdAndUpdate(req.params.subjectId, {
         $set: req.body
     }, { new: true})
     .then((subjects) => {
@@ -61,7 +62,7 @@ subjectRouter.route('/:subjectId')
     .catch((err) => next(err));
 })
 .delete((req,res,next) => {
-    Subjects.findOneAndDelete(req.params.subjectsId)
+    Subjects.findOneAndDelete(req.params.subjectId)
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
@@ -69,5 +70,17 @@ subjectRouter.route('/:subjectId')
     }, (err) => next(err))
     .catch((err) => next(err));
 });
+
+subjectRouter.route('/:subjectId/students')
+.get((req,res,next) => {
+    Subjects.findById(req.params.subjectId)
+    .then(subject => Students.find({_id:{$in:subject.students}})
+    .then(students => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(students); 
+    }, (err) => next(err)))
+    .catch((err) => next(err));
+})
 
 module.exports = subjectRouter;

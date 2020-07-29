@@ -30,13 +30,16 @@ studentRouter.route('/')
     });
     Students.create(student)
     .then(student => {
-        for (subject of req.body.subject)
+        if(req.body.subjects)
         {
-            Subjects.findById(subject)
-            .then(sub => {
-                sub.students.push(student);
-                sub.save();
-            })
+            for (subject of req.body.subjects)
+            {
+                Subjects.findById(subject)
+                .then(sub => {
+                    sub.students.push(student);
+                    sub.save();
+                })
+            }
         }
         return student;
     }, err => next(err))
