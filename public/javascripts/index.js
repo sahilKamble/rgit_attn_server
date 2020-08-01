@@ -1,9 +1,11 @@
+
+var subject ="MP";
 var subjectId ="" ;
 var div = "";
 var attendees = ['sebin francis','paras','sahil2','kapse'];
 const url  = "https://attn-server.herokuapp.com/";
 var url_subj = url+"subjects?name="+subject;
-let request1 = new X();
+let request1 = new XMLHttpRequest();
 request1.open("GET", url_subj);
 request1.send();
 request1.onload = () => {
