@@ -83,12 +83,10 @@ subjectRouter.route('/:subjectId/students')
     .catch((err) => next(err));
 })
 .post((req,res,next) => {
-    Subjects.findById(req.params.subjectId)
-    .then(subject => {
-        subject.students.push(req.body);
-        subject.save();
-        return subject;
-    }, err => next(err))
+    Subjects.update(
+        { _id: req.params.subjectId },
+        { $addToSet: { students: req.body } }
+     )
     .then(subject => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
