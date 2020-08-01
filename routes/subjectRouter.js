@@ -82,5 +82,19 @@ subjectRouter.route('/:subjectId/students')
     }, (err) => next(err)))
     .catch((err) => next(err));
 })
+.post((req,res,next) => {
+    Subjects.findById(req.params.subjectId)
+    .then(subject => {
+        subject.students.push(req.body);
+        subject.save();
+        return subject;
+    }, err => next(err))
+    .then(subject => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(subject); 
+    }, (err) => next(err))
+    .catch((err) => next(err));
+})
 
 module.exports = subjectRouter;
