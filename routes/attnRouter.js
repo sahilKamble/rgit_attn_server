@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const Students = require('../models/students');
 const Subjects = require('../models/subjects');
 const Attendance = require('../models/attendance');
+const { populate } = require('../models/students');
 
 const attnRouter = express.Router();
 
@@ -36,6 +37,32 @@ attnRouter.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 });
+
+attnRouter.route('/table')
+.get(async (req,res,next) => {
+    const subject_q = await Subjects.findById(req.body.subid)
+    .populate('students')
+    .sort("students.div students.roll")
+    .exec()
+    var subject = subject_q.toJSON();
+    for(student of subject.students) {
+        var attns = await Attendance.find({
+            subject: req.body.subid,
+            student: student._id
+        })
+        .sort({date : 1})
+        .exec()
+        student["attn"] = [];
+        for(attn of attns){
+            if(attn.present) student["attn"].push("P");
+            else student["attn"].push("A");
+        }
+    }
+
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(subject);
+})
 
 module.exports = attnRouter;
 

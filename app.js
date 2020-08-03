@@ -4,13 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-
-
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 mongoose.set('useUnifiedTopology', true);
-//const url = 'mongodb://localhost:27017/rgitAttn';
-const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
+const url = 'mongodb://localhost:27017/rgitAttn';
+//const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
 const connect = mongoose.connect(url, { useNewUrlParser: true });
 
 connect.then((db) => {
@@ -23,6 +22,7 @@ var usersRouter = require('./routes/users');
 var subjectRouter = require('./routes/subjectRouter');
 var studentRouter = require('./routes/studentRouter');
 var attnRouter = require('./routes/attnRouter');
+var absRouter = require('./routes/absenteesRouter');
 
 var app = express();
 
@@ -31,7 +31,7 @@ app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
+app.use(bodyParser.json())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/users', usersRouter);
-
+app.use('/abs', absRouter);
 app.use('/attn', attnRouter);
 app.use('/subjects', subjectRouter);
 app.use('/students', studentRouter);
