@@ -45,6 +45,7 @@ attnRouter.route('/table')
     .sort("students.div students.roll")
     .exec()
     var subject = subject_q.toJSON();
+    var first = true
     for(student of subject.students) {
         var attns = await Attendance.find({
             subject: req.body.subid,
@@ -52,12 +53,18 @@ attnRouter.route('/table')
         })
         .sort({date : 1})
         .exec()
+        if(first) {
+            subject.dates = []; 
+            for (attn of attns) subject.dates.push(attn.date );
+            first = false;
+        }
         student["attn"] = [];
         for(attn of attns){
             if(attn.present) student["attn"].push("P");
             else student["attn"].push("A");
         }
     }
+
 
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
