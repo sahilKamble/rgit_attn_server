@@ -42,7 +42,7 @@ attnRouter.route('/table')
 .get(async (req,res,next) => {
     const subject_q = await Subjects.findById(req.body.subid)
     .populate('students')
-    .sort("students.div students.roll")
+    .sort('students.roll')
     .exec()
     var subject = subject_q.toJSON();
     var first = true
