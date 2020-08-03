@@ -42,9 +42,10 @@ attnRouter.route('/table')
 .get(async (req,res,next) => {
     const subject_q = await Subjects.findById(req.body.subid)
     .populate('students')
-    .sort('students.roll')
     .exec()
     var subject = subject_q.toJSON();
+    subject.students.sort((a,b) => a.div - b.div );
+    subject.students.sort((a,b) => a.roll - b.roll );
     var first = true
     for(student of subject.students) {
         var attns = await Attendance.find({
