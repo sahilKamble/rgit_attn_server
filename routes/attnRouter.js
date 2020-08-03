@@ -38,9 +38,9 @@ attnRouter.route('/')
     .catch((err) => next(err));
 });
 
-attnRouter.route('/table')
+attnRouter.route('/table/:subid')
 .get(async (req,res,next) => {
-    const subject_q = await Subjects.findById(req.body.subid)
+    const subject_q = await Subjects.findById(req.params.subid)
     .populate('students')
     .exec()
     var subject = subject_q.toJSON();
@@ -49,7 +49,7 @@ attnRouter.route('/table')
     var first = true
     for(student of subject.students) {
         var attns = await Attendance.find({
-            subject: req.body.subid,
+            subject: req.params.subid,
             student: student._id
         })
         .sort({date : 1})

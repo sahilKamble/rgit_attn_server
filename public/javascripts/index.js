@@ -19,6 +19,14 @@
 //         console.log('test');
 //     }
 
-
-
-
+const url  = "https://attn-server.herokuapp.com/attn/table";
+const body = {"subid": "5f206d58ea613a00172d89ff"}
+async function req() {       
+    let req = await fetch(url, {
+        method: 'GET',
+        body: JSON.stringify(body)
+    });
+    let res = await req.json();
+    console.log(res);
+}
+req();
