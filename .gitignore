@@ -1,2 +1,5 @@
 node_modules
-public/*
+public/node_modules
+public/.gitignore
+public/package-lock.json
+public/package.json
