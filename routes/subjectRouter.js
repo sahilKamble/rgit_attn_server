@@ -75,7 +75,6 @@ subjectRouter.route('/:subjectId/students')
 .get((req,res,next) => {
     Subjects.findById(req.params.subjectId)
     .populate('students')
-    .select('students')
     .exec((err, students) => {
         if(err) next(err);
         res.statusCode = 200;
