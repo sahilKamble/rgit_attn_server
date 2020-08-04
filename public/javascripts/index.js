@@ -23,37 +23,54 @@ const url  = "https://attn-server.herokuapp.com/attn/table/5f206d58ea613a00172d8
 const attnurl = "https://attn-server.herokuapp.com/attn/sub/5f206d58ea613a00172d89ff";
 const studentsurl = "https://attn-server.herokuapp.com/subjects/5f206d58ea613a00172d89ff/students";
 
-fetch(studentsurl)
-.then(response => response.json())
-.then(data => {
+// fetch(studentsurl)
+// .then(response => response.json())
+// .then(data => {
     
-    students = data.students
-                .sort((a,b) => a.roll - b.roll)
-                .sort((a,b) => a.div - b.div);
+//     students = data.students
+//                 .sort((a,b) => a.roll - b.roll)
+//                 .sort((a,b) => a.div - b.div);
+//     for(student of students) {
+//         const roll = student.roll; 
+//         const id = student._id
+//         fetch(attnurl + "/" + id)
+//         .then(response => response.json())
+//         .then(data => {
+//             document.write(roll+ "  ");
+//             for(attn of data) {
+//                 // console.log(attn)
+//                 const s = attn.present ? "P" : "A"
+//                 document.write(s + ' ');
+//             }
+//             document.write('<br/>');
+//         })
+       
+//     }
+//     document.write('</table>');
+// })
+
+async function req() {
+    let resp = await fetch(studentsurl);
+    let data = await resp.json();
+    let students = data.students
+        .sort((a,b) => a.roll - b.roll)
+        .sort((a,b) => a.div - b.div);
     for(student of students) {
         const roll = student.roll; 
-        const id = student._id
-        fetch(attnurl + "/" + id)
-        .then(response => response.json())
-        .then(data => {
-            document.write(roll+ "  ");
-            for(attn of data) {
-                // console.log(attn)
-                const s = attn.present ? "P" : "A"
-                document.write(s + ' ');
-            }
-            document.write('<br/>');
-        })
-       
+        const id = student._id;
+        let res = await fetch(attnurl + "/" + id);
+        let attns = await res.json();
+        document.write(roll+ "  ");
+        for(attn of attns) {
+            // console.log(attn)
+            const s = attn.present ? "P" : "A"
+            document.write(s + ' ');
+        }
+        document.write('<br/>');
     }
-    document.write('</table>');
-})
+}
 
-// async function req() {
-
-// }
-
-
+req();
 
 
 
