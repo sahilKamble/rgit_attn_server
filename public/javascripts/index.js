@@ -20,27 +20,63 @@
 //     }
 
 const url  = "https://attn-server.herokuapp.com/attn/table/5f206d58ea613a00172d89ff";
+const attnurl = "https://attn-server.herokuapp.com/attn/sub/5f206d58ea613a00172d89ff";
+const studentsurl = "https://attn-server.herokuapp.com/subjects/5f206d58ea613a00172d89ff/students";
 
-async function req() {       
-    let req = await fetch(url);
-    let res = await req.json();
-    var table = '';
-    console.log(res.students.length);
-    var rows = res.students.length;
-    for(var r = -1; r < rows; r++) {
-        table += '<tr>';
-        for(var c = -2 ; c < res.dates.length; c++) {
-            if(r === -1 && c === -1) table += '<td>' + " " + '</td>';
-            else if(r === -1 ) {
-                var d = new Date(res.dates[c])
-                table += '<td>' + d.toLocaleString() + '</td>'
+fetch(studentsurl)
+.then(response => response.json())
+.then(data => {
+    
+    students = data.students
+                .sort((a,b) => a.roll - b.roll)
+                .sort((a,b) => a.div - b.div);
+    for(student of students) {
+        const roll = student.roll; 
+        const id = student._id
+        fetch(attnurl + "/" + id)
+        .then(response => response.json())
+        .then(data => {
+            document.write(roll+ "  ");
+            for(attn of data) {
+                // console.log(attn)
+                const s = attn.present ? "P" : "A"
+                document.write(s + ' ');
             }
-            else if(c === -2) table += '<td>' + res.students[r].roll + '</td>';
-            else if(c === -1) table += '<td>' + res.students[r].name + '</td>';
-            else table += '<td>' + res.students[r].attn[c] + '</td>';
-        }
-        table += '</tr>';
+            document.write('<br/>');
+        })
+       
     }
-    document.write('<table border=1>' + table + '</table>');
-}
-req();
+    document.write('</table>');
+})
+
+// async function req() {
+
+// }
+
+
+
+
+
+// async function req() {       
+//     let req = await fetch(url);
+//     let res = await req.json();
+//     var table = '';
+//     console.log(res.students.length);
+//     var rows = res.students.length;
+//     for(var r = -1; r < rows; r++) {
+//         table += '<tr>';
+//         for(var c = -2 ; c < res.dates.length; c++) {
+//             if(r === -1 && c === -1) table += '<td>' + " " + '</td>';
+//             else if(r === -1 ) {
+//                 var d = new Date(res.dates[c])
+//                 table += '<td>' + d.toLocaleString() + '</td>'
+//             }
+//             else if(c === -2) table += '<td>' + res.students[r].roll + '</td>';
+//             else if(c === -1) table += '<td>' + res.students[r].name + '</td>';
+//             else table += '<td>' + res.students[r].attn[c] + '</td>';
+//         }
+//         table += '</tr>';
+//     }
+//     document.write('<table border=1>' + table + '</table>');
+// }
+// req();
