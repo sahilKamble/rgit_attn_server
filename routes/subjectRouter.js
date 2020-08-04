@@ -27,7 +27,7 @@ subjectRouter.route('/')
     .catch((err) => next(err));
 })
 .delete((req, res, next) => {
-    Subjects.deleteMany({})
+    Subjects.deleteMany(req.query)
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
@@ -74,13 +74,26 @@ subjectRouter.route('/:subjectId')
 subjectRouter.route('/:subjectId/students')
 .get((req,res,next) => {
     Subjects.findById(req.params.subjectId)
-    .then(subject => Students.find({_id:{$in:subject.students}})
-    .then(students => {
+    .populate('students')
+    .select('students')
+    .exec((err, students) => {
+        if(err) next(err);
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
-        res.json(students); 
-    }, (err) => next(err)))
-    .catch((err) => next(err));
+        res.json(students);  
+    })
+
+
+
+
+    
+    // .then(subject => Students.find({_id:{$in:subject.students}})
+    // .then(students => {
+    //     res.statusCode = 200;
+    //     res.setHeader('Content-Type', 'application/json');
+    //     res.json(students); 
+    // }, (err) => next(err)))
+    // .catch((err) => next(err));
 })
 .post((req,res,next) => {
     Subjects.update(
