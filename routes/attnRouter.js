@@ -38,6 +38,23 @@ attnRouter.route('/')
     .catch((err) => next(err));
 });
 
+
+attnRouter.route('/sub/:subid/:studid')
+.get((req,res,next) => {
+    Attendance.find({
+        subject: req.params.subid,
+        student: req.params.studid
+    })
+    .sort({date : 1})
+    .select('present date')
+    .exec((err, attn) => {
+        if (err) next(err);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(attn);
+    })
+})
+
 attnRouter.route('/table/:subid')
 .get(async (req,res,next) => {
     const subject_q = await Subjects.findById(req.params.subid)
