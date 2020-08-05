@@ -94,10 +94,51 @@ attnRouter.route('/table/:subid')
             }
         ])
         .then(docs => {
+            if(docs.length == 0) {
+                Subjects.aggregate([
+                    {
+                        $match: {_id: subject._id}
+                    },
+                    {
+                        $unwind : '$students'
+                    },
+                    {
+                        $lookup: {
+                            'from' : 'students',
+                            'localField' : 'students',
+                            'foreignField' : '_id',
+                            'as' : 'student' 
+                        }
+                    },
+                    {
+                        $project: { 'student.roll' : 1, 'student.name' : 1, 'student.div' : 1, 'student._id':1, '_id':0}
+                    },
+                    {
+                        $unwind : '$student'
+                    },
+                    {
+                        $sort:{'student.roll':1 }
+                    },
+                    {
+                        $sort:{'student.div':1}
+                    },
+                ])
+                .then(docs => {
+                    for(student of docs) {
+                        student["atnn"] = [];
+                        student["_id"] = student.student._id
+                    }
+                    res.statusCode = 200;
+                    res.setHeader('Content-Type', 'application/json');
+                    res.json(docs);
+                })
+            }
+        else {
+            console.log('here2')
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
             res.json(docs);
-        }, err => next(err)) 
+        }}, err => next(err)) 
         .catch((err) => next(err));
     })
 })
