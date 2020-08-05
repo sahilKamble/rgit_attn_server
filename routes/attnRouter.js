@@ -38,7 +38,6 @@ attnRouter.route('/')
     .catch((err) => next(err));
 });
 
-
 attnRouter.route('/sub/:subid/:studid')
 .get((req,res,next) => {
     Attendance.find({
@@ -57,36 +56,43 @@ attnRouter.route('/sub/:subid/:studid')
 
 attnRouter.route('/table/:subid')
 .get(async (req,res,next) => {
-    const subject_q = await Subjects.findById(req.params.subid)
-    .populate('students')
-    .exec()
-    var subject = subject_q.toJSON();
-    subject.students.sort((a,b) => a.div - b.div );
-    subject.students.sort((a,b) => a.roll - b.roll );
-    var first = true
-    for(student of subject.students) {
-        var attns = await Attendance.find({
-            subject: req.params.subid,
-            student: student._id
-        })
-        .sort({date : 1})
-        .exec()
-        if(first) {
-            subject.dates = []; 
-            for (attn of attns) subject.dates.push(attn.date );
-            first = false;
-        }
-        student["attn"] = [];
-        for(attn of attns){
-            if(attn.present) student["attn"].push("P");
-            else student["attn"].push("A");
-        }
-    }
-
-
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json(subject);
+    Subjects.findById(req.params.subid)
+    .exec((err, subject) => {
+        if(err) next(err);
+        Attendance.aggregate([
+            {$match: {student:{$in:subject.students}, subject: subject._id}},
+            {$sort: {'date': 1}},
+            {
+                $group:
+                {
+                    '_id': '$student',
+                    'attn': {
+                        $push: '$$ROOT'
+                    }
+                }
+            },
+            {
+                $lookup: {
+                    'from' : 'students',
+                    'localField' : '_id',
+                    'foreignField' : '_id',
+                    'as' : 'student' 
+                }
+            },
+            {
+                $unwind : '$student'
+            },
+            {
+                $sort:{'student.roll':1}
+            }
+        ])
+        .then(docs => {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.json(docs);
+        }, err => next(err)) 
+        .catch((err) => next(err));
+    })
 })
 
 module.exports = attnRouter;

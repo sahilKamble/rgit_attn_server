@@ -1,78 +1,135 @@
+const url = "https://attn-server.herokuapp.com/attn/table/5f206d58ea613a00172d89ff";
+const attnurl = "https://attn-server.herokuapp.com/attn/sub/";
+const studentsurl = "https://attn-server.herokuapp.com/subjects/";
+var stop = false
+var subjects = {};
+let request1 = new XMLHttpRequest();
+request1.open("GET", "https://attn-server.herokuapp.com/subjects");
+request1.send();
+request1.onload = () => {
 
-// var subject ="MP";
-// var subjectId ="" ;
-// var div = "";
-// var attendees = ['sebin francis','paras','sahil2','kapse'];
-// const url  = "https://attn-server.herokuapp.com/";
-// var url_subj = url+"subjects?name="+subject;
-// let request1 = new XMLHttpRequest();
-// request1.open("GET", url_subj);
-// request1.send();
-// request1.onload = () => {
-//     if(request1.status === 200){
-//         var jsonObj1 = JSON.parse(request1.responseText);
-//         console.log(jsonObj1);
-//         subjectId = jsonObj1[0]._id;
-//         console.log(subjectId);
-//         var url_subjectStudents = url+"subjects/"+subjectId+"/students";
-//         console.log(url_subjectStudents); 
-//         console.log('test');
-//     }
-
-const url  = "https://attn-server.herokuapp.com/attn/table/5f206d58ea613a00172d89ff";
-const attnurl = "https://attn-server.herokuapp.com/attn/sub/5f206d58ea613a00172d89ff";
-const studentsurl = "https://attn-server.herokuapp.com/subjects/5f206d58ea613a00172d89ff/students";
-
-// fetch(studentsurl)
-// .then(response => response.json())
-// .then(data => {
-    
-//     students = data.students
-//                 .sort((a,b) => a.roll - b.roll)
-//                 .sort((a,b) => a.div - b.div);
-//     for(student of students) {
-//         const roll = student.roll; 
-//         const id = student._id
-//         fetch(attnurl + "/" + id)
-//         .then(response => response.json())
-//         .then(data => {
-//             document.write(roll+ "  ");
-//             for(attn of data) {
-//                 // console.log(attn)
-//                 const s = attn.present ? "P" : "A"
-//                 document.write(s + ' ');
-//             }
-//             document.write('<br/>');
-//         })
-       
-//     }
-//     document.write('</table>');
-// })
-
-async function req() {
-    let resp = await fetch(studentsurl);
-    let data = await resp.json();
-    let students = data.students
-        .sort((a,b) => a.roll - b.roll)
-        .sort((a,b) => a.div - b.div);
-    for(student of students) {
-        const roll = student.roll; 
-        const id = student._id;
-        let res = await fetch(attnurl + "/" + id);
-        let attns = await res.json();
-        document.write(roll+ "  ");
-        for(attn of attns) {
-            // console.log(attn)
-            const s = attn.present ? "P" : "A"
-            document.write(s + ' ');
+    if (request1.status === 200) {
+        var jsonObj = JSON.parse(request1.responseText);
+        // console.log(jsonObj1);
+        var i = 2;
+        for (subject of jsonObj) {
+            subjects[subject.name] = subject._id;
+            var option = document.createElement("option");
+            option.classList.add("item")
+            option.setAttribute("value", "item-" + i++)
+            var node = document.createTextNode(subject.name);
+            option.appendChild(node);
+            var element = document.getElementById("subjects");
+            element.appendChild(option);
         }
-        document.write('<br/>');
+        console.log(subjects);
     }
 }
 
-req();
+function cancel() {
+    stop = true;
+    document.querySelector(".show-attendance").disabled = false;
+}
+
+function toTitleCase(str) {
+    return str.replace(
+        /\w\S*/g,
+        function (txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+    );
+}
+
+async function req(sid) {
+    document.querySelector(".show-attendance").disabled = true;
+    tableHeader = document.querySelector(".table-header")
+    table = document.querySelector(".table-body");
+    // console.log(studentsurl + sid + "/students");
+    let resp = await fetch(studentsurl + sid + "/students");
+    let data = await resp.json();
+    // console.log(data);
+    let students = data.students
+        .sort((a, b) => a.roll - b.roll)
+        .sort((a, b) => a.div - b.div);
+
+    let res = await fetch(attnurl + sid + "/" + students[0]._id);
+    let attns = await res.json();
+    for (attn of attns) {
+        var tableRoll = document.createElement("th");
+        tableRoll.className = "col";
+        var d = new Date(attn.date);
+        // console.log(d);
+        tableRoll.innerHTML = d.toLocaleString();
+        tableHeader.appendChild(tableRoll);
+        
+    }
+    var lect = attns.length;
+    var tableTotal = document.createElement("th");
+    tableTotal.className = "col";
+    tableTotal.innerHTML = "TotaL/" + lect;
+    tableHeader.appendChild(tableTotal);
+
+    for (student of students) {
+        if(!stop){
+        const roll = student.roll;
+        const name = student.name;
+        const id = student._id;
+        let res = await fetch(attnurl + sid + "/" + id);
+        let attns = await res.json();
+        // console.log(attns)
+        var entry = document.createElement("tr");
+        entry.className = "table-row";
+        var tableName = document.createElement("td");
+        tableName.className = "col name";
+        tableName.innerHTML = toTitleCase(name);
+        entry.appendChild(tableName);
+        var tableRoll = document.createElement("td");
+        tableRoll.className = "col";
+        tableRoll.innerHTML = roll;
+        entry.appendChild(tableRoll);
+        // document.write(roll+ "  " + name + "  ");
+        var count = 0;
+        for (attn of attns) {
+
+            // console.log(attn.date)
+            const s = attn.present ? "P" : "A";
+            if (attn.present) {
+                count++;
+            }
+            var tableAttn = document.createElement("td");
+            tableAttn.className = "col";
+            tableAttn.innerHTML = s;
+            entry.appendChild(tableAttn);
+            // document.write(s + ' ');
+            
+        }
+        var tableAttn = document.createElement("td");
+        tableAttn.className = "col";
+        tableAttn.innerHTML = count;
+        entry.appendChild(tableAttn);
+
+        table.appendChild(entry);
+        // document.write('<br/>');
+    }
+    }
+}
+
+// booton = document.querySelector('.show-attendance');
+// booton.onClick
+
+async function show() {
+    var sub = document.querySelector('#subjects');
+    var subject = sub.options[sub.selectedIndex].text;
+    var id = subjects[subject];
+    table = document.querySelector('.attendance-table');
+    table.classList.remove('hidden');
+    await req(id);
+}
+
+// req();
 
 
+// const url  = "https://attn-server.herokuapp.com/attn/table/5f206d58ea613a00172d89ff";
 
 // async function req() {       
 //     let req = await fetch(url);
