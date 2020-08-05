@@ -22,6 +22,30 @@ studentRouter.route('/')
     .catch((err) => next(err));
 })
 .post((req,res,next) => {
+    Students.create(req.body)
+    .then((subject) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(subject);
+    }, (err) => next(err))
+    .catch((err) => next(err));
+})
+.put((req, res, next) => {
+    res.statusCode = 403;
+    res.end('PUT operation not supported on /students');
+})
+.delete((req, res, next) => {
+    Students.deleteMany({})
+    .then((resp) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(resp);
+    }, (err) => next(err))
+    .catch((err) => next(err));  
+})
+
+studentRouter.route('/subs')
+.post((req,res,next) => {
     const student = new Students({
         name : req.body.name,
         roll : req.body.roll,
@@ -49,19 +73,6 @@ studentRouter.route('/')
         res.json(student);
     }, (err) => next(err))
     .catch((err) => next(err));
-})
-.put((req, res, next) => {
-    res.statusCode = 403;
-    res.end('PUT operation not supported on /students');
-})
-.delete((req, res, next) => {
-    Students.deleteMany({})
-    .then((resp) => {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.json(resp);
-    }, (err) => next(err))
-    .catch((err) => next(err));  
 })
 
 studentRouter.route('/:studentId')
