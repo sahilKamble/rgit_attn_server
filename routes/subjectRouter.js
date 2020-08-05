@@ -62,7 +62,7 @@ subjectRouter.route('/:subjectId')
     .catch((err) => next(err));
 })
 .delete((req,res,next) => {
-    Subjects.findOneAndDelete(req.params.subjectId)
+    Subjects.findByIdAndDelete(req.params.subjectId)
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
