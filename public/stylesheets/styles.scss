@@ -1,0 +1,52 @@
+body {
+  font-family: "lato", sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+table,
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+}
+
+th, td {
+  min-width: auto;
+}
+
+th {
+    background-color: #b8daff;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &:not(:last-child) {
+        border-right: 1px solid #96b4d4;
+    }
+}
+
+tr {
+  &:hover {
+    background-color: #f5f5f5;
+  }  
+}
+
+.attendance-table {
+  padding: 0.6rem;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.name {
+  min-width: 15rem;
+}
+
+.hidden {
+  display: none;
+}

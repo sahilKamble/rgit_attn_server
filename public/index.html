@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
     <title>Document</title>
-</head>
-<body>
-    <select name="" id="" ></select>
-    <p>test
-    </p>
+  </head>
+  <body>
+    <label for="subjects" class="select-label">Subject:</label>
+    <select name="subjects" id="subjects"></select>
+    <button class="show-attendance" onclick="show()">Show Attendance</button>
+    <button class="cancel" onclick="cancel()">Cancel</button>
+    <table class="attendance-table hidden">
+      <thead>
+        <tr class="table-header">
+          <th class="col">Name</th>
+          <th class="col">Roll No.</th>
+        </tr>
+      </thead>
+      <tbody class="table-body"></tbody>
+    </table>
     <script src="./javascripts/index.js"></script>
-</body>
+  </body>
 </html>
