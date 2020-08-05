@@ -125,7 +125,7 @@ attnRouter.route('/table/:subid')
                 ])
                 .then(docs => {
                     for(student of docs) {
-                        student["atnn"] = [];
+                        student["attn"] = [];
                         student["_id"] = student.student._id
                     }
                     res.statusCode = 200;
