@@ -55,7 +55,7 @@ attnRouter.route('/sub/:subid/:studid')
 })
 
 attnRouter.route('/table/:subid')
-.get(async (req,res,next) => {
+.get((req,res,next) => {
     Subjects.findById(req.params.subid)
     .exec((err, subject) => {
         if(err) next(err);
@@ -67,7 +67,8 @@ attnRouter.route('/table/:subid')
                 {
                     '_id': '$student',
                     'attn': {
-                        $push: '$$ROOT'
+                        $push: { _id: "$_id", present: "$present", date: "$date" }
+                        //$push: '$$ROOT'
                     }
                 }
             },
@@ -83,7 +84,13 @@ attnRouter.route('/table/:subid')
                 $unwind : '$student'
             },
             {
-                $sort:{'student.roll':1}
+                $sort:{'student.roll':1 }
+            },
+            {
+                $sort:{'student.div':1}
+            },
+            {
+                $project: { 'student.roll' : 1, 'student.name' : 1, 'student.div' : 1, 'attn':1}
             }
         ])
         .then(docs => {
