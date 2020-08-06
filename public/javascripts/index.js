@@ -71,7 +71,7 @@ async function req(sid) {
     let data = await res.json();
     for (attn of data[0].attn) {
         let tableRoll = document.createElement("th");
-        tableRoll.className = "col";
+        tableRoll.className = "col attn";
         let d = new Date(attn.date);
         // console.log(d);
         tableRoll.innerHTML = d.toLocaleString();
@@ -79,7 +79,7 @@ async function req(sid) {
     }
     let lect = data[0].attn.length;
     let tableTotal = document.createElement("th");
-    tableTotal.className = "col";
+    tableTotal.className = "col attn";
     tableTotal.innerHTML = "TotaL/" + lect;
     tableHeader.appendChild(tableTotal);
 
@@ -144,6 +144,22 @@ async function show() {
     table.classList.remove('hidden');
     await req(id);
 }
+
+
+$(document).ready(function () {
+    $('tbody').scroll(function (e) { //detect a scroll event on the tbody
+        /*
+    Setting the thead left value to the negative valule of tbody.scrollLeft will make it track the movement
+    of the tbody element. Setting an elements left value to that of the tbody.scrollLeft left makes it maintain 			it's relative position at the left of the table.    
+    */
+        $('thead').css("left", -$("tbody").scrollLeft()); //fix the thead relative to the body scrolling
+        $('thead th:nth-child(1)').css("left", $("tbody").scrollLeft()); //fix the first cell of the header
+        $('tbody td:nth-child(1)').css("left", $("tbody").scrollLeft()); //fix the first column of tdbody
+        $('thead th:nth-child(2)').css("left", $("tbody").scrollLeft());
+        $('tbody td:nth-child(2)').css("left", $("tbody").scrollLeft());
+    });
+});
+
 
 // req();
 

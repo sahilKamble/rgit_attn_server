@@ -1,24 +1,33 @@
 body {
   font-family: "lato", sans-serif;
+  position: relative;
+  height: 100vh;
 }
 
-table {
+.attendance-table {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 1rem 0;
   border-collapse: collapse;
   border-spacing: 0;
   overflow: hidden;
   border-radius: 5px;
+  padding: 0.6rem;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
 }
 
 table,
 td,
 th {
-  border: 1px solid #ddd;
+  border: 1px solid lightgray;
   text-align: left;
   padding: 0.6rem 0.8rem;
+  overflow: hidden;
 }
 
 th, td {
-  min-width: auto;
+  min-width: 5rem;
 }
 
 th {
@@ -38,15 +47,59 @@ tr {
   }  
 }
 
-.attendance-table {
-  padding: 0.6rem;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+
+thead {
+  position: relative;
+  display: block;
+  max-width: 95vw;
+}
+
+thead th:nth-child(1) {
+  /*first cell in the header*/
+  position: relative;
+  min-width: 15rem;
+  /*seperates the first cell in the header from the header*/
+  overflow: hidden;
+}
+
+thead th:nth-child(2) {
+  /*first cell in the header*/
+  position: relative;
+  min-width: 5rem;
+  overflow: hidden;
+}
+
+tbody {
+  position: relative;
+  display: block;
+  /*seperates the tbody from the header*/
+  max-width: 95vw;
+  overflow-x: scroll;
+}
+
+tbody td {
+  background-color: #fff;
+  min-width: 5rem;
+}
+
+tbody tr td:nth-child(1) {
+  /*the first cell in each tr*/
+  position: relative;
+}
+
+tbody tr td:nth-child(2) {
+  /*the first cell in each tr*/
+  position: relative;
+}
+
+.attn {
+  max-width: 5rem;
 }
 
 .name {
   min-width: 15rem;
 }
 
-.hidden {
+.hidden { 
   display: none;
 }
