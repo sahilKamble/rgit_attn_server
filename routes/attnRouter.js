@@ -122,19 +122,25 @@ attnRouter.route('/table/:subid')
                     {
                         $sort:{'student.div':1}
                     },
+                    {
+                        $addFields: {
+                           "_id": "$student._id",
+                           "attn": [],
+                        }
+                     }
+              
                 ])
                 .then(docs => {
-                    for(student of docs) {
-                        student["attn"] = [];
-                        student["_id"] = student.student._id
-                    }
+                    // for(student of docs) {
+                    //     student["attn"] = [];
+                    //     student["_id"] = student.student._id
+                    // }
                     res.statusCode = 200;
                     res.setHeader('Content-Type', 'application/json');
                     res.json(docs);
                 })
             }
         else {
-            console.log('here2')
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
             res.json(docs);
