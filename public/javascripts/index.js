@@ -83,6 +83,7 @@ async function req(sid) {
     for (student_info of data) {
         const roll = student_info.student.roll;
         const name = student_info.student.name;
+        const div = student_info.student.div;
         // const id = student._id;
         // let res = await fetch(attnurl + sid + "/" + id);
         // let attns = await res.json();
@@ -95,7 +96,7 @@ async function req(sid) {
         entry.appendChild(tableName);
         let tableRoll = document.createElement("td");
         tableRoll.className = "col";
-        tableRoll.innerHTML = roll;
+        tableRoll.innerHTML = div + roll;
         entry.appendChild(tableRoll);
         // document.write(roll+ "  " + name + "  ");
         var count = 0;
