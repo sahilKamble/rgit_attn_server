@@ -5,22 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script src="extensions/fixed-columns/bootstrap-table-fixed-columns.js"></script>
-    <title>Document</title>
+    <title>Attendance</title>
   </head>
   <body>
-    <label for="subjects" class="select-label">Subject:</label>
-    <select name="subjects" id="subjects"></select>
-    <button class="show-attendance" onclick="show()">Show Attendance</button>
-    <button class="cancel" onclick="cancel()">Cancel</button>
-    <table class="attendance-table hidden">
-      <thead>
-        <tr class="table-header">
-        </tr>
-      </thead>
-      <tbody class="table-body"></tbody>
-    </table>
+    <div class="subject-select">
+      <!-- <label for="subjects" class="select-label">Subject:</label> -->
+      <select name="subjects" id="subjects">
+        <option class="item" value="item-1">Select Subject</option">
+      </select>
+      <button class="show-attendance btn" onclick="show()">Show Attendance</button>
+      <!-- <button class="cancel" onclick="cancel()">Cancel</button> -->
+      <button class="button-excel btn" onclick="convert()" disabled>Download Excel File</button>
+    </div>
+    <div class="table-div">
+      <table class="attendance-table hidden">
+        <thead>
+          <tr class="table-header"></tr>
+        </thead>
+        <tbody class="table-body"></tbody>
+      </table>
+    </div>
     <script src="./javascripts/index.js"></script>
-    <!-- <script src="node_modules/@linways/table-to-excel/dist/tableToExcel.js"></script> -->
+    <script src="node_modules/@linways/table-to-excel/dist/tableToExcel.js"></script>
+    <!--<script type="text/javascript" src="../dist/tableToExcel.js"></script>-->
   </body>
+  
 </html>
