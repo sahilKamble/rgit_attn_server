@@ -10,7 +10,22 @@ const { populate } = require('../models/students');
 const attnRouter = express.Router();
 
 attnRouter.route('/')
+.all((req,res,next) => {
+    if(req.query.date) {
+        let date = new Date(req.query.date)
+        date.setMinutes(date.getMinutes() - 1 , 0)
+        endDate = new Date(date)
+        endDate.setMinutes(date.getMinutes() + 2, 0)
+        
+        req.query.date ={
+          $lt: endDate,
+          $gte: date
+        };
+    }
+    next()
+})
 .get((req,res,next) => {
+    console.log(req.query)
     Attendance.find(req.query)
     .then((attn) => {
         res.statusCode = 200;
