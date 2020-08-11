@@ -1,11 +1,8 @@
 // const url = "https://attn-server.herokuapp.com/attn/table/5f206d58ea613a00172d89ff";
 // const attnurl = "https://attn-server.herokuapp.com/attn/sub/";
 // const studentsurl = "https://attn-server.herokuapp.com/subjects/";
-<<<<<<< HEAD
-// var tableToExcel=new TableToExcel();
-=======
 
->>>>>>> c5c09742e33edd3e226cb2f33c231e49a22f4f73
+// var tableToExcel=new TableToExcel();
 var subjects = {};
 var tableHeader = document.querySelector(".table-header");
 var tableBody = document.querySelector(".table-body");
