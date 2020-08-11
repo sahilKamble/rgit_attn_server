@@ -95,72 +95,39 @@ absenteeRouter.route('/:absid')
     .catch((err) => next(err));
 });
 
-// absenteeRouter.route('/sub/:subid')
-// .get((req,res,next) => {
-//     Absentees.find({
-//         subject : req.params.subid
-//     })
-//     .sort({date : 1})
-//     .exec(function (err, absentees) {
-//         if (err)  next(err);
-//         Subjects.findById(req.params.subid)
-//         .populate('students')
-//         .sort("students.div students.roll")
-//         .exec(function (err, sub) {
-//             if (err)  next(err);
-//             res.statusCode = 200;
-//             res.setHeader('Content-Type', 'application/json');
-//             var data = {
-//                 abs : absentees,
-//                 students : sub.students
-//             }
-//             var resp = dataSorter(data)
-//             res.json(resp);
-//             // res.json(data)
-//         })
-//     })
-// })
-// .delete((req,res,next) => {
-//     Absentees.deleteMany({subject : req.params.subid})
-//     .then((resp) => {
-//         res.statusCode = 200;
-//         res.setHeader('Content-Type', 'application/json');
-//         res.json(resp);
-//     }, (err) => next(err))
-//     .catch((err) => next(err));
-// })
-
-absenteeRouter.route('/table/:subid')
+absenteeRouter.route('/sub/:subid')
 .get((req,res,next) => {
-    Absentees.aggregate([
-        {
-            $match: {subject: new mongoose.mongo.ObjectId(req.params.subid)}
-        },
-        
-        {
-            $unwind: '$absentStudents'
-        },
-        
-        {
-            $group : {
-                '_id' : '$date',
-                abs: {
-                    $push: "$absentStudents"
-                }
-            }
-
-        },
-        {
-            $sort: {
-                '_id' : 1
-            }
-        },
-    ])
-    .then((docs) => {
-        res.statusCode = 200;
+    Absentees.find({
+        subject : req.params.subid
+    })
+    .sort({date : 1})
+    .exec(function (err, absentees) {
+        if (err)  next(err);
+        Subjects.findById(req.params.subid)
+        .populate('students')
+        .sort("students.div students.roll")
+        .exec(function (err, sub) {
+            if (err)  next(err);
+            res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
-            res.json(docs);
-    }, err => next(err)) 
+            var data = {
+                abs : absentees,
+                students : sub.students
+            }
+            var resp = dataSorter(data)
+            res.json(resp);
+            // res.json(data)
+        })
+    })
+})
+.delete((req,res,next) => {
+    Absentees.deleteMany({subject : req.params.subid})
+    .then((resp) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(resp);
+    }, (err) => next(err))
+    .catch((err) => next(err));
 })
 
 module.exports = absenteeRouter;
