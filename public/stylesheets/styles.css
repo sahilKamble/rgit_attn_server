@@ -14,7 +14,7 @@ body {
   border-radius: 5px;
   padding: 0.6rem;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1); }
-  @media (max-width: 500px) {
+  @media (max-width: 767px) {
     .attendance-table {
       position: relative;
       left: 0%;
@@ -48,7 +48,7 @@ thead {
   position: relative;
   display: block;
   max-width: 95vw; }
-  @media (max-width: 500px) {
+  @media (max-width: 767px) {
     thead {
       max-width: 100%; } }
 
@@ -73,7 +73,7 @@ tbody {
   max-height: 75vh;
   overflow-y: scroll;
   overflow-x: scroll; }
-  @media (max-width: 500px) {
+  @media (max-width: 767px) {
     tbody {
       max-width: 100%;
       max-height: 100%; } }
@@ -120,6 +120,6 @@ tbody tr td:nth-child(2) {
 
 .button-excel {
   float: right; }
-  @media (max-width: 500px) {
+  @media (max-width: 767px) {
     .button-excel {
       float: none; } }
