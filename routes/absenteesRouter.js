@@ -96,30 +96,6 @@ absenteeRouter.route('/:absid')
 });
 
 absenteeRouter.route('/sub/:subid')
-.get((req,res,next) => {
-    Absentees.find({
-        subject : req.params.subid
-    })
-    .sort({date : 1})
-    .exec(function (err, absentees) {
-        if (err)  next(err);
-        Subjects.findById(req.params.subid)
-        .populate('students')
-        .sort("students.div students.roll")
-        .exec(function (err, sub) {
-            if (err)  next(err);
-            res.statusCode = 200;
-            res.setHeader('Content-Type', 'application/json');
-            var data = {
-                abs : absentees,
-                students : sub.students
-            }
-            var resp = dataSorter(data)
-            res.json(resp);
-            // res.json(data)
-        })
-    })
-})
 .delete((req,res,next) => {
     Absentees.deleteMany({subject : req.params.subid})
     .then((resp) => {
@@ -129,5 +105,20 @@ absenteeRouter.route('/sub/:subid')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
+
+absenteeRouter.route('/table/:subid')
+.get((req,res,next) => {
+    Absentees.aggregate([
+        {$match: {subject: mongoose.Types.ObjectId(req.params.subid)}},
+        {$sort: {'date': 1}}
+    ])
+    .then(docs => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(docs);
+    }, (err) => next(err))
+    .catch((err) => next(err));
+})
+
 
 module.exports = absenteeRouter;
