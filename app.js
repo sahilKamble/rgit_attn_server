@@ -11,12 +11,12 @@ var passport = require('passport');
 var crypto = require('crypto');
 
 mongoose.set('useUnifiedTopology', true);
-//const url = 'mongodb://localhost:27017/rgitAttn';
+// const url = 'mongodb://localhost:27017/rgitAttn';
 const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
 const connect = mongoose.connect(url, { useNewUrlParser: true });
 
 connect.then((db) => {
-    console.log("Connected correctly to server");
+  console.log("Connected correctly to server");
 }, (err) => { console.log(err); });
 
 var indexRouter = require('./routes/index');
@@ -28,7 +28,13 @@ var absRouter = require('./routes/absenteesRouter');
 
 var app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'chrome-extension://iijkadhmjmmnpgajhleiailnmfajgkji',
+  optionsSuccessStatus: 200,
+  credentials: true
+}
+app.listen();
+app.use(cors(corsOptions));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -61,7 +67,7 @@ app.use(passport.session());
 //app.use('/', indexRouter);
 app.get('/', (req, res) => {
   fs.readFile(__dirname + '/public/index.html', 'utf8', (err, text) => {
-      res.send(text);
+    res.send(text);
   });
 });
 
@@ -72,12 +78,12 @@ app.use('/subjects', subjectRouter);
 app.use('/students', studentRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
