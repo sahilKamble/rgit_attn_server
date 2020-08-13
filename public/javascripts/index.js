@@ -2,7 +2,11 @@
 // const attnurl = "https://attn-server.herokuapp.com/attn/sub/";
 // const studentsurl = "https://attn-server.herokuapp.com/subjects/";
 
+<<<<<<< HEAD
 // var tableToExcel=new TableToExcel();
+=======
+var production = true;
+>>>>>>> a154a93ea2f6bf2c48071b804d3c55f38c3adf66
 var subjects = {};
 var tableHeader = document.querySelector(".table-header");
 var tableBody = document.querySelector(".table-body");
@@ -16,14 +20,16 @@ request1.onload = () => {
         // console.log(jsonObj1);
         var i = 2;
         for (subject of jsonObj) {
-            subjects[subject.name] = subject._id;
-            var option = document.createElement("option");
-            option.classList.add("item");
-            option.setAttribute("value", "item-" + i++);
-            var node = document.createTextNode(subject.name);
-            option.appendChild(node);
-            var element = document.getElementById("subjects");
-            element.appendChild(option);
+            if (!production || !subject.name.includes('test')) {
+                subjects[subject.name] = subject._id;
+                var option = document.createElement("option");
+                option.classList.add("item");
+                option.setAttribute("value", "item-" + i++);
+                var node = document.createTextNode(subject.name);
+                option.appendChild(node);
+                var element = document.getElementById("subjects");
+                element.appendChild(option);
+            }
         }
         console.log(subjects);
     }
@@ -122,7 +128,11 @@ async function req(sid) {
         tableBody.appendChild(entry);
         // document.write('<br/>');
     }
+
+    table.classList.remove('hidden');
     document.querySelector(".show-attendance").disabled = false;
+    document.querySelector('.button-excel').disabled = false;
+
 }
 
 function show() {
@@ -131,16 +141,16 @@ function show() {
     var sub = document.querySelector('#subjects');
     var subject = sub.options[sub.selectedIndex].text;
     var id = subjects[subject];
-    table = document.querySelector('.attendance-table');
+    table = document.querySelector('.table-div');
     // console.log(sub.selectedIndex);
     if (sub.selectedIndex == 0) {
         table.classList.add('hidden');
         document.querySelector('.button-excel').disabled = true;
 
     } else {
-        table.classList.remove('hidden');
+        table.classList.add('hidden');
+        document.querySelector('.button-excel').disabled = true;
         req(id);
-        document.querySelector('.button-excel').disabled = false;
     }
 }
 

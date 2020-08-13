@@ -140,13 +140,41 @@ tbody tr td:nth-child(2) {
   border: 1px solid #ddd;
   margin-right: 1rem;
   margin-bottom: 1rem;
+  transition: all 0.2s;
 }
 
-.btn {
+#subjects:focus,
+#subjects:hover {
+  outline: none;
+  // background-color: #b8daff;
+  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
+}
+
+.btn,
+.btn:link,
+.btn:visited {
   padding: 10px 1rem;
   border-radius: 5px;
   background-color: #b8daff;
   border: 1px solid #96b4d4;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background-color: #a7d2ff;
+  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
+}
+
+.btn:focus,
+.btn:active {
+  outline: none;
+  background-color: #a7d2ff;
+  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
+}
+
+.btn:disabled {
+  outline: none;
+  box-shadow: none;
 }
 
 .button-excel {
