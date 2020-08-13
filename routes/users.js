@@ -62,7 +62,9 @@ router.get('/logout', (req, res, next) => {
 });
 
 router.get('/protected', isAuth, (req, res, next) => {
-  res.send('You made it to the route. <a href="/users/logout">logout</a>');
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json');
+  res.json({success: true, status: 'welcome to protected route'});
 });
 
 module.exports = router;
