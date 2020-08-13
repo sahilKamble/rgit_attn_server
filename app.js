@@ -13,8 +13,8 @@ const app = require("https-localhost")();
 
 
 mongoose.set('useUnifiedTopology', true);
-const url = 'mongodb://localhost:27017/rgitAttn';
-//const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
+//const url = 'mongodb://localhost:27017/rgitAttn';
+const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
 const connect = mongoose.connect(url, { useNewUrlParser: true });
 
 connect.then((db) => {
