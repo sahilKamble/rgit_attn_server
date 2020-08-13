@@ -9,10 +9,9 @@
   },
   "dependencies": {
     "@linways/table-to-excel": "^1.0.4",
-<<<<<<< HEAD
-=======
+
     "base64url": "^3.0.1",
->>>>>>> a154a93ea2f6bf2c48071b804d3c55f38c3adf66
+
     "body-parser": "^1.19.0",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "~1.4.4",
