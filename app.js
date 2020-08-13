@@ -8,11 +8,12 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 const session = require('express-session');
 var passport = require('passport');
+var authenticate = require('./authenticate');
 var crypto = require('crypto');
 
 mongoose.set('useUnifiedTopology', true);
-// const url = 'mongodb://localhost:27017/rgitAttn';
-const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
+const url = 'mongodb://localhost:27017/rgitAttn';
+//const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
 const connect = mongoose.connect(url, { useNewUrlParser: true });
 
 connect.then((db) => {
@@ -33,7 +34,8 @@ const corsOptions = {
   optionsSuccessStatus: 200,
   credentials: true
 }
-app.listen();
+
+
 app.use(cors(corsOptions));
 
 // view engine setup
@@ -58,8 +60,6 @@ app.use(session({
       maxAge: 1000 * 60 * 60 * 24, // Equals 1 day (1 day * 24 hr/1 day * 60 min/1 hr * 60 sec/1 min * 1000 ms / 1 sec)
   }
 }));
-
-require('./config/passport');
 
 app.use(passport.initialize());
 app.use(passport.session());
