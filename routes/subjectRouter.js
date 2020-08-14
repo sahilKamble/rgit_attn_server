@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 const Subjects = require('../models/subjects');
 const Students = require('../models/students');
+const Users = require('../models/user')
 
 const subjectRouter = express.Router();
 
@@ -62,12 +63,14 @@ subjectRouter.route('/:subjectId')
     .catch((err) => next(err));
 })
 .delete((req,res,next) => {
-    Subjects.findByIdAndDelete(req.params.subjectId)
-    .then((resp) => {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.json(resp);
-    }, (err) => next(err))
+    Subjects.findById(req.params.subjectId)
+    .then(subject => 
+        subject.remove()
+        .then((resp) => {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.json(resp);
+        }), (err) => next(err))
     .catch((err) => next(err));
 });
 
