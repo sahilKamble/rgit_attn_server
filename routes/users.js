@@ -7,11 +7,28 @@ const isAdmin = require('./authMiddleware').isAdmin;
 
 const router = require('express').Router(); 
 
-router.get('/', (req, res, next) => {
-  res.send('<h1>Home</h1><p>Please <a href="/users/register">register</a></p>');
+router.route('/')
+.get((req, res, next) => {
+  User.find(req.query)
+    .then((user) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(user);
+    }, (err) => next(err))
+    .catch((err) => next(err));
+})
+.delete((req, res, next) => {
+  User.deleteMany(req.query)
+  .then((resp) => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(resp);
+  }, (err) => next(err))
+  .catch((err) => next(err));    
 });
 
-router.post('/register', (req, res, next) => {
+router.route('/register')
+.post((req, res, next) => {
   User.register(new User({username: req.body.username}), 
     req.body.password, (err, user) => {
     if(err) {
@@ -66,6 +83,55 @@ router.get('/protected', isAuth, (req, res, next) => {
   res.setHeader('Content-Type', 'application/json');
   res.json({success: true, status: 'welcome to protected route'});
 });
+
+router.route('/:userId')
+.get((req,res,next) => {
+    User.findById(req.params.userId)
+    .then((user) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(user);
+    }, (err) => next(err))
+    .catch((err) => next(err));
+})
+.post((req, res, next) => {
+    res.statusCode = 403;
+    res.end('POST operation not supported on /users/'+ req.params.userId);
+})
+.put((req,res,next) => {
+    User.findByIdAndUpdate(req.params.userId, {
+        $set: req.body
+    })
+    .then((user) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(user);
+    }, (err) => next(err))
+    .catch((err) => next(err));
+})
+.delete((req,res,next) => {
+    User.findById(req.params.userId)
+    .then(user => 
+      user.remove()
+      .then((resp) => {
+          res.statusCode = 200;
+          res.setHeader('Content-Type', 'application/json');
+          res.json(resp);
+      }), (err) => next(err))
+  .catch((err) => next(err));
+});
+
+router.route('/:userId/subjects')
+.get((req,res,next) => {
+  User.findById(req.params.userId)
+  .populate('subjects')
+  .then((user) => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(user);
+  }, (err) => next(err))
+  .catch((err) => next(err));
+})
 
 module.exports = router;
 
