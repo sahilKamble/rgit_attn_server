@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <script src="./javascripts/dist/tableToExcel.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <title>Attendance</title>
+  </head>
+  <body>
+    <div class="subject-select">
+      <!-- <label for="subjects" class="select-label">Subject:</label> -->
+      <select name="subjects" id="subjects">
+        <option class="item" value="item-1">Select Subject</option">
+      </select>
+      <button class="show-attendance btn" onclick="show()">Show Attendance</button>
+      <!-- <button class="cancel" onclick="cancel()">Cancel</button> -->
+      <button class="button-excel btn" onclick="convert()" disabled>Download Excel File</button>
+    </div>
+    <div class="table-div hidden">
+      <table class="attendance-table">
+        <thead>
+          <tr class="table-header"></tr>
+        </thead>
+        <tbody class="table-body"></tbody>
+      </table>
+    </div>
+    <script src="./javascripts/index.js"></script>
+    <script src="./javascripts/tableToExcel.js"></script>
+    <!-- <script src="../node_modules/@linways/table-to-excel/dist/tableToExcel.js"></script> -->
+  </body>
+  
+</html>
