@@ -1,5 +1,6 @@
 async function buildTable(data) {
-
+    var tableHeader = document.querySelector(".table-header");
+    var tableBody = document.querySelector(".table-body");
 
     let tableName = document.createElement("th");
     tableName.className = "col";
