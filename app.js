@@ -9,11 +9,11 @@ var mongoose = require('mongoose');
 const session = require('express-session');
 var passport = require('passport');
 var authenticate = require('./authenticate');
-
+const fs = require('fs');
 
 mongoose.set('useUnifiedTopology', true);
-//const url = 'mongodb://localhost:27017/rgitAttn';
-const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
+const url = 'mongodb://localhost:27017/rgitAttn';
+//const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
 const connect = mongoose.connect(url, { useNewUrlParser: true });
 
 connect.then((db) => {
@@ -46,7 +46,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/users', express.static(path.join(__dirname, 'public')));
+app.use('/',express.static(path.join(__dirname, 'public')));
 
 const MongoStore = require('connect-mongo')(session);
 const sessionStore = new MongoStore({ mongooseConnection: mongoose.connection, collection: 'sessions' });
@@ -64,13 +65,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//app.use('/', indexRouter);
-app.get('/', (req, res) => {
-  fs.readFile(__dirname + '/public/index.html', 'utf8', (err, text) => {
-    res.send(text);
-  });
-});
-
+app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/abs', absRouter);
 app.use('/attn', attnRouter);
