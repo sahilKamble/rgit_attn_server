@@ -69,7 +69,7 @@ async function buildTable(data) {
 
 async function req(sid) {
     let kek = [];
-    let url = 'https://attn-server.herokuapp.com/subjects/' + sid + '/students';
+    let url = 'https://attn-server.herokuapp.com/subjects' + sid + '/students';
     document.querySelector(".show-attendance").disabled = true;
 
     let res = await fetch(url);
@@ -86,7 +86,7 @@ async function req(sid) {
         kek.push(hmm);
     }
 
-    let attn = await fetch('https://attn-server.herokuapp.com/abs/table/' + sid);
+    let attn = await fetch('https://attn-server.herokuapp.com/users/abs/table' + sid);
     let days = await attn.json();
     console.log(days);
     for (day of days) {
