@@ -90,7 +90,7 @@ router.route('/updatepass')
   User.findOne({username:req.body.username},(err, user) => {
   // Check if error connecting
   if (err) {
-  res.json({ success: false, message: "user not found" }); // Return error
+  res.json({ success: false, message: "did not connect" }); // Return error
   } else {
   // Check if user was found in database
   if (!user) {
