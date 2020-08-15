@@ -73,6 +73,45 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
   res.json({success: true, status: 'You are successfully logged in!'});
 });
 
+router.route('/updatepass')
+.get( (req, res, next) => {
+
+  const form = '<h1>Register Page</h1><form method="post" action="updatepass">\
+                  Enter Username:<br><input type="text" name="username">\
+                  <br>Enter Password:<br><input type="password" name="oldpassword">\
+                  <br>Enter New Password:<br><input type="password" name="newpassword">\
+                  <br><br><input type="submit" value="Submit"></form>';
+
+  res.send(form);
+  
+})
+.post(function(req, res) {
+  // Search for user in database
+  User.findOne({username:req.body.username},(err, user) => {
+  // Check if error connecting
+  if (err) {
+  res.json({ success: false, message: "user not found" }); // Return error
+  } else {
+  // Check if user was found in database
+  if (!user) {
+  res.json({ success: false, message: 'User not found' }); // Return error, user was not found in db
+  } else {
+  user.changePassword(req.body.oldpassword, req.body.newpassword, function(err) {
+  if(err) {
+  if(err.name === 'IncorrectPasswordError'){
+  res.json({ success: false, message: 'Incorrect password' }); // Return error
+  }else {
+  res.json({ success: false, message: 'Something went wrong!! Please try again after sometimes.' });
+  }
+  } else {
+  res.json({ success: true, message: 'Your password has been changed successfully' });
+  }
+  })
+  }
+  }
+  });
+  });
+
 router.get('/logout', (req, res, next) => {
   req.logout();
   res.redirect('/users/');
@@ -131,7 +170,7 @@ router.route('/:userId/subjects')
       res.json(user);
   }, (err) => next(err))
   .catch((err) => next(err));
-})
+});
 
 module.exports = router;
 
@@ -209,3 +248,4 @@ module.exports = router;
 
 
 // 
+
