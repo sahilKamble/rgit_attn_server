@@ -139,6 +139,12 @@ router.route('/updatepass')
         });
     });
 
+router.get('/attn/:subid' , (req,res,next) => {
+    dir = path.join(__dirname, '../public/table.html');
+    fs.readFile(dir, 'utf8', (err, text) => {
+        res.send(text);
+    });
+})
 router.get('/logout', (req, res, next) => {
     req.logout();
     res.statusCode = 200;
