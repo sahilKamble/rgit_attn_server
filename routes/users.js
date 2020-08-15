@@ -28,6 +28,14 @@ router.route('/')
   .catch((err) => next(err));    
 });
 
+router.route('/select')
+.get((req,res,next) =>{
+  const page = "<a href='http://localhost:3000/users/login'>LOGIN</a><br>\
+                <a href='http://localhost:3000/users/updatepass'>UPDATE PASSWORD</a>"
+  res.send(page);
+}
+);
+
 router.route('/register')
 .post((req, res, next) => {
   User.register(new User({username: req.body.username}), 
@@ -48,13 +56,18 @@ router.route('/register')
 });
 
 router.get('/register', (req, res, next) => {
+  dir = path.join(__dirname, '../public/register.html');
+  fs.readFile(dir, 'utf8', (err, text) => {
+    res.send(text);
+  });
 
-  const form = '<h1>Register Page</h1><form method="post" action="register">\
-                  Enter Username:<br><input type="text" name="username">\
-                  <br>Enter Password:<br><input type="password" name="password">\
-                  <br><br><input type="submit" value="Submit"></form>';
 
-  res.send(form);
+  // const form = '<h1>Register Page</h1><form method="post" action="register">\
+  //                 Enter Username:<br><input type="text" name="username">\
+  //                 <br>Enter Password:<br><input type="password" name="password">\
+  //                 <br><br><input type="submit" value="Submit"></form>';
+
+  // res.send(form);
   
 });
 
