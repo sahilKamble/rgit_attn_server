@@ -2,9 +2,10 @@
 const mongoose = require('mongoose');
 const passport = require('passport');
 const User = require('../models/user');
+var path = require('path');
+var fs = require('fs')
 const isAuth = require('./authMiddleware').isAuth;
 const isAdmin = require('./authMiddleware').isAdmin;
-
 const router = require('express').Router(); 
 
 router.route('/')
@@ -58,14 +59,30 @@ router.get('/register', (req, res, next) => {
 });
 
 router.get('/login', (req, res, next) => {
- 
-  const form = '<h1>Login Page</h1><form method="post" action="login">\
-  Enter Username:<br><input type="text" name="username">\
-  <br>Enter Password:<br><input type="password" name="password">\
-  <br><br><input type="submit" value="Submit"></form>';
-  res.send(form);
-
+  dir = path.join(__dirname, '../public/login.html');
+    fs.readFile(dir, 'utf8', (err, text) => {
+      res.send(text);
+    });
 });
+
+router.get('/dash', (req, res, next) => {
+  dir = path.join(__dirname, '../public/dash.html');
+    fs.readFile(dir, 'utf8', (err, text) => {
+      res.send(text);
+    });
+});
+
+router.get('/me', isAuth, (req, res, next) => {
+  
+  User.findById(req.user._id)
+  .populate('subjects')
+  .then((user) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(user);
+  })
+  
+})
 
 router.post('/login', passport.authenticate('local'), (req, res) => {
   res.statusCode = 200;
@@ -114,7 +131,9 @@ router.route('/updatepass')
 
 router.get('/logout', (req, res, next) => {
   req.logout();
-  res.redirect('/users/');
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json');
+  res.json({success: true, status: 'logout successful'});
 });
 
 router.get('/protected', isAuth, (req, res, next) => {
