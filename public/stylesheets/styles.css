@@ -141,8 +141,3 @@ tbody tr td:nth-child(2) {
   outline: none;
   box-shadow: none; }
 
-.button-excel {
-  float: right; }
-  @media (max-width: 767px) {
-    .button-excel {
-      float: none; } }
