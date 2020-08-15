@@ -86,7 +86,7 @@ async function req(sid) {
         kek.push(hmm);
     }
 
-    let attn = await fetch('https://attn-server.herokuapp.com/users/abs/table' + sid);
+    let attn = await fetch('https://attn-server.herokuapp.com/abs/table' + sid);
     let days = await attn.json();
     console.log(days);
     for (day of days) {
