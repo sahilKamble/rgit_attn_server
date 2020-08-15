@@ -80,7 +80,7 @@ async function buildTable(data) {
 async function req(sid) {
     let kek = [];
     let url = 'https://attn-server.herokuapp.com/subjects' + sid + '/students';
-    document.querySelector(".show-attendance").disabled = true;
+    // document.querySelector(".show-attendance").disabled = true;
 
     let res = await fetch(url);
     let data = await res.json();
