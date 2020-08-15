@@ -72,6 +72,18 @@ router.get('/dash', (req, res, next) => {
     });
 });
 
+router.get('/me', isAuth, (req, res, next) => {
+  
+  User.findById(req.user._id)
+  .populate('subjects')
+  .then((user) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(user);
+  })
+  
+})
+
 router.post('/login', passport.authenticate('local'), (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
