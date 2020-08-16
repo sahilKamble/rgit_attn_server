@@ -29,14 +29,14 @@ var absRouter = require('./routes/absenteesRouter');
 
 var app = express();
 
-const corsOptions = {
-  origin: 'chrome-extension://iijkadhmjmmnpgajhleiailnmfajgkji',
-  optionsSuccessStatus: 200,
-  credentials: true
-}
+// const corsOptions = {
+//   origin: 'chrome-extension://iijkadhmjmmnpgajhleiailnmfajgkji',
+//   optionsSuccessStatus: 200,
+//   credentials: true
+// }
 
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
