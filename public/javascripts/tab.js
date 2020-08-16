@@ -1,3 +1,6 @@
+let width = document.querySelector('.container-fluid').clientWidth;
+document.querySelector('.table-view').clientWidth = width;
+
 function toTitleCase(str) {
     return str.replace(
         /\w\S*/g,
@@ -149,16 +152,16 @@ let subid = /\/[\w]+$/.exec(url);
 console.log(subid);
 req(subid);
 
-$(document).ready(function () {
-    $('tbody').scroll(function (e) { //detect a scroll event on the tbody
-        /*
-    Setting the thead left value to the negative valule of tbody.scrollLeft will make it track the movement
-    of the tbody element. Setting an elements left value to that of the tbody.scrollLeft left makes it maintain 			it's relative position at the left of the table.    
-    */
-        $('thead').css("left", -$("tbody").scrollLeft()); //fix the thead relative to the body scrolling
-        $('thead th:nth-child(1)').css("left", $("tbody").scrollLeft()); //fix the first cell of the header
-        $('tbody td:nth-child(1)').css("left", $("tbody").scrollLeft()); //fix the first column of tdbody
-        $('thead th:nth-child(2)').css("left", $("tbody").scrollLeft());
-        $('tbody td:nth-child(2)').css("left", $("tbody").scrollLeft());
-    });
-});
+// $(document).ready(function () {
+//     $('tbody').scroll(function (e) { //detect a scroll event on the tbody
+//         /*
+//     Setting the thead left value to the negative valule of tbody.scrollLeft will make it track the movement
+//     of the tbody element. Setting an elements left value to that of the tbody.scrollLeft left makes it maintain 			it's relative position at the left of the table.    
+//     */
+//         $('thead').css("left", -$("tbody").scrollLeft()); //fix the thead relative to the body scrolling
+//         $('thead th:nth-child(1)').css("left", $("tbody").scrollLeft()); //fix the first cell of the header
+//         $('tbody td:nth-child(1)').css("left", $("tbody").scrollLeft()); //fix the first column of tdbody
+//         $('thead th:nth-child(2)').css("left", $("tbody").scrollLeft());
+//         $('tbody td:nth-child(2)').css("left", $("tbody").scrollLeft());
+//     });
+// });
