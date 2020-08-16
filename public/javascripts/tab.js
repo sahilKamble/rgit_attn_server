@@ -79,9 +79,13 @@ async function buildTable(data) {
 
 async function req(sid) {
     let kek = [];
-    let url = 'https://attn-server.herokuapp.com/subjects' + sid + '/students';
-    console.log(url);
-    // document.querySelector(".show-attendance").disabled = true;
+    let url = '/subjects' + sid + '/students';
+
+    let me = await fetch('users/me');
+    let meInfo = await me.json();
+    const name = document.querySelector('#name');
+    const uname = document.createTextNode(meInfo.username);
+    name.appendChild(uname);
 
     let res = await fetch(url);
     let data = await res.json();
@@ -101,7 +105,7 @@ async function req(sid) {
         kek.push(hmm);
     }
 
-    let attn = await fetch('https://attn-server.herokuapp.com/abs/table' + sid);
+    let attn = await fetch('/abs/table' + sid);
     let days = await attn.json();
     console.log(days);
     for (day of days) {
@@ -131,7 +135,6 @@ async function req(sid) {
 
     buildTable(kek);
 }
-
 
 function convert() {
     let table = document.querySelector(".attendance-table");
