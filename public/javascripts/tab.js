@@ -45,11 +45,11 @@ async function buildTable(data) {
         let entry = document.createElement("tr");
         entry.className = "table-row";
         let tableName = document.createElement("td");
-        tableName.className = "col name";
+        tableName.className = "colm name";
         tableName.innerHTML = toTitleCase(name);
         entry.appendChild(tableName);
         let tableRoll = document.createElement("td");
-        tableRoll.className = "col";
+        tableRoll.className = "colm";
         tableRoll.innerHTML = div + roll;
         entry.appendChild(tableRoll);
         var count = 0;
@@ -60,13 +60,13 @@ async function buildTable(data) {
                 count++;
             }
             let tableAttn = document.createElement("td");
-            tableAttn.className = "col";
+            tableAttn.className = "colm";
             tableAttn.innerHTML = s;
             entry.appendChild(tableAttn);
 
         }
         let tableAttn = document.createElement("td");
-        tableAttn.className = "col";
+        tableAttn.className = "colm";
         tableAttn.innerHTML = count;
         entry.appendChild(tableAttn);
         tableBody.appendChild(entry);

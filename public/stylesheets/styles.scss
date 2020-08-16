@@ -39,7 +39,7 @@ th {
 
 th,
 td {
-  min-width: 5rem;
+  min-width: 6rem;
 }
 
 th {
@@ -86,7 +86,7 @@ thead th:nth-child(1) {
 thead th:nth-child(2) {
   /*first cell in the header*/
   position: relative;
-  min-width: 5rem;
+  min-width: 6rem;
   overflow: hidden;
 }
 
@@ -107,7 +107,7 @@ tbody {
 
 tbody td {
   background-color: #fff;
-  min-width: 5rem;
+  min-width: 6rem;
 }
 
 tbody tr td:nth-child(1) {
