@@ -12,12 +12,12 @@ async function buildTable(data) {
     var tableBody = document.querySelector(".table-body");
 
     let tableName = document.createElement("th");
-    tableName.className = "col";
+    tableName.className = "colm";
     tableName.innerHTML = "Name";
     tableHeader.appendChild(tableName);
 
     let tableRoll = document.createElement("th");
-    tableRoll.className = "col";
+    tableRoll.className = "colm";
     tableRoll.innerHTML = "Roll No.";
     tableHeader.appendChild(tableRoll);
 
@@ -34,7 +34,7 @@ async function buildTable(data) {
 
     let lect = data[0].attn.length;
     let tableTotal = document.createElement("th");
-    tableTotal.className = "col attn";
+    tableTotal.className = "colm attn";
     tableTotal.innerHTML = "Total/" + lect;
     tableHeader.appendChild(tableTotal);
 

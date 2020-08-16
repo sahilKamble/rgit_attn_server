@@ -1,5 +1,4 @@
 body {
-  font-family: "lato", sans-serif;
   position: relative;
   // height: 95vh;
 }
@@ -56,7 +55,7 @@ th {
   }
 
   &:last-child {
-    min-width: 6.05rem;
+    min-width: 7.05rem;
   }
 }
 
@@ -121,12 +120,16 @@ tbody tr td:nth-child(2) {
   position: relative;
 }
 
+.colm {
+  min-width: 6rem;
+}
+
 .attn {
-  max-width: 5rem;
+  max-width: 6rem;
 }
 
 .name {
-  min-width: 15rem;
+  min-width: 15rem !important;
 }
 
 .hidden {
