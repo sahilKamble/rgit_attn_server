@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser'); 
 const mongoose = require('mongoose');
-
+const isAuth = require('./authMiddleware').isAuth;
 const Students = require('../models/students');
 const Subjects = require('../models/subjects');
 const Attendance = require('../models/attendance');
@@ -10,7 +10,7 @@ const { populate } = require('../models/students');
 const attnRouter = express.Router();
 
 attnRouter.route('/')
-.all((req,res,next) => {
+.all(isAuth,(req,res,next) => {
     if(req.query.date) {
         let date = new Date(req.query.date)
         date.setMinutes(date.getMinutes() - 1 , 0)
@@ -24,7 +24,7 @@ attnRouter.route('/')
     }
     next()
 })
-.get((req,res,next) => {
+.get(isAuth,(req,res,next) => {
     console.log(req.query)
     Attendance.find(req.query)
     .then((attn) => {
@@ -34,7 +34,7 @@ attnRouter.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.post((req,res,next) => {
+.post(isAuth,(req,res,next) => {
     Attendance.create(req.body)
     .then((attn) => {
         res.statusCode = 200;
@@ -43,7 +43,7 @@ attnRouter.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.delete((req,res,next) => {
+.delete(isAuth,(req,res,next) => {
     Attendance.deleteMany(req.query)
     .then((attn) => {
         res.statusCode = 200;
@@ -54,7 +54,7 @@ attnRouter.route('/')
 });
 
 attnRouter.route('/sub/:subid/:studid')
-.get((req,res,next) => {
+.get(isAuth,(req,res,next) => {
     Attendance.find({
         subject: req.params.subid,
         student: req.params.studid
@@ -70,7 +70,7 @@ attnRouter.route('/sub/:subid/:studid')
 })
 
 attnRouter.route('/table/:subid')
-.get((req,res,next) => {
+.get(isAuth,(req,res,next) => {
     Subjects.findById(req.params.subid)
     .exec((err, subject) => {
         if(err) next(err);

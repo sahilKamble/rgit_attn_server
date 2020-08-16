@@ -9,7 +9,7 @@ const isAdmin = require('./authMiddleware').isAdmin;
 const router = require('express').Router(); 
 
 router.route('/')
-.get((req, res, next) => {
+.get(isAuth,isAdmin,(req, res, next) => {
   User.find(req.query)
     .then((user) => {
         res.statusCode = 200;
@@ -78,7 +78,7 @@ router.get('/login', (req, res, next) => {
     });
 });
 
-router.get('/dash', (req, res, next) => {
+router.get('/dash',isAuth, (req, res, next) => {
   dir = path.join(__dirname, '../public/dash.html');
     fs.readFile(dir, 'utf8', (err, text) => {
       res.send(text);
@@ -104,7 +104,7 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
 });
 
 router.route('/updatepass')
-.get( (req, res, next) => {
+.get( isAuth,(req, res, next) => {
 
   const form = '<h1>Register Page</h1><form method="post" action="updatepass">\
                   Enter Username:<br><input type="text" name="username">\
@@ -156,7 +156,7 @@ router.get('/protected', isAuth, (req, res, next) => {
 });
 
 router.route('/:userId')
-.get((req,res,next) => {
+.get(isAuth,(req,res,next) => {
     User.findById(req.params.userId)
     .then((user) => {
         res.statusCode = 200;
@@ -165,11 +165,11 @@ router.route('/:userId')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.post((req, res, next) => {
+.post(isAuth,(req, res, next) => {
     res.statusCode = 403;
     res.end('POST operation not supported on /users/'+ req.params.userId);
 })
-.put((req,res,next) => {
+.put(isAuth,(req,res,next) => {
     User.findByIdAndUpdate(req.params.userId, {
         $set: req.body
     })
@@ -180,7 +180,7 @@ router.route('/:userId')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.delete((req,res,next) => {
+.delete(isAuth,(req,res,next) => {
     User.findById(req.params.userId)
     .then(user => 
       user.remove()
@@ -193,7 +193,7 @@ router.route('/:userId')
 });
 
 router.route('/:userId/subjects')
-.get((req,res,next) => {
+.get(isAuth,(req,res,next) => {
   User.findById(req.params.userId)
   .populate('subjects')
   .then((user) => {

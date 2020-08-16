@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 const Students = require('../models/students');
 const Subjects = require('../models/subjects');
+const { isAuth } = require('./authMiddleware');
 
 const studentRouter = express.Router();
 
@@ -12,7 +13,7 @@ studentRouter.use(bodyParser.json());
 //to do: on delete, delete ref from subject
 
 studentRouter.route('/')
-.get((req,res,next) => {
+.get(isAuth,(req,res,next) => {
     Students.find(req.query)
     .then((students) => {
         res.statusCode = 200;
@@ -21,7 +22,7 @@ studentRouter.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.post((req,res,next) => {
+.post(isAuth,(req,res,next) => {
     Students.create(req.body)
     .then((subject) => {
         res.statusCode = 200;
@@ -30,11 +31,11 @@ studentRouter.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.put((req, res, next) => {
+.put(isAuth,(req, res, next) => {
     res.statusCode = 403;
     res.end('PUT operation not supported on /students');
 })
-.delete((req, res, next) => {
+.delete(isAuth,(req, res, next) => {
     Students.deleteMany({})
     .then((resp) => {
         res.statusCode = 200;
@@ -45,7 +46,7 @@ studentRouter.route('/')
 })
 
 studentRouter.route('/subs')
-.post((req,res,next) => {
+.post(isAuth,(req,res,next) => {
     const student = new Students({
         name : req.body.name,
         roll : req.body.roll,
@@ -76,7 +77,7 @@ studentRouter.route('/subs')
 })
 
 studentRouter.route('/:studentId')
-.get((req,res,next) => {
+.get(isAuth,(req,res,next) => {
     Students.findById(req.params.studentId)
     .then((student) => {
         res.statusCode = 200;
@@ -85,11 +86,11 @@ studentRouter.route('/:studentId')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.post((req, res, next) => {
+.post(isAuth,(req, res, next) => {
     res.statusCode = 403;
     res.end('POST operation not supported on /students/'+ req.params.studentId);
 })
-.put((req,res,next) => {
+.put(isAuth,(req,res,next) => {
     Students.findByIdAndUpdate(req.params.studentId, {
         $set: req.body
     }, { new: true})
@@ -100,7 +101,7 @@ studentRouter.route('/:studentId')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.delete((req,res,next) => {
+.delete(isAuth,(req,res,next) => {
     Students.findOneAndDelete(req.params.studentId)
     .then((resp) => {
         res.statusCode = 200;
