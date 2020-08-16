@@ -23,7 +23,7 @@ async function buildTable(data) {
 
     for (attn of data[0].attn) {
         let tableRoll = document.createElement("th");
-        tableRoll.className = "col attn";
+        tableRoll.className = "colm attn";
         let d = new Date(attn.date);
         tableRoll.innerHTML = d.toLocaleString('en-US', {
             timeStyle: "short",
