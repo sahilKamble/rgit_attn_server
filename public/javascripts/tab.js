@@ -80,10 +80,12 @@ async function buildTable(data) {
 async function req(sid) {
     let kek = [];
     let url = 'https://attn-server.herokuapp.com/subjects' + sid + '/students';
+    console.log(url);
     // document.querySelector(".show-attendance").disabled = true;
 
     let res = await fetch(url);
     let data = await res.json();
+    let subject = data.name;
     let students = data.students
         .sort((a, b) => a.roll - b.roll)
         .sort((a, b) => a.div - b.div);
