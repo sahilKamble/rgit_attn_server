@@ -96,7 +96,7 @@ async function req(sid) {
 
     let students = data.students
         .sort((a, b) => a.roll - b.roll)
-        .sort((a, b) => a.div - b.div);
+        .sort((a, b) => a.div.localeCompare(b.div))
 
     for (student of students) {
         let hmm = {
