@@ -1,5 +1,4 @@
 body {
-  font-family: "lato", sans-serif;
   position: relative;
   // height: 95vh;
 }
@@ -40,17 +39,23 @@ th {
 
 th,
 td {
-  min-width: 5rem;
+  min-width: 6rem;
 }
 
 th {
-  background-color: #b8daff;
+  color: white;
+  background-color: #4e73df;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: 100;
 
   &:not(:last-child) {
-    border-right: 1px solid #96b4d4;
+    border-right: 1px solid #4e73df;
+  }
+
+  &:last-child {
+    min-width: 7.05rem;
   }
 }
 
@@ -81,7 +86,7 @@ thead th:nth-child(1) {
 thead th:nth-child(2) {
   /*first cell in the header*/
   position: relative;
-  min-width: 5rem;
+  min-width: 6rem;
   overflow: hidden;
 }
 
@@ -90,7 +95,7 @@ tbody {
   display: block;
   /*seperates the tbody from the header*/
   max-width: 95vw;
-  max-height: 75vh;
+  max-height: 65vh;
   overflow-y: scroll;
   overflow-x: scroll;
 
@@ -102,7 +107,7 @@ tbody {
 
 tbody td {
   background-color: #fff;
-  min-width: 5rem;
+  min-width: 6rem;
 }
 
 tbody tr td:nth-child(1) {
@@ -115,12 +120,16 @@ tbody tr td:nth-child(2) {
   position: relative;
 }
 
+.colm {
+  min-width: 6rem;
+}
+
 .attn {
-  max-width: 5rem;
+  max-width: 6rem;
 }
 
 .name {
-  min-width: 15rem;
+  min-width: 15rem !important;
 }
 
 .hidden {
@@ -150,37 +159,14 @@ tbody tr td:nth-child(2) {
   box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
 }
 
-.btn,
-.btn:link,
-.btn:visited {
+.button-excel,
+.button-excel:link,
+.button-excel:visited {
   padding: 10px 1rem;
-  border-radius: 5px;
-  background-color: #b8daff;
-  border: 1px solid #96b4d4;
   transition: all 0.2s;
 }
 
-.btn:hover {
-  background-color: #a7d2ff;
-  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
-}
-
-.btn:focus,
-.btn:active {
-  outline: none;
-  background-color: #a7d2ff;
-  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
-}
-
-.btn:disabled {
+.button-excel:disabled {
   outline: none;
   box-shadow: none;
 }
-
-// .button-excel {
-//   float: right;
-
-//   @media (max-width: 767px) {
-//     float: none;
-//   }
-// }

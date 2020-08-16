@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon ./bin/www",
     "start": "node ./bin/www",
-    "css": "node-sass ./public/scss/sb-admin-2.scss ./public/css/sb-admin-2.min.css -w --output-style compressed"
+    "tcss": "node-sass ./public/stylesheets/styles.scss ./public/stylesheets/styles.css -w --output-style compressed"
   },
   "dependencies": {
     "@linways/table-to-excel": "^1.0.4",
