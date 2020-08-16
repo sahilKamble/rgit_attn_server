@@ -44,13 +44,19 @@ td {
 }
 
 th {
-  background-color: #b8daff;
+  color: white;
+  background-color: #4e73df;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: 100;
 
   &:not(:last-child) {
-    border-right: 1px solid #96b4d4;
+    border-right: 1px solid #4e73df;
+  }
+
+  &:last-child {
+    min-width: 6.05rem;
   }
 }
 
@@ -150,37 +156,14 @@ tbody tr td:nth-child(2) {
   box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
 }
 
-.btn,
-.btn:link,
-.btn:visited {
+.button-excel,
+.button-excel:link,
+.button-excel:visited {
   padding: 10px 1rem;
-  border-radius: 5px;
-  background-color: #b8daff;
-  border: 1px solid #96b4d4;
   transition: all 0.2s;
 }
 
-.btn:hover {
-  background-color: #a7d2ff;
-  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
-}
-
-.btn:focus,
-.btn:active {
-  outline: none;
-  background-color: #a7d2ff;
-  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
-}
-
-.btn:disabled {
+.button-excel:disabled {
   outline: none;
   box-shadow: none;
 }
-
-// .button-excel {
-//   float: right;
-
-//   @media (max-width: 767px) {
-//     float: none;
-//   }
-// }
