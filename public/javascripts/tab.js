@@ -74,7 +74,8 @@ async function buildTable(data) {
         entry.appendChild(tableAttn);
         tableBody.appendChild(entry);
     }
-    table = document.querySelector('.table-div');
+
+    table = document.querySelector('.table-wrapper');
     table.classList.remove('hidden');
     document.querySelector('.button-excel').disabled = false;
 
