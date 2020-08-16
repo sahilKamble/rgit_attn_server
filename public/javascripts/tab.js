@@ -86,6 +86,9 @@ async function req(sid) {
     let res = await fetch(url);
     let data = await res.json();
     let subject = data.name;
+    let heading = document.querySelector('h1');
+    heading.innerHTML = toTitleCase(subject);
+
     let students = data.students
         .sort((a, b) => a.roll - b.roll)
         .sort((a, b) => a.div - b.div);
