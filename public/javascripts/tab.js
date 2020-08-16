@@ -81,8 +81,9 @@ async function req(sid) {
     let kek = [];
     let url = '/subjects' + sid + '/students';
 
-    let me = await fetch('users/me');
+    let me = await fetch('https://attn-server.herokuapp.com/users/me');
     let meInfo = await me.json();
+    console.log(meInfo);
     const name = document.querySelector('#name');
     const uname = document.createTextNode(meInfo.username);
     name.appendChild(uname);
