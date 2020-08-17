@@ -72,10 +72,13 @@ router.route('/login')
 });
 
 router.get('/dash', (req, res, next) => {
-    dir = path.join(__dirname, '../public/dash.html');
-    fs.readFile(dir, 'utf8', (err, text) => {
-        res.send(text);
-    });
+    if(!req.isAuthenticated()) res.redirect('/users/login');
+    else {
+        dir = path.join(__dirname, '../public/dash.html');
+        fs.readFile(dir, 'utf8', (err, text) => {
+            res.send(text);
+        });
+    }
 });
 
 router.route('/me')
