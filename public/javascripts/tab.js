@@ -1,9 +1,4 @@
-if (document.querySelector('.container-fluid').clientWidth < document.querySelector('.attendance-table').clientWidth) {
-    let width = document.querySelector('.container-fluid').clientWidth;
-    document.querySelector('.table-view').clientWidth = width + 'px';
-} else {
-    $(".table-view").css({ 'width': document.querySelector('.attendance-table').clientWidth + 'px' });
-}
+
 
 function toTitleCase(str) {
     return str.replace(
@@ -143,6 +138,13 @@ async function req(sid) {
     }
 
     buildTable(kek);
+
+    if (document.querySelector('.container-fluid').clientWidth < document.querySelector('.attendance-table').clientWidth) {
+        let width = document.querySelector('.container-fluid').clientWidth;
+        document.querySelector('.table-view').clientWidth = width + 'px';
+    } else {
+        $(".table-view").css({ 'width': document.querySelector('.attendance-table').clientWidth + 'px' });
+    }
 }
 
 function convert() {
@@ -156,6 +158,8 @@ url = window.location.href;
 let subid = /\/[\w]+$/.exec(url);
 console.log(subid);
 req(subid);
+
+
 
 // $(document).ready(function () {
 //     $('tbody').scroll(function (e) { //detect a scroll event on the tbody
