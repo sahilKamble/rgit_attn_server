@@ -1,5 +1,9 @@
-let width = document.querySelector('.container-fluid').clientWidth;
-document.querySelector('.table-view').clientWidth = width;
+if (document.querySelector('.container-fluid').clientWidth < document.querySelector('.attendance-table').clientWidth) {
+    let width = document.querySelector('.container-fluid').clientWidth;
+    document.querySelector('.table-view').clientWidth = width + 'px';
+} else {
+    $(".table-view").css({ 'width': document.querySelector('.attendance-table').clientWidth + 'px' });
+}
 
 function toTitleCase(str) {
     return str.replace(
