@@ -10,6 +10,7 @@ const session = require('express-session');
 var passport = require('passport');
 var authenticate = require('./authenticate');
 const fs = require('fs');
+var compression = require('compression')
 
 mongoose.set('useUnifiedTopology', true);
 //const url = 'mongodb://localhost:27017/rgitAttn';
@@ -39,6 +40,7 @@ var app = express();
 // app.use(cors(corsOptions));
 
 // view engine setup
+app.use(compression());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(bodyParser.json())
