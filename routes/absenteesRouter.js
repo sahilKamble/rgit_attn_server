@@ -86,7 +86,7 @@ absenteeRouter.route('/:absid')
     .catch((err) => next(err));
 })
 .delete((req,res,next) => {
-    Absentees.findOneAndDelete(req.params.studentId)
+    Absentees.findByIdAndRemove(req.params.absid)
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');

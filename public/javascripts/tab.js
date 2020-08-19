@@ -199,7 +199,7 @@ async function save() {
     for (id of idList) {
         let studentList = [];
         let column = document.querySelectorAll(`[aria-label="${id}"]`);
-        console.log(column);
+    // console.log(column);
         for (row of column) {
             if (row.innerHTML === 'A')
                 studentList.push(row.id);
@@ -208,17 +208,80 @@ async function save() {
         data = {
             "absentStudents": studentList
         }
+        console.log(JSON.stringify(data));
         let res = await fetch('/abs/' + id, {
             method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
             body: JSON.stringify(data)
         });
-        console.log(await res.json());
+        let resp = await res.json();
+        console.log(resp);
     }
 }
 
 function del() {
-    let dates = document.querySelectorAll('.date');
+    let edit = document.querySelector('.button-edit');
+    edit.hidden = true;
+    let del = document.querySelector('.button-del');
+    del.hidden = true;
+    let delsave = document.querySelector('.button-delsave');
+    delsave.hidden = false;
+    let attns = document.querySelectorAll('.date');
+    for (attn of attns) {
+        attn.addEventListener('click', (e) => {
+            let target = e.srcElement;
+            if (target.getAttribute('class').includes('edited')) {
+                list.pop(target.getAttribute('aria-label'));
+                target.classList.remove('edited');
+            } else {
+                list.push(target.getAttribute('aria-label'));
+                target.classList.add('edited');
+            }
+            console.log(list);
+        })
+    }
 }
+
+async function delsave() {
+    console.log('delsave');
+    var idList = new Set(list);
+    console.log(idList);
+    for (id of idList) {
+        //let studentList = [];
+        // let column = document.querySelectorAll(`[aria-label="${id}"]`);
+        console.log(id)
+        let res = await fetch('/abs/' + id, {
+            method: "DELETE",
+        });
+        let resp = await res.json();
+        console.log(resp);
+    // console.log(column);
+        // for (row of column) {
+        //     if (row.innerHTML === 'A')
+        //         studentList.push(row.id);
+        // }
+        // console.log(studentList);
+        // data = {
+        //     "absentStudents": studentList
+        // }
+        // console.log(JSON.stringify(data));
+        // let res = await fetch('/abs/' + id, {
+        //     method: "PUT",
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //         // 'Content-Type': 'application/x-www-form-urlencoded',
+        //     },
+        //     body: JSON.stringify(data)
+        // });
+        // let resp = await res.json();
+        // console.log(resp);
+    }
+}
+
+
 
 url = window.location.href;
 let subid = /\/[\w]+$/.exec(url);
