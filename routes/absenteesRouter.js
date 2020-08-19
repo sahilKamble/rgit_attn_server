@@ -7,43 +7,6 @@ const Subjects = require('../models/subjects');
 
 const absenteeRouter = express.Router();
 
-
-function dataSorter(data) {
-
-    function checkdate(date, list) {
-        
-        for(abs_date of list){
-            if (date.getTime() === abs_date.getTime())
-            return true;
-        }
-        return false;
-    }
-    
-    var n_data = {};
-    var dates = new Set();
-    for(stu of data.students) {
-        n_data[stu._id] = {div: stu.div ,roll: stu.roll,name: stu.name,abs: [], attn: []}     
-    }
-    for(abslist of data.abs) {
-        dates.add(abslist.date);
-        for(stuid of abslist.absentStudents) {
-            const id = stuid.toString()
-            //n_data.id.abs.push(abslist.date)
-            if (n_data[id] != null)
-                n_data[id].abs.push(abslist.date);
-        }
-    }
-    for(stu in n_data) {
-        for(date of dates) {
-            if(checkdate(date,n_data[stu].abs)) n_data[stu].attn.push("A");
-            else n_data[stu].attn.push("P");
-        }
-    }
-    var date_arr = Array.from(dates);
-    n_data["dates"] = date_arr;
-    return n_data
-}
-
 absenteeRouter.route('/')
 .get((req,res,next) => {
     Absentees.find()
