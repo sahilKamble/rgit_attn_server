@@ -204,7 +204,7 @@ function edit() {
 }
 
 async function save() {
-    console.log('tes');
+    //console.log('tes');
     var idList = new Set(list);
     console.log(idList);
     for (id of idList) {
@@ -228,7 +228,7 @@ async function save() {
             },
             body: JSON.stringify(data)
         });
-        let resp = await res.json();
+        //let resp = await res.json();
         console.log(resp);
     }
 }
@@ -246,18 +246,18 @@ function del() {
             let target = e.srcElement;
             if (target.getAttribute('class').includes('edited')) {
                 list.pop(target.getAttribute('aria-label'));
-                target.classList.remove('edited');
+                target.classList.remove('todel');
             } else {
                 list.push(target.getAttribute('aria-label'));
-                target.classList.add('edited');
+                target.classList.add('todel');
             }
-            console.log(list);
+            //console.log(list);
         })
     }
 }
 
 async function delsave() {
-    console.log('delsave');
+    //console.log('delsave');
     var idList = new Set(list);
     console.log(idList);
     for (id of idList) {
@@ -268,7 +268,7 @@ async function delsave() {
             method: "DELETE",
         });
         let resp = await res.json();
-        console.log(resp);
+        //console.log(resp);
     // console.log(column);
         // for (row of column) {
         //     if (row.innerHTML === 'A')
