@@ -1,5 +1,5 @@
+var subject;
 
-var subject
 function toTitleCase(str) {
     return str.replace(
         /\w\S*/g,
@@ -93,9 +93,9 @@ async function req(sid) {
 
     let res = await fetch(url);
     let data = await res.json();
-    subject = data.name;
+    subject = toTitleCase(data.name);
     let heading = document.querySelector('h1');
-    heading.innerHTML = toTitleCase(subject);
+    heading.innerHTML = subject;
 
     let students = data.students
         .sort((a, b) => a.roll - b.roll)
@@ -146,28 +146,21 @@ async function req(sid) {
         $(".table-view").css({ 'width': document.querySelector('.attendance-table').clientWidth + 'px' });
     }
 }
-//CURRENT DATE CODE START
-var today = new Date();
-var dd = today.getDate();
 
-var mm = today.getMonth()+1; 
-var yyyy = today.getFullYear();
-if(dd<10) 
-{
-    dd='0'+dd;
-} 
-
-if(mm<10) 
-{
-    mm='0'+mm;
-} 
-today = dd+'-'+mm+'-'+yyyy;
-console.log(today);
-//CURRENT DATE CODE END
 function convert() {
+
+    //CURRENT DATE CODE START
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1;
+    let yyyy = today.getFullYear();
+
+    today = `${dd.toString().padStart(2, '0')}-${mm.toString().padStart(2, '0')}-${yyyy}`;
+    //CURRENT DATE CODE END
+
     let table = document.querySelector(".attendance-table");
     TableToExcel.convert(table, {
-        name:subject+" "+today+" "+"Attendance.xlsx"
+        name: `${subject} ${today} Attendance.xlsx`
     });
 }
 
@@ -175,7 +168,6 @@ url = window.location.href;
 let subid = /\/[\w]+$/.exec(url);
 console.log(subid);
 req(subid);
-
 
 
 // $(document).ready(function () {
