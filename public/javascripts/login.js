@@ -28,8 +28,8 @@ document.addEventListener('submit', async function (event) {
     let url = '/users/login';
     let myHeaders = new Headers(httpHeaders);
     let data = {
-        username: form.user,
-        password: form.pass
+        username: form.user.trim(),
+        password: form.pass.trim()
     }
     var err = document.querySelector('.error');
     let res = await fetch(url, {
@@ -45,17 +45,5 @@ document.addEventListener('submit', async function (event) {
         err.classList.remove('hidden');
     } else {
         window.location.href = "/users/dash";
-        // err.classList.add('hidden');
-        // let loginView = document.querySelector('#loginPopup');
-        // loginView.classList.add('hidden');
-        // let attendanceView = document.querySelector('#attendancePopup');
-        // attendanceView.classList.remove('hidden');
     }
-    // .then(res => console.log(res))
-    // .then(res => {
-    //     if (res.status != 200) {
-    //         err.classList.remove('hidden');
-    //     }
-    //     //     fetch('http://localhost:3000/users/protected').then(res => console.log(res))
-    // })
 });

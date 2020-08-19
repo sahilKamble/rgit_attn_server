@@ -5,7 +5,7 @@
 
 .table-wrapper {
   // white-space: nowrap;
-  overflow: auto;
+  overflow: scroll;
   border-radius: 5px;
   // padding: 0.6rem;
   position: relative;
@@ -151,9 +151,9 @@ tbody tr td:nth-child(2) {
   min-width: 6rem;
 }
 
-.attn {
-  max-width: 6rem;
-}
+// .attn {
+//   max-width: 6rem;
+// }
 
 .name {
   min-width: 15rem !important;
@@ -186,14 +186,18 @@ tbody tr td:nth-child(2) {
   box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
 }
 
-.button-excel,
-.button-excel:link,
-.button-excel:visited {
+[class^=button-],
+[class^=button-]:link,
+[class^=button-]:visited {
   padding: 10px 1rem;
   transition: all 0.2s;
 }
 
-.button-excel:disabled {
+[class^=button-]:disabled {
   outline: none;
   box-shadow: none;
+}
+
+.edited {
+  background-color: #fff3cd;
 }

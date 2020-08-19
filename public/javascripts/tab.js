@@ -1,4 +1,4 @@
-
+var list = [];
 
 function toTitleCase(str) {
     return str.replace(
@@ -10,8 +10,8 @@ function toTitleCase(str) {
 }
 
 async function buildTable(data) {
-    var tableHeader = document.querySelector(".table-header");
-    var tableBody = document.querySelector(".table-body");
+    let tableHeader = document.querySelector(".table-header");
+    let tableBody = document.querySelector(".table-body");
 
     let tableName = document.createElement("th");
     tableName.className = "colm";
@@ -25,7 +25,8 @@ async function buildTable(data) {
 
     for (attn of data[0].attn) {
         let tableRoll = document.createElement("th");
-        tableRoll.className = "colm attn";
+        tableRoll.className = "colm date";
+        tableRoll.setAttribute('aria-label', attn.id);
         let d = new Date(attn.date);
         tableRoll.innerHTML = d.toLocaleString('en-US', {
             timeStyle: "short",
@@ -36,7 +37,7 @@ async function buildTable(data) {
 
     let lect = data[0].attn.length;
     let tableTotal = document.createElement("th");
-    tableTotal.className = "colm attn";
+    tableTotal.className = "colm";
     tableTotal.innerHTML = "Total/" + lect;
     tableHeader.appendChild(tableTotal);
 
@@ -44,6 +45,7 @@ async function buildTable(data) {
         const roll = student_info.student.roll;
         const name = student_info.student.name;
         const div = student_info.student.div;
+        const id = student_info.student._id;
         let entry = document.createElement("tr");
         entry.className = "table-row";
         let tableName = document.createElement("td");
@@ -62,8 +64,13 @@ async function buildTable(data) {
                 count++;
             }
             let tableAttn = document.createElement("td");
-            tableAttn.className = "colm";
+            tableAttn.className = "colm attn";
+            // this is attn or abslist id something
+            tableAttn.setAttribute('aria-label', attn.id);
             tableAttn.innerHTML = s;
+            //this is student id
+            tableAttn.id = id;
+            // tableAttn.contentEditable = true;
             entry.appendChild(tableAttn);
 
         }
@@ -77,6 +84,7 @@ async function buildTable(data) {
     table = document.querySelector('.table-wrapper');
     table.classList.remove('hidden');
     document.querySelector('.button-excel').disabled = false;
+    document.querySelector('.button-edit').disabled = false;
 
 }
 
@@ -111,10 +119,11 @@ async function req(sid) {
 
     let attn = await fetch('/abs/table' + sid);
     let days = await attn.json();
-    console.log(days);
+    // console.log(days);
     for (day of days) {
         let abs = day.absentStudents;
         let date = day.date;
+        let id = day._id;
 
         for (student of kek) {
             let present = true;
@@ -122,7 +131,8 @@ async function req(sid) {
                 if (student.student._id == absent) {
                     student.attn.push({
                         "date": date,
-                        "present": false
+                        "present": false,
+                        "id": id
                     })
                     present = false;
                 }
@@ -131,12 +141,14 @@ async function req(sid) {
             if (present) {
                 student.attn.push({
                     "date": date,
-                    "present": true
+                    "present": true,
+                    "id": id
                 })
             }
         }
     }
 
+    console.log({ kek });
     buildTable(kek);
 
     if (document.querySelector('.container-fluid').clientWidth < document.querySelector('.attendance-table').clientWidth) {
@@ -152,6 +164,60 @@ function convert() {
     TableToExcel.convert(table, {
         name: "Attendance.xlsx"
     });
+}
+
+function edit() {
+    let edit = document.querySelector('.button-edit');
+    edit.hidden = true;
+    let save = document.querySelector('.button-save');
+    save.hidden = false;
+    let attns = document.querySelectorAll('.attn');
+    for (attn of attns) {
+        attn.addEventListener('click', (e) => {
+            let target = e.srcElement;
+            if (target.innerHTML == 'P') {
+                target.innerHTML = 'A';
+            } else {
+                target.innerHTML = 'P';
+            }
+            if (target.getAttribute('class').includes('edited')) {
+                list.pop(target.getAttribute('aria-label'));
+                target.classList.remove('edited');
+            } else {
+                list.push(target.getAttribute('aria-label'));
+                target.classList.add('edited');
+            }
+            console.log(list);
+        })
+    }
+}
+
+async function save() {
+    console.log('tes');
+    var idList = new Set(list);
+    console.log(idList);
+    for (id of idList) {
+        let studentList = [];
+        let column = document.querySelectorAll(`[aria-label="${id}"]`);
+        console.log(column);
+        for (row of column) {
+            if (row.innerHTML === 'A')
+                studentList.push(row.id);
+        }
+        console.log(studentList);
+        data = {
+            "absentStudents": studentList
+        }
+        let res = await fetch('/abs/' + id, {
+            method: "PUT",
+            body: JSON.stringify(data)
+        });
+        console.log(await res.json());
+    }
+}
+
+function del() {
+    let dates = document.querySelectorAll('.date');
 }
 
 url = window.location.href;

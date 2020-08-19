@@ -13,9 +13,7 @@
 
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin-2.min.css" rel="stylesheet">
@@ -30,7 +28,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/users/dash">
@@ -94,34 +92,6 @@
             <i class="fa fa-bars"></i>
           </button>
 
-
-          <!-- Topbar Navbar -->
-          <!-- <ul class="navbar-nav ml-auto">
-
-
-            <div class="topbar-divider d-none d-sm-block"></div>
-
-            Nav Item - User Information
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-lg-inline text-gray-600 small" id="name"></span>
-              </a>
-              Dropdown - User Information
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-                </a>
-
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
-                </a>
-              </div>
-            </li>
-
-          </ul> -->
-
         </nav>
         <!-- End of Topbar -->
 
@@ -135,9 +105,23 @@
                 <span class="sr-only">Loading...</span>
               </div>
             </h1>
-            <button href="#" class="button-excel btn btn-sm btn-primary shadow-sm" onclick="convert()" disabled><i
-                class="fas fa-download fa-sm text-white-50"></i>
-              Generate Attendance Excel Sheet </button>
+            <div class="button">
+              <button href="#" class="button-save btn btn-sm btn-primary shadow-sm" onclick="del()"><i
+                class="fas fa-trash fa-sm text-white-50"></i>
+              Delete </button>
+
+              <button href="#" class="button-save btn btn-sm btn-primary shadow-sm" onclick="save()" hidden><i
+                class="fas fa-save fa-sm text-white-50"></i>
+              Save </button>
+
+              <button href="#" class="button-edit btn btn-sm btn-primary shadow-sm" onclick="edit()" disabled><i
+                  class="fas fa-edit fa-sm text-white-50"></i>
+                Edit </button>
+
+              <button href="#" class="button-excel btn btn-sm btn-primary shadow-sm" onclick="convert()" disabled><i
+                  class="fas fa-download fa-sm text-white-50"></i>
+                Generate Attendance Excel Sheet </button>
+            </div>
           </div>
 
 
