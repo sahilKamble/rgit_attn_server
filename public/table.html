@@ -13,9 +13,7 @@
 
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin-2.min.css" rel="stylesheet">
@@ -30,7 +28,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/users/dash">
@@ -107,9 +105,23 @@
                 <span class="sr-only">Loading...</span>
               </div>
             </h1>
-            <button href="#" class="button-excel btn btn-sm btn-primary shadow-sm" onclick="convert()" disabled><i
-                class="fas fa-download fa-sm text-white-50"></i>
-              Generate Attendance Excel Sheet </button>
+            <div class="button">
+              <button href="#" class="button-save btn btn-sm btn-primary shadow-sm" onclick="del()"><i
+                class="fas fa-trash fa-sm text-white-50"></i>
+              Delete </button>
+
+              <button href="#" class="button-save btn btn-sm btn-primary shadow-sm" onclick="save()" hidden><i
+                class="fas fa-save fa-sm text-white-50"></i>
+              Save </button>
+
+              <button href="#" class="button-edit btn btn-sm btn-primary shadow-sm" onclick="edit()" disabled><i
+                  class="fas fa-edit fa-sm text-white-50"></i>
+                Edit </button>
+
+              <button href="#" class="button-excel btn btn-sm btn-primary shadow-sm" onclick="convert()" disabled><i
+                  class="fas fa-download fa-sm text-white-50"></i>
+                Generate Attendance Excel Sheet </button>
+            </div>
           </div>
 
 
