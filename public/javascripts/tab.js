@@ -228,9 +228,10 @@ async function save() {
             },
             body: JSON.stringify(data)
         });
-        //let resp = await res.json();
-        console.log(resp);
+        let resp = await res.json();
+        //console.log(resp);
     }
+    location.reload();
 }
 
 function del() {
@@ -268,6 +269,7 @@ async function delsave() {
             method: "DELETE",
         });
         let resp = await res.json();
+        location.reload();
         //console.log(resp);
     // console.log(column);
         // for (row of column) {
