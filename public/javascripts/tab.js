@@ -1,5 +1,5 @@
 
-
+var subject
 function toTitleCase(str) {
     return str.replace(
         /\w\S*/g,
@@ -93,7 +93,7 @@ async function req(sid) {
 
     let res = await fetch(url);
     let data = await res.json();
-    let subject = data.name;
+    subject = data.name;
     let heading = document.querySelector('h1');
     heading.innerHTML = toTitleCase(subject);
 
@@ -146,11 +146,28 @@ async function req(sid) {
         $(".table-view").css({ 'width': document.querySelector('.attendance-table').clientWidth + 'px' });
     }
 }
+//CURRENT DATE CODE START
+var today = new Date();
+var dd = today.getDate();
 
+var mm = today.getMonth()+1; 
+var yyyy = today.getFullYear();
+if(dd<10) 
+{
+    dd='0'+dd;
+} 
+
+if(mm<10) 
+{
+    mm='0'+mm;
+} 
+today = dd+'-'+mm+'-'+yyyy;
+console.log(today);
+//CURRENT DATE CODE END
 function convert() {
     let table = document.querySelector(".attendance-table");
     TableToExcel.convert(table, {
-        name: "Attendance.xlsx"
+        name:subject+" "+today+" "+"Attendance.xlsx"
     });
 }
 
