@@ -1,4 +1,5 @@
 var list = [];
+var subject;
 
 function toTitleCase(str) {
     return str.replace(
@@ -101,9 +102,9 @@ async function req(sid) {
 
     let res = await fetch(url);
     let data = await res.json();
-    let subject = data.name;
+    subject = toTitleCase(data.name);
     let heading = document.querySelector('h1');
-    heading.innerHTML = toTitleCase(subject);
+    heading.innerHTML = subject;
 
     let students = data.students
         .sort((a, b) => a.roll - b.roll)
@@ -160,9 +161,19 @@ async function req(sid) {
 }
 
 function convert() {
+
+    //CURRENT DATE CODE START
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1;
+    let yyyy = today.getFullYear();
+
+    today = `${dd.toString().padStart(2, '0')}-${mm.toString().padStart(2, '0')}-${yyyy}`;
+    //CURRENT DATE CODE END
+
     let table = document.querySelector(".attendance-table");
     TableToExcel.convert(table, {
-        name: "Attendance.xlsx"
+        name: `${subject} ${today} Attendance.xlsx`
     });
 }
 
@@ -287,7 +298,6 @@ url = window.location.href;
 let subid = /\/[\w]+$/.exec(url);
 console.log(subid);
 req(subid);
-
 
 
 // $(document).ready(function () {
