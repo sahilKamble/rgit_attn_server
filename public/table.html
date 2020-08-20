@@ -107,23 +107,27 @@
             </h1>
             <div class="button">
               <button href="#" class="button-del btn btn-sm btn-primary shadow-sm" onclick="del()" disabled><i
-                class="fas fa-trash fa-sm text-white-50"></i>
-              Delete </button>
+                  class="fas fa-trash fa-sm text-white-50 mr-2"></i>
+                Delete </button>
 
               <button href="#" class="button-save btn btn-sm btn-primary shadow-sm" onclick="save()" hidden><i
-                class="fas fa-save fa-sm text-white-50"></i>
-              Save </button>
+                  class="fas fa-save fa-sm text-white-50 mr-2"></i>
+                Save </button>
 
-              <button href="#" class="button-delsave btn btn-sm btn-primary shadow-sm" onclick="delsave()" hidden><i
-                class="fas fa-save fa-sm text-white-50"></i>
-              Deleted seleted </button>
+              <a href="#" class="button-delsave btn btn-sm btn-primary shadow-sm" data-toggle="modal"
+                data-target="#confirmModal" hidden><i class="fas fa-save fa-sm text-white-50 mr-2"></i>
+                Deleted seleted </a>
+
+              <button href="#" class="button-cancel btn btn-sm btn-primary shadow-sm" onclick="cancel()" hidden><i
+                  class="fas fa-times text-white-50 mr-2"></i>
+                Cancel </button>
 
               <button href="#" class="button-edit btn btn-sm btn-primary shadow-sm" onclick="edit()" disabled><i
-                  class="fas fa-edit fa-sm text-white-50"></i>
+                  class="fas fa-edit fa-sm text-white-50 mr-2"></i>
                 Edit </button>
 
               <button href="#" class="button-excel btn btn-sm btn-primary shadow-sm" onclick="convert()" disabled><i
-                  class="fas fa-download fa-sm text-white-50"></i>
+                  class="fas fa-download fa-sm text-white-50 mr-2"></i>
                 Generate Attendance Excel Sheet </button>
             </div>
           </div>
@@ -166,20 +170,20 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Alert!</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">Are you sure you want to delete the selected attendance?</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <button class="logout btn btn-primary" onclick="logout()">Logout</button>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal" onclick="cancel()">Cancel</button>
+            <button class="logout btn btn-primary" type="button" onclick="delsave()" data-dismiss="modal">Confirm</button>
             <!-- <a class="logout btn btn-primary" href="../users/logout">Logout</a> -->
           </div>
         </div>
