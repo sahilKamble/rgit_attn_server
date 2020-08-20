@@ -266,7 +266,7 @@ function del() {
     for (attn of attns) {
         attn.addEventListener('click', (e) => {
             let target = e.srcElement;
-            if (target.getAttribute('class').includes('edited')) {
+            if (target.getAttribute('class').includes('todel')) {
                 list.pop(target.getAttribute('aria-label'));
                 target.classList.remove('todel');
             } else {
