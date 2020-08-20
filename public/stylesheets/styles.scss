@@ -5,7 +5,7 @@
 
 .table-wrapper {
   // white-space: nowrap;
-  overflow: scroll;
+  overflow: auto;
   border-radius: 5px;
   // padding: 0.6rem;
   position: relative;
@@ -186,14 +186,14 @@ tbody tr td:nth-child(2) {
   box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
 }
 
-[class^=button-],
-[class^=button-]:link,
-[class^=button-]:visited {
+[class^="button-"],
+[class^="button-"]:link,
+[class^="button-"]:visited {
   padding: 10px 1rem;
   transition: all 0.2s;
 }
 
-[class^=button-]:disabled {
+[class^="button-"]:disabled {
   outline: none;
   box-shadow: none;
 }
@@ -203,5 +203,14 @@ tbody tr td:nth-child(2) {
 }
 
 .todel {
-  background-color: #f04a4a;
+  background-color: #dc3545;
+  outline: 1px solid #dc3545;
+  border: none;
+}
+
+.del-colm {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  outline: none;
 }

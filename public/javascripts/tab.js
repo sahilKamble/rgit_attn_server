@@ -185,6 +185,8 @@ function rebulidtable() {
     del.hidden = false;
     let delsave = document.querySelector('.button-delsave');
     delsave.hidden = true;
+    let cancel = document.querySelector('.button-cancel');
+    cancel.hidden = true;
     let tableHeader = document.querySelector(".table-header");
     let tableBody = document.querySelector(".table-body");
     tableHeader.innerHTML = "";
@@ -202,6 +204,8 @@ function edit() {
     save.hidden = false;
     let del = document.querySelector('.button-del');
     del.hidden = true;
+    let cancel = document.querySelector('.button-cancel');
+    cancel.hidden = false;
     let attns = document.querySelectorAll('.attn');
     for (attn of attns) {
         attn.addEventListener('click', (e) => {
@@ -229,7 +233,7 @@ async function save() {
     for (id of idList) {
         let studentList = [];
         let column = document.querySelectorAll(`[aria-label="${id}"]`);
-    // console.log(column);
+        // console.log(column);
         for (row of column) {
             if (row.innerHTML === 'A')
                 studentList.push(row.id);
@@ -252,7 +256,7 @@ async function save() {
     }
     // if(resp !== 200)
     rebulidtable();
-   
+
 }
 
 function del() {
@@ -262,18 +266,28 @@ function del() {
     del.hidden = true;
     let delsave = document.querySelector('.button-delsave');
     delsave.hidden = false;
+    let cancel = document.querySelector('.button-cancel');
+    cancel.hidden = false;
     let attns = document.querySelectorAll('.date');
     for (attn of attns) {
         attn.addEventListener('click', (e) => {
             let target = e.srcElement;
+            let id = target.getAttribute('aria-label');
             if (target.getAttribute('class').includes('todel')) {
-                list.pop(target.getAttribute('aria-label'));
+                list.pop(id);
                 target.classList.remove('todel');
+                let column = document.querySelectorAll(`[aria-label="${id}"]`);
+                for (row of column) {
+                    row.classList.remove('del-colm')
+                }
             } else {
-                list.push(target.getAttribute('aria-label'));
+                list.push(id);
                 target.classList.add('todel');
+                let column = document.querySelectorAll(`td[aria-label="${id}"]`);
+                for (row of column) {
+                    row.classList.add('del-colm')
+                }
             }
-            //console.log(list);
         })
     }
 }
@@ -290,6 +304,11 @@ async function delsave() {
         let resp = await res.json();
     }
     // if(resp !== 200)
+    rebulidtable();
+}
+
+function cancel() {
+    list = [];
     rebulidtable();
 }
 
