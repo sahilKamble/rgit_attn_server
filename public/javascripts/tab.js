@@ -86,7 +86,13 @@ async function buildTable(data) {
     table.classList.remove('hidden');
     document.querySelector('.button-excel').disabled = false;
     document.querySelector('.button-edit').disabled = false;
-
+    document.querySelector('.button-del').disabled = false;
+    if (document.querySelector('.container-fluid').clientWidth < document.querySelector('.attendance-table').clientWidth) {
+        let width = document.querySelector('.container-fluid').clientWidth;
+        document.querySelector('.table-view').clientWidth = width + 'px';
+    } else {
+        $(".table-view").css({ 'width': document.querySelector('.attendance-table').clientWidth + 'px' });
+    }
 }
 
 async function req(sid) {
@@ -151,13 +157,6 @@ async function req(sid) {
 
     console.log({ kek });
     buildTable(kek);
-
-    if (document.querySelector('.container-fluid').clientWidth < document.querySelector('.attendance-table').clientWidth) {
-        let width = document.querySelector('.container-fluid').clientWidth;
-        document.querySelector('.table-view').clientWidth = width + 'px';
-    } else {
-        $(".table-view").css({ 'width': document.querySelector('.attendance-table').clientWidth + 'px' });
-    }
 }
 
 function convert() {
@@ -177,11 +176,32 @@ function convert() {
     });
 }
 
+function rebulidtable() {
+    let edit = document.querySelector('.button-edit');
+    edit.hidden = false;
+    let save = document.querySelector('.button-save');
+    save.hidden = true;
+    let del = document.querySelector('.button-del');
+    del.hidden = false;
+    let delsave = document.querySelector('.button-delsave');
+    delsave.hidden = true;
+    let tableHeader = document.querySelector(".table-header");
+    let tableBody = document.querySelector(".table-body");
+    tableHeader.innerHTML = "";
+    tableBody.innerHTML = "";
+    url = window.location.href;
+    let subid = /\/[\w]+$/.exec(url);
+    console.log(subid);
+    req(subid);
+}
+
 function edit() {
     let edit = document.querySelector('.button-edit');
     edit.hidden = true;
     let save = document.querySelector('.button-save');
     save.hidden = false;
+    let del = document.querySelector('.button-del');
+    del.hidden = true;
     let attns = document.querySelectorAll('.attn');
     for (attn of attns) {
         attn.addEventListener('click', (e) => {
@@ -198,7 +218,6 @@ function edit() {
                 list.push(target.getAttribute('aria-label'));
                 target.classList.add('edited');
             }
-            console.log(list);
         })
     }
 }
@@ -231,7 +250,9 @@ async function save() {
         let resp = await res.json();
         //console.log(resp);
     }
-    location.reload();
+    // if(resp !== 200)
+    rebulidtable();
+   
 }
 
 function del() {
@@ -262,36 +283,14 @@ async function delsave() {
     var idList = new Set(list);
     console.log(idList);
     for (id of idList) {
-        //let studentList = [];
-        // let column = document.querySelectorAll(`[aria-label="${id}"]`);
         console.log(id)
         let res = await fetch('/abs/' + id, {
             method: "DELETE",
         });
         let resp = await res.json();
-        location.reload();
-        //console.log(resp);
-    // console.log(column);
-        // for (row of column) {
-        //     if (row.innerHTML === 'A')
-        //         studentList.push(row.id);
-        // }
-        // console.log(studentList);
-        // data = {
-        //     "absentStudents": studentList
-        // }
-        // console.log(JSON.stringify(data));
-        // let res = await fetch('/abs/' + id, {
-        //     method: "PUT",
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //         // 'Content-Type': 'application/x-www-form-urlencoded',
-        //     },
-        //     body: JSON.stringify(data)
-        // });
-        // let resp = await res.json();
-        // console.log(resp);
     }
+    // if(resp !== 200)
+    rebulidtable();
 }
 
 
