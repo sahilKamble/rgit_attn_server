@@ -10,10 +10,11 @@ const session = require('express-session');
 var passport = require('passport');
 var authenticate = require('./authenticate');
 const fs = require('fs');
+var compression = require('compression')
 
 mongoose.set('useUnifiedTopology', true);
-const url = 'mongodb://localhost:27017/rgitAttn';
-//const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
+//const url = 'mongodb://localhost:27017/rgitAttn';
+const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
 const connect = mongoose.connect(url, { useNewUrlParser: true });
 
 connect.then((db) => {
@@ -29,16 +30,17 @@ var absRouter = require('./routes/absenteesRouter');
 
 var app = express();
 
-const corsOptions = {
-  origin: 'chrome-extension://iijkadhmjmmnpgajhleiailnmfajgkji',
-  optionsSuccessStatus: 200,
-  credentials: true
-}
+// const corsOptions = {
+//   origin: 'chrome-extension://iijkadhmjmmnpgajhleiailnmfajgkji',
+//   optionsSuccessStatus: 200,
+//   credentials: true
+// }
 
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // view engine setup
+app.use(compression());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(bodyParser.json())
