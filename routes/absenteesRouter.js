@@ -48,13 +48,8 @@ absenteeRouter.route('/:absid')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-<<<<<<< HEAD
 .delete(isAuth,(req,res,next) => {
     Absentees.findOneAndDelete(req.params.studentId)
-=======
-.delete((req,res,next) => {
-    Absentees.findByIdAndRemove(req.params.absid)
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
