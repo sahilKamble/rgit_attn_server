@@ -1,57 +1,57 @@
-body {
-  font-family: "lato", sans-serif;
-  position: relative;
-  // height: 95vh;
-}
+// .table-view {
+//   margin: auto;
+// width: 700px;
+// }
 
-.table-div {
-  width: 95vw;
-  margin: auto;
+.table-wrapper {
+  // white-space: nowrap;
+  overflow: auto;
+  border-radius: 5px;
+  // padding: 0.6rem;
+  position: relative;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+
+  // @media (max-width: 767px) {
+  //   position: relative;
+  //   left: 0%;
+  //   transform: translate(0);
+  //   margin-bottom: 1rem;
+  // }
 }
 
 .attendance-table {
-  // position: absolute;
-  // left: 50%;
-  // transform: translateX(-50%);
-  margin-bottom: 1rem;
   border-collapse: collapse;
   border-spacing: 0;
-  overflow: hidden;
-  border-radius: 5px;
-  padding: 0.6rem;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
-
-  @media (max-width: 767px) {
-    position: relative;
-    left: 0%;
-    transform: translate(0);
-    margin-bottom: 1rem;
-  }
 }
 
 table,
 td,
 th {
   border: 1px solid lightgray;
+  // outline: 1px solid lightgray;
+  // border: none;
   text-align: left;
   padding: 0.6rem 0.8rem;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 th,
 td {
-  min-width: 5rem;
+  width: 6rem;
+  max-width: 6rem;
+  min-width: 6rem;
 }
 
 th {
-  background-color: #b8daff;
+  color: white;
+  background-color: #4e73df;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
-
-  &:not(:last-child) {
-    border-right: 1px solid #96b4d4;
-  }
+  font-weight: 100;
+  outline: 1px solid #4e73df;
+  border: none;
 }
 
 tr {
@@ -61,9 +61,9 @@ tr {
 }
 
 thead {
-  position: relative;
+  // position: relative;
   display: block;
-  max-width: 95vw;
+  // max-width: 81vw;
 
   @media (max-width: 767px) {
     max-width: 100%;
@@ -72,27 +72,43 @@ thead {
 
 thead th:nth-child(1) {
   /*first cell in the header*/
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  width: 15rem;
+  max-width: 15rem;
   min-width: 15rem;
+  left: 0;
   /*seperates the first cell in the header from the header*/
-  overflow: hidden;
+  // overflow: hidden;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 thead th:nth-child(2) {
   /*first cell in the header*/
-  position: relative;
-  min-width: 5rem;
-  overflow: hidden;
+  position: -webkit-sticky;
+  position: sticky;
+  width: 6rem;
+  min-width: 6rem;
+  max-width: 6rem;
+  left: 15rem;
+  // overflow: hidden;
+
+  @media (max-width: 767px) {
+    left: 0rem;
+  }
 }
 
 tbody {
-  position: relative;
+  // position: relative;
   display: block;
   /*seperates the tbody from the header*/
-  max-width: 95vw;
-  max-height: 75vh;
-  overflow-y: scroll;
-  overflow-x: scroll;
+  // max-width: 81vw;
+  // max-height: 65vh;
+  // overflow-y: scroll;
+  // overflow-x: scroll;
 
   @media (max-width: 767px) {
     max-width: 100%;
@@ -102,25 +118,45 @@ tbody {
 
 tbody td {
   background-color: #fff;
-  min-width: 5rem;
+  min-width: 6rem;
 }
 
 tbody tr td:nth-child(1) {
   /*the first cell in each tr*/
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  outline: 1px solid lightgray;
+  border: none;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 tbody tr td:nth-child(2) {
   /*the first cell in each tr*/
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  left: 15rem;
+  outline: 1px solid lightgray;
+  border: none;
+
+  @media (max-width: 767px) {
+    left: 0rem;
+  }
 }
 
-.attn {
-  max-width: 5rem;
+.colm {
+  min-width: 6rem;
 }
+
+// .attn {
+//   max-width: 6rem;
+// }
 
 .name {
-  min-width: 15rem;
+  min-width: 15rem !important;
 }
 
 .hidden {
@@ -150,37 +186,31 @@ tbody tr td:nth-child(2) {
   box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
 }
 
-.btn,
-.btn:link,
-.btn:visited {
+[class^="button-"],
+[class^="button-"]:link,
+[class^="button-"]:visited {
   padding: 10px 1rem;
-  border-radius: 5px;
-  background-color: #b8daff;
-  border: 1px solid #96b4d4;
   transition: all 0.2s;
 }
 
-.btn:hover {
-  background-color: #a7d2ff;
-  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
-}
-
-.btn:focus,
-.btn:active {
-  outline: none;
-  background-color: #a7d2ff;
-  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
-}
-
-.btn:disabled {
+[class^="button-"]:disabled {
   outline: none;
   box-shadow: none;
 }
 
-.button-excel {
-  float: right;
+.edited {
+  background-color: #fff3cd;
+}
 
-  @media (max-width: 767px) {
-    float: none;
-  }
+.todel {
+  background-color: #dc3545;
+  outline: 1px solid #dc3545;
+  border: none;
+}
+
+.del-colm {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  outline: none;
 }

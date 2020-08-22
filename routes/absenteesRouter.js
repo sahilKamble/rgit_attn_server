@@ -7,43 +7,6 @@ const Subjects = require('../models/subjects');
 const isAuth = require('./authMiddleware').isAuth;
 const absenteeRouter = express.Router();
 
-
-function dataSorter(data) {
-
-    function checkdate(date, list) {
-        
-        for(abs_date of list){
-            if (date.getTime() === abs_date.getTime())
-            return true;
-        }
-        return false;
-    }
-    
-    var n_data = {};
-    var dates = new Set();
-    for(stu of data.students) {
-        n_data[stu._id] = {div: stu.div ,roll: stu.roll,name: stu.name,abs: [], attn: []}     
-    }
-    for(abslist of data.abs) {
-        dates.add(abslist.date);
-        for(stuid of abslist.absentStudents) {
-            const id = stuid.toString()
-            //n_data.id.abs.push(abslist.date)
-            if (n_data[id] != null)
-                n_data[id].abs.push(abslist.date);
-        }
-    }
-    for(stu in n_data) {
-        for(date of dates) {
-            if(checkdate(date,n_data[stu].abs)) n_data[stu].attn.push("A");
-            else n_data[stu].attn.push("P");
-        }
-    }
-    var date_arr = Array.from(dates);
-    n_data["dates"] = date_arr;
-    return n_data
-}
-
 absenteeRouter.route('/')
 .get(isAuth,(req,res,next) => {
     Absentees.find()
@@ -85,8 +48,13 @@ absenteeRouter.route('/:absid')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
+<<<<<<< HEAD
 .delete(isAuth,(req,res,next) => {
     Absentees.findOneAndDelete(req.params.studentId)
+=======
+.delete((req,res,next) => {
+    Absentees.findByIdAndRemove(req.params.absid)
+>>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');

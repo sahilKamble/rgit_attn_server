@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "nodemon ./bin/www",
     "start": "node ./bin/www",
-    "css": "node-sass ./public/stylesheets/styles.scss ./public/stylesheets/styles.css -w"
+    "tcss": "node-sass ./public/stylesheets/styles.scss ./public/stylesheets/styles.css -w --output-style compressed"
   },
   "dependencies": {
     "@linways/table-to-excel": "^1.0.4",
     "base64url": "^3.0.1",
     "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
