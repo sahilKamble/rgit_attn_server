@@ -72,20 +72,10 @@ router.route('/login')
 });
 
 router.get('/dash', (req, res, next) => {
-<<<<<<< HEAD
     dir = path.join(__dirname, '../public/dash.html');
     fs.readFile(dir, 'utf8', (err, text) => {
         res.send(text);
     });
-=======
-    if(!req.isAuthenticated()) res.redirect('/users/login');
-    else {
-        dir = path.join(__dirname, '../public/dash.html');
-        fs.readFile(dir, 'utf8', (err, text) => {
-            res.send(text);
-        });
-    }
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
 });
 
 router.route('/me')
@@ -112,45 +102,47 @@ router.route('/select')
 router.route('/updatepass')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get((req, res, next) => {
-<<<<<<< HEAD
-
-    const form = '<h1>Register Page</h1><form method="post" action="updatepass">\
-                Enter Username:<br><input type="text" name="username">\
-                <br>Enter Password:<br><input type="password" name="oldpassword">\
-                <br>Enter New Password:<br><input type="password" name="newpassword">\
-                <br><br><input type="submit" value="Submit"></form>';
-
-=======
-
-    const form = '<h1>Register Page</h1><form method="post" action="updatepass">\
-                Enter Username:<br><input type="text" name="username">\
-                <br>Enter Password:<br><input type="password" name="oldpassword">\
-                <br>Enter New Password:<br><input type="password" name="newpassword">\
-                <br><br><input type="submit" value="Submit"></form>';
-
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
-    res.send(form);
-
+    dir = path.join(__dirname, '../public/update-password.html');
+    fs.readFile(dir, 'utf8', (err, text) => {
+        res.send(text);
+    });
 })
+// .get((req, res, next) => {
+
+//     const form = '<h1>Register Page</h1><form method="post" action="updatepass">\
+//                 Enter Username:<br><input type="text" name="username">\
+//                 <br>Enter Password:<br><input type="password" name="oldpassword">\
+//                 <br>Enter New Password:<br><input type="password" name="newpassword">\
+//                 <br><br><input type="submit" value="Submit"></form>';
+
+//     res.send(form);
+
+// })
 .post(function(req, res) {
     // Search for user in database
     User.findOne({ username: req.body.username }, (err, user) => {
         // Check if error connecting
         if (err) {
+            console.log("did not connect"),
             res.json({ success: false, message: "did not connect" }); // Return error
         } else {
             // Check if user was found in database
             if (!user) {
+                console.log('User not found'),
                 res.json({ success: false, message: 'User not found' }); // Return error, user was not found in db
             } else {
                 user.changePassword(req.body.oldpassword, req.body.newpassword, function(err) {
                     if (err) {
                         if (err.name === 'IncorrectPasswordError') {
+
+                            console.log('Incorrect password');
                             res.json({ success: false, message: 'Incorrect password' }); // Return error
                         } else {
+                            console.log('Something went wrong!! Please try again after sometimes.');
                             res.json({ success: false, message: 'Something went wrong!! Please try again after sometimes.' });
                         }
                     } else {
+                        console.log('Your password has been changed successfully');
                         res.json({ success: true, message: 'Your password has been changed successfully' });
                     }
                 })
@@ -159,7 +151,6 @@ router.route('/updatepass')
     });
 });
 
-<<<<<<< HEAD
 router.route('/forgotpass')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get((req, res, next) => {
@@ -230,81 +221,6 @@ router.route('/protected')
     res.setHeader('Content-Type', 'application/json');
     res.json({ success: true, status: 'welcome to protected route' });
 });
-=======
-router.get('/attn/:subid' , (req,res,next) => {
-    dir = path.join(__dirname, '../public/table.html');
-    fs.readFile(dir, 'utf8', (err, text) => {
-        res.send(text);
-    });
-})
-router.route('/logout')
-.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
-.get(cors.corsWithOptions,(req, res, next) => {
-    req.logout();
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json({ success: true, status: 'logout successful' });
-});
-
-router.route('/protected')
-.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
-.get(cors.corsWithOptions,isAuth, (req, res, next) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json({ success: true, status: 'welcome to protected route' });
-});
-
-router.route('/:userId')
-    .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
-    .get((req, res, next) => {
-        User.findById(req.params.userId)
-            .then((user) => {
-                res.statusCode = 200;
-                res.setHeader('Content-Type', 'application/json');
-                res.json(user);
-            }, (err) => next(err))
-            .catch((err) => next(err));
-    })
-    .post((req, res, next) => {
-        res.statusCode = 403;
-        res.end('POST operation not supported on /users/' + req.params.userId);
-    })
-    .put((req, res, next) => {
-        User.findByIdAndUpdate(req.params.userId, {
-                $set: req.body
-            })
-            .then((user) => {
-                res.statusCode = 200;
-                res.setHeader('Content-Type', 'application/json');
-                res.json(user);
-            }, (err) => next(err))
-            .catch((err) => next(err));
-    })
-    .delete((req, res, next) => {
-        User.findById(req.params.userId)
-            .then(user =>
-                user.remove()
-                .then((resp) => {
-                    res.statusCode = 200;
-                    res.setHeader('Content-Type', 'application/json');
-                    res.json(resp);
-                }), (err) => next(err))
-            .catch((err) => next(err));
-    });
-
-router.route('/:userId/subjects')
-    .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
-    .get(cors.corsWithOptions,(req, res, next) => {
-        User.findById(req.params.userId)
-            .populate('subjects')
-            .then((user) => {
-                res.statusCode = 200;
-                res.setHeader('Content-Type', 'application/json');
-                res.json(user);
-            }, (err) => next(err))
-            .catch((err) => next(err));
-    });
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
 
 router.route('/:userId')
     .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })

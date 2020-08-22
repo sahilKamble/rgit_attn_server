@@ -1,40 +1,20 @@
-document.querySelector('.login').addEventListener('keyup', () => {
-    let form = document.querySelector('.login');
-    let formdata = new FormData(form);
-    let empty = false;
-    for (let field of formdata.keys()) {
-        if (!formdata.get(field).length) {
-            empty = true;
-        }
-    }
-    if (empty) {
-        document.querySelector('.form-submit').disabled = true;
-    } else {
-        document.querySelector('.form-submit').disabled = false;
-    }
-})
-
-document.addEventListener('submit', async function (event) {
-
+document.querySelector('#passchange').addEventListener('click', async function (event) {
     event.preventDefault();
     let form = {};
-    console.log(event.target);
-    let formData = new FormData(event.target);
+    
+    let formData = new FormData(document.querySelector('#myForm'));
     for (let key of formData.keys()) {
         form[key] = formData.get(key);
     }
-
-    let httpHeaders = {
-        'Content-Type': 'application/json'
-    };
-    let url = '/users/login';
+    let httpHeaders = { 'Content-Type': 'application/json' };
+    let url = '/users/updatepass';
     let myHeaders = new Headers(httpHeaders);
     let data = {
-        username: form.user.trim(),
-        password: form.pass.trim()
+        username: form.username.trim(),
+        oldpassword: form.oldpassword.trim(),
+        newpassword: form.newpassword.trim()
     }
-    var err = document.querySelector('.error');
-    let res = await fetch(url, {
+    const res = await fetch(url, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         headers: myHeaders,
         redirect: 'follow', // manual, *follow, error
@@ -43,9 +23,21 @@ document.addEventListener('submit', async function (event) {
     })
     let resData = res;
     console.log(resData.status);
-    if (resData.status != 200) {
-        err.classList.remove('hidden');
+
+    const resjson = await res.json();
+     console.log(resjson);
+   
+    if(resData.status != 200) {
+      console.log('error');
     } else {
-        window.location.href = "/users/dash";
+        alert(resjson.message);
+        if(resjson.message =='User not found' || resjson.message =='Incorrect password' ||resjson.message =='Something went wrong!! Please try again after sometimes.' ){
+            window.location.href = "/users/updatepass";
+        }else{
+            window.location.href = "/users/login";
+
+        }
+        
+       
     }
 });
