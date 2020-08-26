@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-
-=======
 var list = [];
 var subject;
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
 
 function toTitleCase(str) {
     return str.replace(
@@ -15,13 +11,8 @@ function toTitleCase(str) {
 }
 
 async function buildTable(data) {
-<<<<<<< HEAD
-    var tableHeader = document.querySelector(".table-header");
-    var tableBody = document.querySelector(".table-body");
-=======
     let tableHeader = document.querySelector(".table-header");
     let tableBody = document.querySelector(".table-body");
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
 
     let tableName = document.createElement("th");
     tableName.className = "colm";
@@ -35,12 +26,8 @@ async function buildTable(data) {
 
     for (attn of data[0].attn) {
         let tableRoll = document.createElement("th");
-<<<<<<< HEAD
-        tableRoll.className = "colm attn";
-=======
         tableRoll.className = "colm date";
         tableRoll.setAttribute('aria-label', attn.id);
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
         let d = new Date(attn.date);
         tableRoll.innerHTML = d.toLocaleString('en-US', {
             timeStyle: "short",
@@ -51,11 +38,7 @@ async function buildTable(data) {
 
     let lect = data[0].attn.length;
     let tableTotal = document.createElement("th");
-<<<<<<< HEAD
-    tableTotal.className = "colm attn";
-=======
     tableTotal.className = "colm";
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
     tableTotal.innerHTML = "Total/" + lect;
     tableHeader.appendChild(tableTotal);
 
@@ -63,10 +46,7 @@ async function buildTable(data) {
         const roll = student_info.student.roll;
         const name = student_info.student.name;
         const div = student_info.student.div;
-<<<<<<< HEAD
-=======
         const id = student_info.student._id;
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
         let entry = document.createElement("tr");
         entry.className = "table-row";
         let tableName = document.createElement("td");
@@ -85,10 +65,6 @@ async function buildTable(data) {
                 count++;
             }
             let tableAttn = document.createElement("td");
-<<<<<<< HEAD
-            tableAttn.className = "colm";
-            tableAttn.innerHTML = s;
-=======
             tableAttn.className = "colm attn";
             // this is attn or abslist id something
             tableAttn.setAttribute('aria-label', attn.id);
@@ -96,7 +72,6 @@ async function buildTable(data) {
             //this is student id
             tableAttn.id = id;
             // tableAttn.contentEditable = true;
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
             entry.appendChild(tableAttn);
 
         }
@@ -110,9 +85,6 @@ async function buildTable(data) {
     table = document.querySelector('.table-wrapper');
     table.classList.remove('hidden');
     document.querySelector('.button-excel').disabled = false;
-<<<<<<< HEAD
-
-=======
     document.querySelector('.button-edit').disabled = false;
     document.querySelector('.button-del').disabled = false;
     if (document.querySelector('.container-fluid').clientWidth < document.querySelector('.attendance-table').clientWidth) {
@@ -121,27 +93,12 @@ async function buildTable(data) {
     } else {
         $(".table-view").css({ 'width': document.querySelector('.attendance-table').clientWidth + 'px' });
     }
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
 }
 
 async function req(sid) {
     let kek = [];
     let url = '/subjects' + sid + '/students';
 
-<<<<<<< HEAD
- /*   let me = await fetch('https://attn-server.herokuapp.com/users/me');
-    let meInfo = await me.json();
-    console.log(meInfo);
-    const name = document.querySelector('#name');
-    const uname = document.createTextNode(meInfo.username);
-    name.appendChild(uname);*/
-
-    let res = await fetch(url);
-    let data = await res.json();
-    let subject = data.name;
-    let heading = document.querySelector('h1');
-    heading.innerHTML = toTitleCase(subject);
-=======
     // let me = await fetch('https://attn-server.herokuapp.com/users/me');
     // let meInfo = await me.json();
     // console.log(meInfo);
@@ -154,7 +111,6 @@ async function req(sid) {
     subject = toTitleCase(data.name);
     let heading = document.querySelector('h1');
     heading.innerHTML = subject;
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
 
     let students = data.students
         .sort((a, b) => a.roll - b.roll)
@@ -170,18 +126,11 @@ async function req(sid) {
 
     let attn = await fetch('/abs/table' + sid);
     let days = await attn.json();
-<<<<<<< HEAD
-    console.log(days);
-    for (day of days) {
-        let abs = day.absentStudents;
-        let date = day.date;
-=======
     // console.log(days);
     for (day of days) {
         let abs = day.absentStudents;
         let date = day.date;
         let id = day._id;
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
 
         for (student of kek) {
             let present = true;
@@ -189,12 +138,8 @@ async function req(sid) {
                 if (student.student._id == absent) {
                     student.attn.push({
                         "date": date,
-<<<<<<< HEAD
-                        "present": false
-=======
                         "present": false,
                         "id": id
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
                     })
                     present = false;
                 }
@@ -203,36 +148,13 @@ async function req(sid) {
             if (present) {
                 student.attn.push({
                     "date": date,
-<<<<<<< HEAD
-                    "present": true
-=======
                     "present": true,
                     "id": id
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
                 })
             }
         }
     }
 
-<<<<<<< HEAD
-    buildTable(kek);
-
-    if (document.querySelector('.container-fluid').clientWidth < document.querySelector('.attendance-table').clientWidth) {
-        let width = document.querySelector('.container-fluid').clientWidth;
-        document.querySelector('.table-view').clientWidth = width + 'px';
-    } else {
-        $(".table-view").css({ 'width': document.querySelector('.attendance-table').clientWidth + 'px' });
-    }
-}
-
-function convert() {
-    let table = document.querySelector(".attendance-table");
-    TableToExcel.convert(table, {
-        name: "Attendance.xlsx"
-    });
-}
-
-=======
     console.log({ kek });
     buildTable(kek);
 }
@@ -392,31 +314,12 @@ function cancel() {
 
 
 
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
 url = window.location.href;
 let subid = /\/[\w]+$/.exec(url);
 console.log(subid);
 req(subid);
 
 
-<<<<<<< HEAD
-
-
-/* $(document).ready(function () {
-    $('tbody').scroll(function (e) { //detect a scroll event on the tbody
-        
-    Setting the thead left value to the negative valule of tbody.scrollLeft will make it track the movement
-    of the tbody element. Setting an elements left value to that of the tbody.scrollLeft left makes it maintain 			it's relative position at the left of the table.    
-    
-   $('thead').css("left", -$("tbody").scrollLeft()); //fix the thead relative to the body scrolling
-   $('thead th:nth-child(1)').css("left", $("tbody").scrollLeft()); //fix the first cell of the header
-   $('tbody td:nth-child(1)').css("left", $("tbody").scrollLeft()); //fix the first column of tdbody
-   $('thead th:nth-child(2)').css("left", $("tbody").scrollLeft());
-   $('tbody td:nth-child(2)').css("left", $("tbody").scrollLeft());
-});
-});
- */
-=======
 // $(document).ready(function () {
 //     $('tbody').scroll(function (e) { //detect a scroll event on the tbody
 //         /*
@@ -430,4 +333,3 @@ req(subid);
 //         $('tbody td:nth-child(2)').css("left", $("tbody").scrollLeft());
 //     });
 // });
->>>>>>> 48b3c0d876062cd7fef7401421a067c9a8372c40
