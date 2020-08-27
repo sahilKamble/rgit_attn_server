@@ -85,18 +85,6 @@ subjectRouter.route('/:subjectId/students')
         res.setHeader('Content-Type', 'application/json');
         res.json(students);  
     })
-
-
-
-
-    
-    // .then(subject => Students.find({_id:{$in:subject.students}})
-    // .then(students => {
-    //     res.statusCode = 200;
-    //     res.setHeader('Content-Type', 'application/json');
-    //     res.json(students); 
-    // }, (err) => next(err)))
-    // .catch((err) => next(err));
 })
 .post(isAuth,(req,res,next) => {
     Subjects.update(
@@ -110,5 +98,60 @@ subjectRouter.route('/:subjectId/students')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
+.delete(isAuth,(req,res,next) => {
+    Subjects.update(
+        { _id: req.params.subjectId },
+        { $pull: { students: req.body } }
+     )
+    .then(subject => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(subject); 
+    }, (err) => next(err))
+    .catch((err) => next(err));
+})
+
+
+subjectRouter.route('/:subjectId/shared')
+.get(isAuth,(req,res,next) => {
+    Subjects.findById(req.params.subjectId)
+    .populate('sharedWith')
+    .exec((err, subject) => {
+        if(err) next(err);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(subject);  
+    })
+})
+.post(isAuth,(req,res,next) => {
+    Subjects.findByIdAndUpdate(
+        req.params.subjectId ,
+        { $addToSet: { sharedWith: req.body } },
+        { new : true}
+    )
+    .then(subject => subject.model('User')
+            .updateMany({'_id' : { $in : subject.sharedWith}},  {$addToSet:  { sharedSubjects: subject._id }} )    
+            .then(response => {
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.json(response); 
+            }, (err) => next(err)))
+    .catch((err) => next(err));
+})
+.delete(isAuth,(req,res,next) => {
+    Subjects.findByIdAndUpdate(
+        req.params.subjectId ,
+        { $pull: { sharedWith: req.body } }
+    )
+    .then(subject => subject.model('User')
+            .updateMany({'_id' : { $in : subject.sharedWith}},  {$pull:  { sharedSubjects: subject._id }} )    
+            .then(response => {
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.json(response); 
+            }, (err) => next(err)))
+    .catch((err) => next(err));
+})
+
 
 module.exports = subjectRouter;
