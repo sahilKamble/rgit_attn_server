@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 
 const Absentees = require('../models/absentees');
 const Subjects = require('../models/subjects');
-
+const isAuth = require('./authMiddleware').isAuth;
 const absenteeRouter = express.Router();
 
 absenteeRouter.route('/')
-.get((req,res,next) => {
+.get(isAuth,(req,res,next) => {
     Absentees.find()
     .then((abs) => {
         res.statusCode = 200;
@@ -17,7 +17,7 @@ absenteeRouter.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.post((req, res, next) => {
+.post(isAuth,(req, res, next) => {
     Absentees.create(req.body)
     .then((abs) => {
         res.statusCode = 200;
@@ -28,7 +28,7 @@ absenteeRouter.route('/')
 })
 
 absenteeRouter.route('/:absid') 
-.get((req,res,next) => {
+.get(isAuth,(req,res,next) => {
     Absentees.findById(req.params.absid)
     .then((abs) => {
         res.statusCode = 200;
@@ -37,7 +37,7 @@ absenteeRouter.route('/:absid')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.put((req, res, next) => {
+.put(isAuth,(req, res, next) => {
     Absentees.findByIdAndUpdate(req.params.absid, {
         $set: req.body
     }, { new: true })
@@ -48,8 +48,8 @@ absenteeRouter.route('/:absid')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.delete((req,res,next) => {
-    Absentees.findByIdAndRemove(req.params.absid)
+.delete(isAuth,(req,res,next) => {
+    Absentees.findOneAndDelete(req.params.studentId)
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
@@ -59,7 +59,7 @@ absenteeRouter.route('/:absid')
 });
 
 absenteeRouter.route('/sub/:subid')
-.delete((req,res,next) => {
+.delete(isAuth,(req,res,next) => {
     Absentees.deleteMany({subject : req.params.subid})
     .then((resp) => {
         res.statusCode = 200;
@@ -70,7 +70,7 @@ absenteeRouter.route('/sub/:subid')
 })
 
 absenteeRouter.route('/table/:subid')
-.get((req,res,next) => {
+.get(isAuth,(req,res,next) => {
     Absentees.aggregate([
         {$match: {subject: mongoose.Types.ObjectId(req.params.subid)}},
         {$sort: {'date': 1}}

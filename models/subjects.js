@@ -12,6 +12,11 @@ const subjectSchema = new Schema({
         ref: 'User',
         required: true
     },
+    sharedWith: [{
+        type: Schema.Types.ObjectId, 
+        ref: 'User',
+       
+    }],
     students : [{ type: Schema.Types.ObjectId, ref: 'Student' }]
 });
 
@@ -20,7 +25,11 @@ subjectSchema.post('remove', function(next) {
     console.log(this)
     subject.model('User')
     .findByIdAndUpdate(subject.teacher, {$pull:  { subjects: subject._id }})
-    .then(next)
+    .then( subject.model('User')
+            .updateMany({'_id' : { $in : subject.sharedWith}},  {$pull:  { sharedSubjects: subject._id }} )    
+            .then(next)
+    )
+   
 });
 
 subjectSchema.post('save', function(next) {
@@ -29,8 +38,6 @@ subjectSchema.post('save', function(next) {
     .findByIdAndUpdate(subject.teacher, {$push:  { subjects: subject._id }})
     .then(next)
 });
-
-
 
 const Subjects = mongoose.model('Subject', subjectSchema);
 

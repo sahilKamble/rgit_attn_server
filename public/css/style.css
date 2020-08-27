@@ -52,6 +52,11 @@ h1 {
     background-position: center;
     background-size: cover;
 }
+.bg-update1-image{
+    background: url(../img/update.jpg);
+    background-position:center;
+    background-size: cover;
+}
 
 .bg-register1-image {
     background: url(../img/register.jpg);
