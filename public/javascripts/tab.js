@@ -85,6 +85,18 @@ async function buildTable(data, daily_attn) {
         tableAttn.innerHTML = count;
         entry.appendChild(tableAttn);
         tableBody.appendChild(entry);
+     }
+
+        table = document.querySelector('.table-wrapper');
+        table.classList.remove('hidden');
+        document.querySelector('.button-excel').disabled = false;
+        document.querySelector('.button-edit').disabled = false;
+        document.querySelector('.button-del').disabled = false;
+        if (document.querySelector('.container-fluid').clientWidth < document.querySelector('.attendance-table').clientWidth) {
+            let width = document.querySelector('.container-fluid').clientWidth;
+            document.querySelector('.table-view').clientWidth = width + 'px';
+        } else {
+            $(".table-view").css({ 'width': document.querySelector('.attendance-table').clientWidth + 'px' });
     }
 
     let entry = document.createElement('tr');
