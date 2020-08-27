@@ -4,12 +4,13 @@ const mongoose = require('mongoose');
 
 const Subjects = require('../models/subjects');
 const Students = require('../models/students');
-const Users = require('../models/user')
+const Users = require('../models/user');
+const { isAuth } = require('./authMiddleware');
 
 const subjectRouter = express.Router();
 
 subjectRouter.route('/')
-.get((req,res,next) => {
+.get(isAuth,(req,res,next) => {
     Subjects.find(req.query)
     .then((subjects) => {
         res.statusCode = 200;
@@ -18,7 +19,7 @@ subjectRouter.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.post((req,res,next) => {
+.post(isAuth,(req,res,next) => {
     Subjects.create(req.body)
     .then((subject) => {
         res.statusCode = 200;
@@ -27,7 +28,7 @@ subjectRouter.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.delete((req, res, next) => {
+.delete(isAuth,(req, res, next) => {
     Subjects.deleteMany(req.query)
     .then((resp) => {
         res.statusCode = 200;
@@ -38,7 +39,7 @@ subjectRouter.route('/')
 });
 
 subjectRouter.route('/:subjectId')
-.get((req,res,next) => {
+.get(isAuth,(req,res,next) => {
     Subjects.findById(req.params.subjectId)
     .then((subjects) => {
         res.statusCode = 200;
@@ -47,11 +48,11 @@ subjectRouter.route('/:subjectId')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.post((req, res, next) => {
+.post(isAuth,(req, res, next) => {
     res.statusCode = 403;
     res.end('POST operation not supported on /subjects/'+ req.params.subjectId);
 })
-.put((req,res,next) => {
+.put(isAuth,(req,res,next) => {
     Subjects.findByIdAndUpdate(req.params.subjectId, {
         $set: req.body
     }, { new: true})
@@ -62,7 +63,7 @@ subjectRouter.route('/:subjectId')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.delete((req,res,next) => {
+.delete(isAuth,(req,res,next) => {
     Subjects.findById(req.params.subjectId)
     .then(subject => 
         subject.remove()
@@ -75,7 +76,7 @@ subjectRouter.route('/:subjectId')
 });
 
 subjectRouter.route('/:subjectId/students')
-.get((req,res,next) => {
+.get(isAuth,(req,res,next) => {
     Subjects.findById(req.params.subjectId)
     .populate('students')
     .exec((err, students) => {
@@ -84,20 +85,8 @@ subjectRouter.route('/:subjectId/students')
         res.setHeader('Content-Type', 'application/json');
         res.json(students);  
     })
-
-
-
-
-    
-    // .then(subject => Students.find({_id:{$in:subject.students}})
-    // .then(students => {
-    //     res.statusCode = 200;
-    //     res.setHeader('Content-Type', 'application/json');
-    //     res.json(students); 
-    // }, (err) => next(err)))
-    // .catch((err) => next(err));
 })
-.post((req,res,next) => {
+.post(isAuth,(req,res,next) => {
     Subjects.update(
         { _id: req.params.subjectId },
         { $addToSet: { students: req.body } }
@@ -109,5 +98,60 @@ subjectRouter.route('/:subjectId/students')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
+.delete(isAuth,(req,res,next) => {
+    Subjects.update(
+        { _id: req.params.subjectId },
+        { $pull: { students: req.body } }
+     )
+    .then(subject => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(subject); 
+    }, (err) => next(err))
+    .catch((err) => next(err));
+})
+
+
+subjectRouter.route('/:subjectId/shared')
+.get(isAuth,(req,res,next) => {
+    Subjects.findById(req.params.subjectId)
+    .populate('sharedWith')
+    .exec((err, subject) => {
+        if(err) next(err);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(subject);  
+    })
+})
+.post(isAuth,(req,res,next) => {
+    Subjects.findByIdAndUpdate(
+        req.params.subjectId ,
+        { $addToSet: { sharedWith: req.body } },
+        { new : true}
+    )
+    .then(subject => subject.model('User')
+            .updateMany({'_id' : { $in : subject.sharedWith}},  {$addToSet:  { sharedSubjects: subject._id }} )    
+            .then(response => {
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.json(response); 
+            }, (err) => next(err)))
+    .catch((err) => next(err));
+})
+.delete(isAuth,(req,res,next) => {
+    Subjects.findByIdAndUpdate(
+        req.params.subjectId ,
+        { $pull: { sharedWith: req.body } }
+    )
+    .then(subject => subject.model('User')
+            .updateMany({'_id' : { $in : subject.sharedWith}},  {$pull:  { sharedSubjects: subject._id }} )    
+            .then(response => {
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.json(response); 
+            }, (err) => next(err)))
+    .catch((err) => next(err));
+})
+
 
 module.exports = subjectRouter;
