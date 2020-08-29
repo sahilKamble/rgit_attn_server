@@ -94,7 +94,10 @@ subjectRouter.route('/:subjectId/students')
             }
         },
         {
-            $sort:{'student.roll':1 , 'student.div':1}
+            $sort:{'student.roll':1 }
+        },
+        {
+            $sort:{'student.div':1}
         },
         {
             $unwind : '$student'
@@ -107,10 +110,6 @@ subjectRouter.route('/:subjectId/students')
                 "students": { $push: "$student" }
             }
         }
-
-        // {
-        //     $sort:{'student.div':1}
-        // },
     ])
 
     // Subjects.find( )
