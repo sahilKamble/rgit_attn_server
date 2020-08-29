@@ -77,13 +77,56 @@ subjectRouter.route('/:subjectId')
 
 subjectRouter.route('/:subjectId/students')
 .get(isAuth,(req,res,next) => {
-    Subjects.findById(req.params.subjectId)
-    .populate('students')
-    .exec((err, students) => {
-        if(err) next(err);
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.json(students);  
+
+    Subjects.aggregate([
+        {
+            $match: { _id: mongoose.Types.ObjectId(req.params.subjectId)}
+        },
+        {
+            $unwind : '$students'
+        },
+        {
+            $lookup: {
+                'from' : 'students',
+                'localField' : 'students',
+                'foreignField' : '_id',
+                'as' : 'student' 
+            }
+        },
+        {
+            $sort:{'student.roll':1 , 'student.div':1}
+        },
+        {
+            $unwind : '$student'
+        },
+        {
+            $group : {
+                _id : "$_id",
+                "name": { $first : "$name" },
+                "teacher": { $first : "$teacher" },
+                "students": { $push: "$student" }
+            }
+        }
+
+        // {
+        //     $sort:{'student.div':1}
+        // },
+    ])
+
+    // Subjects.find( )
+    // .populate('students')
+    .then(subjects => {
+        if(subjects.length === 0) {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.json(students);
+        }
+        else {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.json(subjects[0]);
+        }
+          
     })
 })
 .post(isAuth,(req,res,next) => {
