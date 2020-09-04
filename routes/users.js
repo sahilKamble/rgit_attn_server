@@ -83,7 +83,7 @@ router.route('/me')
 .get(cors.corsWithOptions,isAuth, (req, res, next) => {
 
     User.findById(req.user._id)
-        .populate('subjects')
+        .populate('subjects','name')
         .then((user) => {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
