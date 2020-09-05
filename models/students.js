@@ -17,7 +17,7 @@ const studentSchema = new Schema({
     dept: {
         type: String
     }
-});
+},{ timestamps: true});
 
 const Students = mongoose.model('Student',studentSchema);
 

@@ -118,7 +118,7 @@ subjectRouter.route('/:subjectId/students')
         if(subjects.length === 0) {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
-            res.json(students);
+            res.json(subjects);
         }
         else {
             res.statusCode = 200;
