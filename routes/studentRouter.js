@@ -22,14 +22,36 @@ studentRouter.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.post(isAuth,(req,res,next) => {
-    Students.create(req.body)
-    .then((subject) => {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.json(subject);
-    }, (err) => next(err))
-    .catch((err) => next(err));
+.post(isAuth, (req,res,next) => {
+    //console.log(req.body);
+    for(var key in req.body) {
+        //console.log(req.body[key].roll); 
+        Students.findOne({
+                $and: [
+                    {roll : (req.body[key].roll).toString()  },
+                    { div : (req.body[key].div).toString() }
+                ]
+            })
+            .then((student) => {
+                if(student){
+                    console.log("PRESENT");
+                }else{
+                    console.log("not present");
+                    Students.create(req.body[key])
+                    .then((subject) => {
+                        res.statusCode = 200;
+                        res.setHeader('Content-Type', 'application/json');
+                        res.json(subject);
+                    }, (err) => next(err))
+                    .catch((err) => next(err));
+
+
+                }
+            })
+
+    }
+
+
 })
 .put(isAuth,(req, res, next) => {
     res.statusCode = 403;
