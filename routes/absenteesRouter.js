@@ -71,10 +71,13 @@ absenteeRouter.route('/sub/:subid')
 
 absenteeRouter.route('/table/:subid')
 .get(isAuth,(req,res,next) => {
-    Absentees.aggregate([
-        {$match: {subject: mongoose.Types.ObjectId(req.params.subid)}},
-        {$sort: {'date': 1}}
-    ])
+    Absentees.find({'subject':req.params.subid})
+    .sort({'date': 1})
+    .exec()
+    // Absentees.aggregate([
+    //     {$match: {subject: mongoose.Types.ObjectId(req.params.subid)}},
+    //     {$sort: {'date': 1}}
+    // ])
     .then(docs => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
