@@ -1,5 +1,12 @@
 var list = [];
 var subject;
+var gotUsers = false
+
+url = window.location.href;
+var subid = /\/[\w]+$/.exec(url);
+console.log(subid);
+req(subid);
+
 
 function toTitleCase(str) {
     return str.replace(
@@ -372,12 +379,42 @@ function cancel() {
     rebulidtable();
 }
 
+async function share() {
+    if(!gotUsers) {
+        let req = await fetch("/users/names")
+        let resp = await req.json();
+        console.log(resp)
+        let users = document.querySelector('#userlist');
+        for (user of resp) {
+            let entry = document.createElement("a");
+            let subspan = document.createElement("span");
+            entry.className = "row user list-group-item list-group-item-action";
+            subspan.className = "col";
+            subspan.innerHTML = user.username;
+            //entry.innerHTML = subject.name;
+            // entry.setAttribute('onClick', 'shareto()');
+            entry.setAttribute('aria-label', user._id)
+            entry.appendChild(subspan);
+            users.appendChild(entry);
+        }
+        gotUsers = true;
+        var userids = document.querySelectorAll(".user");
+        
+        for(var i = 0; i < userids.length; i++){
+            userids[i].addEventListener("click", async function(e){
+                uid = this.getAttribute("aria-label");
+                let url = '/subjects'+ subid + '/shared/' + uid
+                console.log(url)
+                const response = await fetch(url, {
+                method: 'POST', 
+                });
+                alert("Subject shared")
+            });     
+        }
+    }
+}
 
 
-url = window.location.href;
-let subid = /\/[\w]+$/.exec(url);
-console.log(subid);
-req(subid);
 
 
 // $(document).ready(function () {

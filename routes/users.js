@@ -8,6 +8,18 @@ const isAdmin = require('./authMiddleware').isAdmin;
 const router = require('express').Router();
 const cors = require('./cors');
 
+router.route('/names')
+.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.get((req, res, next) => {
+    User.find(req.query, "username")
+        .then((user) => {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.json(user);
+        }, (err) => next(err))
+        .catch((err) => next(err));
+})
+
 router.route('/')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get((req, res, next) => {
@@ -91,6 +103,22 @@ router.route('/me')
         })
 
 })
+
+router.route('/shared')
+.get(isAuth, (req,res,next) => {
+    User.findById(req.user._id)
+    .populate('sharedSubjects', "name")
+    .exec()
+    .then((user) => {
+        
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(user);
+       
+    })
+    .catch((err) => next(err));
+}) 
+
 
 router.route('/select')
 .get((req, res, next) => {
@@ -205,6 +233,16 @@ router.get('/attn/:subid' , (req,res,next) => {
         res.send(text);
     });
 })
+
+router.get('/sharedattn/:subid' , (req,res,next) => {
+    dir = path.join(__dirname, '../public/sharedtable.html');
+    fs.readFile(dir, 'utf8', (err, text) => {
+        res.send(text);
+    });
+})
+router.route('/logout')
+
+
 router.route('/logout')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get(cors.corsWithOptions,(req, res, next) => {

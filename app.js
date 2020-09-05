@@ -13,8 +13,8 @@ const fs = require('fs');
 var compression = require('compression')
 
 mongoose.set('useUnifiedTopology', true);
-// const url = 'mongodb://localhost:27017/rgitAttn';
-const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
+const url = 'mongodb://localhost:27017/rgitAttn';
+//const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
 const connect = mongoose.connect(url, { useNewUrlParser: true });
 
 connect.then((db) => {
