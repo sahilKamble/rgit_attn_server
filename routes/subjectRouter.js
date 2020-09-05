@@ -154,7 +154,7 @@ subjectRouter.route('/:subjectId/students')
 })
 
 
-subjectRouter.route('/:subjectId/shared')
+subjectRouter.route('/:subjectId/shared/:userid')
 .get(isAuth,(req,res,next) => {
     Subjects.findById(req.params.subjectId)
     .populate('sharedWith')
@@ -168,7 +168,7 @@ subjectRouter.route('/:subjectId/shared')
 .post(isAuth,(req,res,next) => {
     Subjects.findByIdAndUpdate(
         req.params.subjectId ,
-        { $addToSet: { sharedWith: req.body } },
+        { $addToSet: { sharedWith: req.params.userid } },
         { new : true}
     )
     .then(subject => subject.model('User')

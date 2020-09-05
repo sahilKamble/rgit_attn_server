@@ -3,15 +3,15 @@ req.open("GET", "/users/me");
 req.send();
 req.onload = function() {
     if (req.status === 200) {
-        let subjectList = document.querySelector('.list-group');
-        var jsonObj = JSON.parse(req.responseText);
+        let subjectList = document.querySelector('#subjlist');
+        let jsonObj = JSON.parse(req.responseText);
         const name = document.querySelector('#name');
-        console.log(jsonObj);
+      
         const uname = document.createTextNode(jsonObj.username);
         name.appendChild(uname);
         let subjects = jsonObj.subjects;
         for (subject of subjects) {
-            console.log(subject.name);
+            
             let entry = document.createElement("a");
             let tabico = document.createElement("i");
             let subspan = document.createElement("span");
@@ -36,6 +36,34 @@ req.onload = function() {
         addentry.appendChild(addico);
         addentry.appendChild(addspan);
         subjectList.appendChild(addentry);
+    }
+}
+
+let req2 = new XMLHttpRequest();
+req2.open("GET", "/users/shared");
+req2.send();
+req2.onload = function() {
+    if (req2.status === 200) {
+        let subjectList = document.querySelector('#sharedlist');
+        let jsonObj2 = JSON.parse(req2.responseText);
+      
+        
+        let subjects = jsonObj2.sharedSubjects;
+        for (subject of subjects) {
+           
+            let entry = document.createElement("a");
+            let tabico = document.createElement("i");
+            let subspan = document.createElement("span");
+            entry.className = "row list-group-item list-group-item-action";
+            subspan.className = "col";
+            tabico.className = "col-1 fas fa-table";
+            subspan.innerHTML = subject.name;
+            //entry.innerHTML = subject.name;
+            entry.setAttribute('href', '/users/sharedattn/' + subject._id);
+            entry.appendChild(tabico);
+            entry.appendChild(subspan);
+            subjectList.appendChild(entry);
+        }
     }
 }
 
