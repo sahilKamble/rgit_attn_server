@@ -10,7 +10,9 @@ function toTitleCase(str) {
     );
 }
 
-async function buildTable(data) {
+async function buildTable(data,daily_attn) {
+
+    
     let tableHeader = document.querySelector(".table-header");
     let tableBody = document.querySelector(".table-body");
 
@@ -41,8 +43,12 @@ async function buildTable(data) {
     tableTotal.className = "colm";
     tableTotal.innerHTML = "Total/" + lect;
     tableHeader.appendChild(tableTotal);
-
+    
+  
+ 
+   
     for (student_info of data) {
+        
         const roll = student_info.student.roll;
         const name = student_info.student.name;
         const div = student_info.student.div;
@@ -54,16 +60,25 @@ async function buildTable(data) {
         tableName.innerHTML = toTitleCase(name);
         entry.appendChild(tableName);
         let tableRoll = document.createElement("td");
-        tableRoll.className = "colm";
+        tableRoll.className = "collg";
         tableRoll.innerHTML = div + roll;
         entry.appendChild(tableRoll);
+        
+       
+
+
         var count = 0;
+       
         for (attn of student_info.attn) {
+            
 
             const s = attn.present ? "P" : "A";
             if (attn.present) {
-                count++;
+                count++; 
+                                                    
             }
+            
+            
             let tableAttn = document.createElement("td");
             tableAttn.className = "colm attn";
             // this is attn or abslist id something
@@ -75,12 +90,43 @@ async function buildTable(data) {
             entry.appendChild(tableAttn);
 
         }
+        
+
+
         let tableAttn = document.createElement("td");
         tableAttn.className = "colm";
         tableAttn.innerHTML = count;
         entry.appendChild(tableAttn);
         tableBody.appendChild(entry);
-     }
+
+    
+    
+
+    }
+
+      let entry = document.createElement("tr");
+      entry.className = "table-row";
+      let dailyattn = document.createElement("td");
+      dailyattn.className = "table-row";
+      dailyattn.innerHTML = "Daily Attendance";
+      entry.appendChild(dailyattn);
+      tableBody.appendChild(entry);
+
+      let troll = document.createElement("td");
+      troll.className = "table-row";
+      troll.innerHTML = `Strength ${data.length}`;
+      entry.appendChild(troll);
+      tableBody.appendChild(entry);
+      
+      for(ss=0;ss<daily_attn.length;ss++){
+        
+        let dattn = document.createElement("td");
+        dattn.className = "table-row";
+        dattn.innerHTML = daily_attn[ss];
+        entry.appendChild(dattn);
+        tableBody.appendChild(entry);
+    }
+
 
         table = document.querySelector('.table-wrapper');
         table.classList.remove('hidden');
@@ -99,6 +145,7 @@ async function buildTable(data) {
 
 async function req(sid) {
     let kek = [];
+    let daily_attn = [];
     let url = '/subjects' + sid + '/students';
 
     // let me = await fetch('https://attn-server.herokuapp.com/users/me');
@@ -128,12 +175,16 @@ async function req(sid) {
 
     let attn = await fetch('/abs/table' + sid);
     let days = await attn.json();
-    // console.log(days);
+   console.log('yyyyyy'+days);
+  
+
+   var m=0;
     for (day of days) {
         let abs = day.absentStudents;
         let date = day.date;
         let id = day._id;
 
+         var v = 0;
         for (student of kek) {
             let present = true;
             for (absent of abs) {
@@ -144,6 +195,8 @@ async function req(sid) {
                         "id": id
                     })
                     present = false;
+
+                    
                 }
             }
 
@@ -153,12 +206,19 @@ async function req(sid) {
                     "present": true,
                     "id": id
                 })
+                   v = v + 1;
+                 daily_attn[m] = v;
+                  
             }
+            
         }
+        m=m+1
     }
 
+    console.log('check this'+daily_attn);
+
     console.log({ kek });
-    buildTable(kek);
+    buildTable(kek,daily_attn);
 }
 
 function convert() {
