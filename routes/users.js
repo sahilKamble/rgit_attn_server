@@ -90,6 +90,13 @@ router.get('/dash', (req, res, next) => {
     });
 });
 
+router.get('/addsub', (req, res, next) => {
+    dir = path.join(__dirname, '../public/try.html');
+    fs.readFile(dir, 'utf8', (err, text) => {
+        res.send(text);
+    });
+});
+
 router.route('/me')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get(cors.corsWithOptions,isAuth, (req, res, next) => {
