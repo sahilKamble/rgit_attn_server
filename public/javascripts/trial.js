@@ -1,4 +1,5 @@
 var list = [];
+var d;
 function handleFile(e) {
   var files = e.target.files,
     f = files[0];
@@ -17,7 +18,7 @@ function handleFile(e) {
         name: student.name,
         roll: student.roll,
         div: student.div,
-        dept: student.dept,
+        dept: d,
       };
       list.push(abc);
     }
@@ -41,3 +42,16 @@ async function addstud() {
 }
 let xl = document.querySelector("#xlf");
 xl.addEventListener("change", handleFile, false);
+
+function ShowAndHide() {
+  var sub = document.querySelector('#inlineFormCustomSelect');
+  d = sub.options[sub.selectedIndex].value;
+  console.log(sub.options[sub.selectedIndex].value)
+var x = document.getElementById('SectionName');
+if(d !="Department"){
+    x.style.display='block';
+}
+else{
+    x.style.display='none';
+}
+}
