@@ -48,6 +48,11 @@ req2.onload = function () {
         let jsonObj2 = JSON.parse(req2.responseText);
 
         let subjects = jsonObj2.sharedSubjects;
+
+        if (subjects.length != 0) {
+            document.querySelector('#sharedhead').hidden = false;
+        }
+
         for (subject of subjects) {
             let entry = document.createElement('a');
             let tabico = document.createElement('i');

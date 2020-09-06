@@ -19,6 +19,7 @@ function handleFile(e) {
                 roll: student.roll,
                 div: student.div,
                 dept: d,
+                z,
             };
             list.push(abc);
         }
@@ -32,7 +33,6 @@ function handleFile(e) {
     };
     reader.readAsArrayBuffer(f);
 }
-
 async function addstud() {
     if (list) {
         let request = new XMLHttpRequest();
@@ -43,15 +43,3 @@ async function addstud() {
 }
 let xl = document.querySelector('#xlf');
 xl.addEventListener('change', handleFile, false);
-
-function ShowAndHide() {
-    var sub = document.querySelector('#inlineFormCustomSelect');
-    d = sub.options[sub.selectedIndex].value;
-    console.log(sub.options[sub.selectedIndex].value);
-    var x = document.getElementById('SectionName');
-    if (d != 'Department') {
-        x.style.display = 'block';
-    } else {
-        x.style.display = 'none';
-    }
-}

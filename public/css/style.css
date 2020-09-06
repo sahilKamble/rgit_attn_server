@@ -52,9 +52,9 @@ h1 {
     background-position: center;
     background-size: cover;
 }
-.bg-update1-image{
+.bg-update1-image {
     background: url(../img/update.jpg);
-    background-position:center;
+    background-position: center;
     background-size: cover;
 }
 
@@ -107,3 +107,23 @@ h1 {
     margin-left: 1rem;
     margin-bottom: 1rem;
 }
+
+.form-row {
+    width: 400px;
+}
+
+.sub {
+    opacity: 0.2;
+}
+
+.inst {
+    display: inline-block;
+}
+/* 
+.upload-button {
+    background-color: lightgray;
+    color: black;
+    border: 1px solid black;
+    border-radius: 2px;
+} */
+
