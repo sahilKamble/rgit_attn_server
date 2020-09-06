@@ -13,13 +13,13 @@ function handleFile(e) {
         /* DO SOMETHING WITH workbook HERE */
         var wsj = XLSX.utils.sheet_to_json(workbook.Sheets[sheetsList[0]]);
         //console.log(wsj);
+        ShowAndHide();
         for (student of wsj) {
             let abc = {
                 name: student.name,
                 roll: student.roll,
                 div: student.div,
                 dept: d,
-                z,
             };
             list.push(abc);
         }
@@ -43,3 +43,10 @@ async function addstud() {
 }
 let xl = document.querySelector('#xlf');
 xl.addEventListener('change', handleFile, false);
+
+function ShowAndHide() {
+    var sub = document.querySelector('#inlineFormCustomSelect');
+    d = sub.options[sub.selectedIndex].value;
+    console.log(sub.options[sub.selectedIndex].value)
+  
+  }
