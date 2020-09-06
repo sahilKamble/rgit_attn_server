@@ -4,13 +4,12 @@
 
 var production = true;
 var subjects = {};
-var tableHeader = document.querySelector(".table-header");
-var tableBody = document.querySelector(".table-body");
+var tableHeader = document.querySelector('.table-header');
+var tableBody = document.querySelector('.table-body');
 let request1 = new XMLHttpRequest();
-request1.open("GET", "https://attn-server.herokuapp.com/subjects");
+request1.open('GET', 'https://attn-server.herokuapp.com/subjects');
 request1.send();
 request1.onload = () => {
-
     if (request1.status === 200) {
         var jsonObj = JSON.parse(request1.responseText);
         // console.log(jsonObj1);
@@ -18,32 +17,29 @@ request1.onload = () => {
         for (subject of jsonObj) {
             if (!production || !subject.name.includes('test')) {
                 subjects[subject.name] = subject._id;
-                var option = document.createElement("option");
-                option.classList.add("item");
-                option.setAttribute("value", "item-" + i++);
+                var option = document.createElement('option');
+                option.classList.add('item');
+                option.setAttribute('value', 'item-' + i++);
                 var node = document.createTextNode(subject.name);
                 option.appendChild(node);
-                var element = document.getElementById("subjects");
+                var element = document.getElementById('subjects');
                 element.appendChild(option);
             }
         }
         console.log(subjects);
     }
-}
+};
 
 function toTitleCase(str) {
-    return str.replace(
-        /\w\S*/g,
-        function (txt) {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        }
-    );
+    return str.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
 }
 
 async function req(sid) {
-    const url2 = "https://attn-server.herokuapp.com/attn/table/" + sid;
+    const url2 = 'https://attn-server.herokuapp.com/attn/table/' + sid;
 
-    document.querySelector(".show-attendance").disabled = true;
+    document.querySelector('.show-attendance').disabled = true;
     console.log(tableHeader);
     // console.log(studentsurl + sid + "/students");
     // let resp = await fetch(studentsurl + sid + "/students");
@@ -53,34 +49,33 @@ async function req(sid) {
     //     .sort((a, b) => a.roll - b.roll)
     //     .sort((a, b) => a.div - b.div);
 
-
-    let tableName = document.createElement("th");
-    tableName.className = "col";
-    tableName.innerHTML = "Name";
+    let tableName = document.createElement('th');
+    tableName.className = 'col';
+    tableName.innerHTML = 'Name';
     tableHeader.appendChild(tableName);
 
-    let tableRoll = document.createElement("th");
-    tableRoll.className = "col";
-    tableRoll.innerHTML = "Roll No.";
+    let tableRoll = document.createElement('th');
+    tableRoll.className = 'col';
+    tableRoll.innerHTML = 'Roll No.';
     tableHeader.appendChild(tableRoll);
 
     let res = await fetch(url2);
     let data = await res.json();
     for (attn of data[0].attn) {
-        let tableRoll = document.createElement("th");
-        tableRoll.className = "col attn";
+        let tableRoll = document.createElement('th');
+        tableRoll.className = 'col attn';
         let d = new Date(attn.date);
         // console.log(d);
         tableRoll.innerHTML = d.toLocaleString('en-US', {
-            timeStyle: "short",
-            dateStyle: "short"
+            timeStyle: 'short',
+            dateStyle: 'short',
         });
         tableHeader.appendChild(tableRoll);
     }
     let lect = data[0].attn.length;
-    let tableTotal = document.createElement("th");
-    tableTotal.className = "col attn";
-    tableTotal.innerHTML = "Total/" + lect;
+    let tableTotal = document.createElement('th');
+    tableTotal.className = 'col attn';
+    tableTotal.innerHTML = 'Total/' + lect;
     tableHeader.appendChild(tableTotal);
 
     for (student_info of data) {
@@ -91,34 +86,32 @@ async function req(sid) {
         // let res = await fetch(attnurl + sid + "/" + id);
         // let attns = await res.json();
         // // console.log(attns)
-        let entry = document.createElement("tr");
-        entry.className = "table-row";
-        let tableName = document.createElement("td");
-        tableName.className = "col name";
+        let entry = document.createElement('tr');
+        entry.className = 'table-row';
+        let tableName = document.createElement('td');
+        tableName.className = 'col name';
         tableName.innerHTML = toTitleCase(name);
         entry.appendChild(tableName);
-        let tableRoll = document.createElement("td");
-        tableRoll.className = "col";
+        let tableRoll = document.createElement('td');
+        tableRoll.className = 'col';
         tableRoll.innerHTML = div + roll;
         entry.appendChild(tableRoll);
         // document.write(roll+ "  " + name + "  ");
         var count = 0;
         for (attn of student_info.attn) {
-
             // console.log(attn.date)
-            const s = attn.present ? "P" : "A";
+            const s = attn.present ? 'P' : 'A';
             if (attn.present) {
                 count++;
             }
-            let tableAttn = document.createElement("td");
-            tableAttn.className = "col";
+            let tableAttn = document.createElement('td');
+            tableAttn.className = 'col';
             tableAttn.innerHTML = s;
             entry.appendChild(tableAttn);
             // document.write(s + ' ');
-
         }
-        let tableAttn = document.createElement("td");
-        tableAttn.className = "col";
+        let tableAttn = document.createElement('td');
+        tableAttn.className = 'col';
         tableAttn.innerHTML = count;
         entry.appendChild(tableAttn);
         tableBody.appendChild(entry);
@@ -126,9 +119,8 @@ async function req(sid) {
     }
 
     table.classList.remove('hidden');
-    document.querySelector(".show-attendance").disabled = false;
+    document.querySelector('.show-attendance').disabled = false;
     document.querySelector('.button-excel').disabled = false;
-
 }
 
 function show() {
@@ -142,7 +134,6 @@ function show() {
     if (sub.selectedIndex == 0) {
         table.classList.add('hidden');
         document.querySelector('.button-excel').disabled = true;
-
     } else {
         table.classList.add('hidden');
         document.querySelector('.button-excel').disabled = true;
@@ -151,23 +142,24 @@ function show() {
 }
 
 function convert() {
-    let table = document.querySelector(".attendance-table");
+    let table = document.querySelector('.attendance-table');
     console.log(table);
     TableToExcel.convert(table, {
-        name: "Attendance.xlsx"
+        name: 'Attendance.xlsx',
     });
 }
 
 $(document).ready(function () {
-    $('tbody').scroll(function (e) { //detect a scroll event on the tbody
+    $('tbody').scroll(function (e) {
+        //detect a scroll event on the tbody
         /*
     Setting the thead left value to the negative valule of tbody.scrollLeft will make it track the movement
     of the tbody element. Setting an elements left value to that of the tbody.scrollLeft left makes it maintain 			it's relative position at the left of the table.    
     */
-        $('thead').css("left", -$("tbody").scrollLeft()); //fix the thead relative to the body scrolling
-        $('thead th:nth-child(1)').css("left", $("tbody").scrollLeft()); //fix the first cell of the header
-        $('tbody td:nth-child(1)').css("left", $("tbody").scrollLeft()); //fix the first column of tdbody
-        $('thead th:nth-child(2)').css("left", $("tbody").scrollLeft());
-        $('tbody td:nth-child(2)').css("left", $("tbody").scrollLeft());
+        $('thead').css('left', -$('tbody').scrollLeft()); //fix the thead relative to the body scrolling
+        $('thead th:nth-child(1)').css('left', $('tbody').scrollLeft()); //fix the first cell of the header
+        $('tbody td:nth-child(1)').css('left', $('tbody').scrollLeft()); //fix the first column of tdbody
+        $('thead th:nth-child(2)').css('left', $('tbody').scrollLeft());
+        $('tbody td:nth-child(2)').css('left', $('tbody').scrollLeft());
     });
 });
