@@ -12,10 +12,9 @@ document.querySelector('.login').addEventListener('keyup', () => {
     } else {
         document.querySelector('.form-submit').disabled = false;
     }
-})
+});
 
 document.addEventListener('submit', async function (event) {
-
     event.preventDefault();
     let form = {};
     console.log(event.target);
@@ -29,21 +28,21 @@ document.addEventListener('submit', async function (event) {
     let myHeaders = new Headers(httpHeaders);
     let data = {
         username: form.user.trim(),
-        password: form.pass.trim()
-    }
+        password: form.pass.trim(),
+    };
     var err = document.querySelector('.error');
     let res = await fetch(url, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         headers: myHeaders,
         redirect: 'follow', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
-    })
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
     let resData = res;
     console.log(resData.status);
-    if(resData.status != 200) {
+    if (resData.status != 200) {
         err.classList.remove('hidden');
     } else {
-        window.location.href = "/users/dash";
+        window.location.href = '/users/dash';
     }
 });
