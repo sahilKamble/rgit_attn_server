@@ -115,7 +115,7 @@ router.get('/dash', (req, res, next) => {
 });
 
 router.get('/addsub', (req, res, next) => {
-    dir = path.join(__dirname, '../public/try.html');
+    dir = path.join(__dirname, '../public/addStudents.html');
     fs.readFile(dir, 'utf8', (err, text) => {
         res.send(text);
     });
