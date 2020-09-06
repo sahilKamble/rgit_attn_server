@@ -13,9 +13,7 @@
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -47,10 +45,10 @@
         <a class="nav-link" href="/users/dash">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
-          
+
       </li>
       <!--tryin to put buttons for upload and submit-->
-       
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -107,7 +105,6 @@
             <i class="fa fa-bars"></i>
           </button>
 
-
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
@@ -132,9 +129,7 @@
                 </a>
               </div>
             </li>
-
           </ul>
-
         </nav>
         <!-- End of Topbar -->
 
@@ -142,64 +137,47 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            
-          </div> -->
-          <form>
-            <div class="form-row align-items-center">
-              <div class="col-auto my-1">
-                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                <select class="form-control" id="inlineFormCustomSelect" onChange="ShowAndHide()">
-                  <option selected onChange="hide()">Department</option>
-                  <option value="Computers">Computer</option>
-                  <option value="">IT</option>
-                  <option value="">Mechanical</option>
-                  <option value="">EXTC</option>
-                  <option value="">Instrumentation</option>
-                  <option value="">First Year</option>
-                </select>
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Upload Students</h1>
+          </div>
+
+          <div class="form-row align-items-center card shadow">
+            <div class="col-auto my-1 card-body">
+              <label class="mr-sm-2" for="inlineFormCustomSelect">Department</label>
+              <select class="form-control mb-4" id="inlineFormCustomSelect">
+                <option value="Computers">Computer</option>
+                <option value="EXTC">EXTC</option>
+                <option value="IT">IT</option>
+                <option value="Instrumentation">Instrumentation</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="First Year">First Year</option>
+              </select>
+
+              <div class="upload">
+                <input class="form-control-file mb-3" type="file" name="xlfile" id="xlf">
+                <button class="btn btn-primary upload-button" onclick="addstud()">Upload</button>
               </div>
             </div>
-          </form><br>
-          <div id="SectionName" style="display:none">    
-            <input type="file" name="xlfile" id="xlf"><br><br>   
-            <script src="javascripts/trial.js"></script>
-            <script src="javascripts/xlsx.full.min.js"></script>
-            <button onclick="addstud()">Submit</button>
           </div>
-  
-            <!-- <div class="row">
-            <div class="col">
-              <h5>Instructions for uploading</h5>
-              <div ></div>
-            </div>
-          </div> -->
+
           <div>
-            <br><br><h5>INSTRUCTIONS FOR UPLOADING</h5><hr>
-          <ol>  
-            <li>Click on "choose file" button</li><hr class="sub">
-            <li>Select the .xlsx file you want to upload</li><hr class ="sub">
-            <li>the .xlsx file should have the following column heads:<br>div(for division)<br>roll(for roll number)<br>name(for student name)<br>dept(for department)</li><hr class="sub">
-            <li>for example:<br><img  class ="eg" src="img\example.PNG"> </li><hr class ="sub">
-            <li>now click on "submit" button</li><hr class ="sub">
-          </ol>
-          </div>
-          <!-- <div class="row">
-            <div class="col-lg-4">
-              <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="img/addClass.png" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Create class</h5>
-                  <p class="card-text">To create a new class or add students to your class.
-                  </p>
-                  <a href="addClass.html" class="btn btn-primary">Add</a>
-                </div>
-              </div>
+            <h3 class="h3 mb-0 text-gray-800 mt-5 mb-4">Instructions for Uploading</h3>
+            <div class="inst">
+              <ol>
+                <li>Click on "choose file" button</li>
+                <hr class="sub">
+                <li>Select the .xlsx file you want to upload</li>
+                <hr class="sub">
+                <li>The .xlsx file should have the following column heads:<br>div(for division)<br>roll(for
+                  roll
+                  number)<br>name(for student name - firstname lastname of gsuite account)</li>
+                <hr class="sub">
+                <li>For example:<br><img class="eg" src="img\example.PNG"> </li>
+                <hr class="sub">
+                <li>Now click on "submit" button</li>
+              </ol>
             </div>
-
-          </div> -->
-
+          </div>
         </div>
         <!-- End of Main Content -->
 
@@ -210,8 +188,9 @@
                   <span>Copyright &copy; Rgit-Attendance</span>
               </div>
           </div>
-      </footer>
-      <!-- End of Footer -->
+        </footer>
+
+        <!-- End of Footer -->
 
       </div>
       <!-- End of Content Wrapper -->
@@ -248,16 +227,13 @@
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-    <script src="javascripts/dash.js"></script>
-
-
-
+    <script src="javascripts/getUsername.js"></script>
+    <script src="javascripts/addStudents.js"></script>
+    <script src="javascripts/xlsx.full.min.js"></script>
 </body>
 
 </html>
