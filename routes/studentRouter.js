@@ -26,20 +26,27 @@ studentRouter
             )
             .catch((err) => next(err));
     })
-    .post(isAuth, (req, res, next) => {
-        //console.log(req.body);
-        for (var key in req.body) {
-            //console.log(req.body[key].roll);
+    .post((req, res, next) => {
+        for (let key in req.body) {
             Students.findOne({
                 $and: [
                     { roll: req.body[key].roll.toString() },
                     { div: req.body[key].div.toString() },
+                    { dept: req.body[key].dept.toString() },
                 ],
             }).then((student) => {
                 if (student) {
-                    console.log('PRESENT');
+                    console.log(
+                        'PRESENT',
+                        req.body[key].name,
+                        req.body[key].roll
+                    );
                 } else {
-                    console.log('not present');
+                    console.log(
+                        'NOT PRESENT',
+                        req.body[key].name,
+                        req.body[key].roll
+                    );
                     Students.create(req.body[key])
                         .then(
                             (subject) => {
@@ -48,7 +55,7 @@ studentRouter
                                     'Content-Type',
                                     'application/json'
                                 );
-                                res.json(subject);
+                                // res.json(subject);
                             },
                             (err) => next(err)
                         )
