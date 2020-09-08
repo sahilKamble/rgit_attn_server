@@ -46,12 +46,16 @@ async function addstud() {
         request.send(JSON.stringify(list));
     }
 }
+
 let xl = document.querySelector('#xlf');
 xl.addEventListener('change', handleFile, false);
 
-function ShowAndHide() {
-    var sub = document.querySelector('#inlineFormCustomSelect');
-    d = sub.options[sub.selectedIndex].value;
-    console.log(sub.options[sub.selectedIndex].value)
-  
-  }
+function logout() {
+    fetch('/users/logout')
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.success) {
+                window.location.href = '/users/login';
+            }
+        });
+}

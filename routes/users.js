@@ -150,8 +150,8 @@ router.route('/shared').get(isAuth, (req, res, next) => {
 
 router.route('/select').get((req, res, next) => {
     const page =
-        "<a href='/users/login'>LOGIN</a><br>\
-            <a href='/users/updatepass'>UPDATE PASSWORD</a>";
+        '<a href=\'/users/login\'>LOGIN</a><br>\
+            <a href=\'/users/updatepass\'>UPDATE PASSWORD</a>';
     res.send(page);
 });
 
@@ -168,13 +168,13 @@ router
     })
     // .get((req, res, next) => {
 
-    //     const form = '<h1>Register Page</h1><form method="post" action="updatepass">\
-    //                 Enter Username:<br><input type="text" name="username">\
-    //                 <br>Enter Password:<br><input type="password" name="oldpassword">\
-    //                 <br>Enter New Password:<br><input type="password" name="newpassword">\
-    //                 <br><br><input type="submit" value="Submit"></form>';
+//     const form = '<h1>Register Page</h1><form method="post" action="updatepass">\
+//                 Enter Username:<br><input type="text" name="username">\
+//                 <br>Enter Password:<br><input type="password" name="oldpassword">\
+//                 <br>Enter New Password:<br><input type="password" name="newpassword">\
+//                 <br><br><input type="submit" value="Submit"></form>';
 
-    //     res.send(form);
+//     res.send(form);
 
     // })
     .post(function (req, res) {
@@ -183,12 +183,12 @@ router
             // Check if error connecting
             if (err) {
                 console.log('did not connect'),
-                    res.json({ success: false, message: 'did not connect' }); // Return error
+                res.json({ success: false, message: 'did not connect' }); // Return error
             } else {
                 // Check if user was found in database
                 if (!user) {
                     console.log('User not found'),
-                        res.json({ success: false, message: 'User not found' }); // Return error, user was not found in db
+                    res.json({ success: false, message: 'User not found' }); // Return error, user was not found in db
                 } else {
                     user.changePassword(
                         req.body.oldpassword,

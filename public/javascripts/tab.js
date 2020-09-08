@@ -2,8 +2,8 @@ var list = [];
 var subject;
 var gotUsers = false;
 
-url = window.location.href;
-var subid = /\/[\w]+$/.exec(url);
+let url = window.location.href;
+let subid = /\/[\w]+$/.exec(url);
 console.log(subid);
 req(subid);
 
@@ -399,6 +399,17 @@ async function share() {
         }
     }
 }
+
+function logout() {
+    fetch('/users/logout')
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.success) {
+                window.location.href = '/users/login';
+            }
+        });
+}
+
 
 // $(document).ready(function () {
 //     $('tbody').scroll(function (e) { //detect a scroll event on the tbody
