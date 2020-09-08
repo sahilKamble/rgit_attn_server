@@ -26,7 +26,7 @@ studentRouter
             )
             .catch((err) => next(err));
     })
-    .post((req, res, next) => {
+    .post(isAuth, (req, res, next) => {
         for (let key in req.body) {
             Students.findOne({
                 $and: [
