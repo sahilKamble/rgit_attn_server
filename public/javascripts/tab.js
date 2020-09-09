@@ -4,7 +4,7 @@ var gotUsers = false;
 
 let url = window.location.href;
 let subid = /\/[\w]+$/.exec(url);
-console.log(subid);
+//console.log(subid);
 req(subid);
 
 function toTitleCase(str) {
@@ -154,7 +154,7 @@ async function req(sid) {
 
     let res = await fetch(url);
     let data = await res.json();
-    console.log(data);
+    //console.log(data);
     subject = toTitleCase(data.name);
     let heading = document.querySelector('h1');
     heading.innerHTML = subject;
@@ -171,7 +171,7 @@ async function req(sid) {
 
     let attn = await fetch('/abs/table' + sid);
     let days = await attn.json();
-    console.log('yyyyyy' + days);
+    //console.log('yyyyyy' + days);
 
     var m = 0;
     for (let day of days) {
@@ -206,9 +206,9 @@ async function req(sid) {
         m = m + 1;
     }
 
-    console.log('check this' + daily_attn);
+    //console.log('check this' + daily_attn);
 
-    console.log({ kek });
+    //console.log({ kek });
     buildTable(kek, daily_attn);
 }
 
@@ -247,7 +247,7 @@ function rebulidtable() {
     tableBody.innerHTML = '';
     url = window.location.href;
     let subid = /\/[\w]+$/.exec(url);
-    console.log(subid);
+    //console.log(subid);
     req(subid);
 }
 
@@ -283,7 +283,7 @@ function edit() {
 async function save() {
     //console.log('tes');
     var idList = new Set(list);
-    console.log(idList);
+    //console.log(idList);
     for (let id of idList) {
         let studentList = [];
         let column = document.querySelectorAll(`[aria-label="${id}"]`);
@@ -291,11 +291,11 @@ async function save() {
         for (let row of column) {
             if (row.innerHTML === 'A') studentList.push(row.id);
         }
-        console.log(studentList);
+        //console.log(studentList);
         let data = {
             absentStudents: studentList,
         };
-        console.log(JSON.stringify(data));
+        //console.log(JSON.stringify(data));
         let res = await fetch('/abs/' + id, {
             method: 'PUT',
             headers: {
@@ -348,9 +348,9 @@ function del() {
 async function delsave() {
     //console.log('delsave');
     var idList = new Set(list);
-    console.log(idList);
+    //console.log(idList);
     for (let id of idList) {
-        console.log(id);
+        //console.log(id);
         let res = await fetch('/abs/' + id, {
             method: 'DELETE',
         });
@@ -369,7 +369,7 @@ async function share() {
     if (!gotUsers) {
         let req = await fetch('/users/names');
         let resp = await req.json();
-        console.log(resp);
+        //console.log(resp);
         let users = document.querySelector('#userlist');
         for (let user of resp) {
             let entry = document.createElement('a');
@@ -390,11 +390,16 @@ async function share() {
             userids[i].addEventListener('click', async function (e) {
                 let uid = this.getAttribute('aria-label');
                 let url = '/subjects' + subid + '/shared/' + uid;
-                console.log(url);
+                //console.log(url);
                 const response = await fetch(url, {
                     method: 'POST',
                 });
-                alert('Subject shared');
+               
+                if(response.status === 200)
+                    alert('Subject shared');
+                else 
+                    alert('error... something went wrong');
+                
             });
         }
     }

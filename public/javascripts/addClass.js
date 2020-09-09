@@ -120,8 +120,11 @@ async function postClass() {
         },
         body: JSON.stringify(data),
     });
-    let resp = await res.json();
-    console.log(resp);
+   
+    if(res.status === 200)
+        alert('Subject created');
+    else 
+        alert('error... something went wrong');
     
 }
 
