@@ -24,21 +24,22 @@ document
             body: JSON.stringify(data), // body data type must match "Content-Type" header
         });
         let resData = res;
-        console.log(resData.status);
+        //console.log(resData.status);
 
         const resjson = await res.json();
-        console.log(resjson);
+        //console.log(resjson);
 
         if (resData.status != 200) {
-            console.log('error');
+            alert('unkown error occured');
         } else {
-            alert(resjson.message);
+            
             if (
                 resjson.message == 'User not found' ||
                 resjson.message == 'Incorrect password' ||
                 resjson.message ==
                     'Something went wrong!! Please try again after sometimes.'
             ) {
+                alert('incorrect credentials or something else went wrong !! Please try again after sometimes.');
                 window.location.href = '/users/updatepass';
             } else {
                 window.location.href = '/users/login';
