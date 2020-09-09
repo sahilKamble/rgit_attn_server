@@ -23,31 +23,88 @@ function showStudents() {
                     }
                 });
 
-                let temp = '<tr><th>Roll number</th>';
-                temp += '<th>Name</th>';
+                // let temp = '<tr><th>Roll number</th>';
+                // temp += '<th>Name</th>';
 
-                data.forEach((u) => {
-                    temp += '<tr>';
-                    temp += `<td><input type="checkbox" name="value" id="c2" value="${u._id}" checked><label for="nroll">${u.div}${u.roll}</label></td>`;
-                    temp += `<td>${u.name}</td>`;
-                });
+                // data.forEach((u) => {
+                //     temp += '<tr>';
+                //     temp += `<td><input type="checkbox" name="value" id="c2" value="${u._id}" checked><label for="nroll">${u.div}${u.roll}</label></td>`;
+                //     temp += `<td>${u.name}</td>`;
+                // });
 
-                document.getElementById('data').innerHTML = temp;
+                let tableHeader = document.querySelector('.table-header');
+                let tableBody = document.querySelector('.table-body');
+                tableHeader.innerHTML = '';
+                tableBody.innerHTML = '';
+
+                let checkboxCell = document.createElement('th');
+                let checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.className = 'toggle-checkbox';
+                checkbox.checked = true;
+                checkbox.className = 'toggle-checkbox';
+                checkboxCell.className = 'checkbox';
+                checkboxCell.appendChild(checkbox);
+                tableHeader.appendChild(checkboxCell);
+
+
+                let roll = document.createElement('th');
+                roll.className = 'roll-no';
+                roll.innerHTML = 'Roll Number';
+                tableHeader.appendChild(roll);
+
+                let name = document.createElement('th');
+                name.className = 'student-name';
+                name.innerHTML = 'Name';
+                tableHeader.appendChild(name);
+
+                for(let student of data) {
+                    let row = document.createElement('tr');
+                    let checkboxCell = document.createElement('td');
+                    let roll = document.createElement('td');
+
+                    let checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.className = 'checkbox';
+                    checkbox.id = student._id;
+                    checkbox.value = student._id;
+                    checkbox.checked = true;
+                    checkboxCell.for = student._id;
+                    checkboxCell.className = 'checkbox-cell';
+                    checkboxCell.appendChild(checkbox);
+                    row.appendChild(checkboxCell);
+                    
+                    let label = document.createElement('label');
+                    label.setAttribute('for', student._id);
+                    label.innerText = `${student.div}${student.roll}`;
+                    roll.className = 'roll-no';
+                    roll.appendChild(label);
+
+                    let name = document.createElement('td');
+                    name.innerHTML = student.name;
+                    name.className = 'student-name';
+                    row.appendChild(roll);
+                    row.appendChild(name);
+                    tableBody.appendChild(row);
+                }
+
+                document.querySelector('.toggle-checkbox').addEventListener('change', toggleSelects);
             }
         });
     });
+    
+
 }
 
 async function postClass() {
     let data = {};
     let sclass = [];
-    let students = document.querySelectorAll('input[name=\'value\']:checked');
+    let students = document.querySelectorAll('input[class=\'checkbox\']:checked');
 
     for(let student of students) {
         sclass.push(student.value);
     }
 
-    // console.log(sclass);
     data = {
         name: N_sub,
         teacher: teach_id,
@@ -55,15 +112,17 @@ async function postClass() {
     };
 
     console.log(data);
-//     let res = await fetch('/subjects', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(data),
-//     });
-//     let resp = await res.json();
-//     console.log(resp);
+
+    let res = await fetch('/subjects', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+    let resp = await res.json();
+    console.log(resp);
+    
 }
 
 function logout() {
@@ -77,5 +136,8 @@ function logout() {
 }
 
 function toggleSelects() {
-    
+    let checkboxes = document.querySelectorAll('.checkbox');
+    for (let checkbox of checkboxes) {
+        checkbox.checked =  !checkbox.checked;
+    }
 }

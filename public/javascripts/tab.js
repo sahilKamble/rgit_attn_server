@@ -27,7 +27,7 @@ async function buildTable(data, daily_attn) {
     tableRoll.innerHTML = 'Roll No.';
     tableHeader.appendChild(tableRoll);
 
-    for (attn of data[0].attn) {
+    for (let attn of data[0].attn) {
         let tableRoll = document.createElement('th');
         tableRoll.className = 'colm date';
         tableRoll.setAttribute('aria-label', attn.id);
@@ -45,7 +45,7 @@ async function buildTable(data, daily_attn) {
     tableTotal.innerHTML = 'Total/' + lect;
     tableHeader.appendChild(tableTotal);
 
-    for (student_info of data) {
+    for (let student_info of data) {
         const roll = student_info.student.roll;
         const name = student_info.student.name;
         const div = student_info.student.div;
@@ -63,7 +63,7 @@ async function buildTable(data, daily_attn) {
 
         var count = 0;
 
-        for (attn of student_info.attn) {
+        for (let attn of student_info.attn) {
             const s = attn.present ? 'P' : 'A';
             if (attn.present) {
                 count++;
@@ -85,18 +85,18 @@ async function buildTable(data, daily_attn) {
         tableAttn.innerHTML = count;
         entry.appendChild(tableAttn);
         tableBody.appendChild(entry);
-     }
+    }
 
-        table = document.querySelector('.table-wrapper');
-        table.classList.remove('hidden');
-        document.querySelector('.button-excel').disabled = false;
-        document.querySelector('.button-edit').disabled = false;
-        document.querySelector('.button-del').disabled = false;
-        if (document.querySelector('.container-fluid').clientWidth < document.querySelector('.attendance-table').clientWidth) {
-            let width = document.querySelector('.container-fluid').clientWidth;
-            document.querySelector('.table-view').clientWidth = width + 'px';
-        } else {
-            $(".table-view").css({ 'width': document.querySelector('.attendance-table').clientWidth + 'px' });
+    let table = document.querySelector('.table-wrapper');
+    table.classList.remove('hidden');
+    document.querySelector('.button-excel').disabled = false;
+    document.querySelector('.button-edit').disabled = false;
+    document.querySelector('.button-del').disabled = false;
+    if (document.querySelector('.container-fluid').clientWidth < document.querySelector('.attendance-table').clientWidth) {
+        let width = document.querySelector('.container-fluid').clientWidth;
+        document.querySelector('.table-view').clientWidth = width + 'px';
+    } else {
+        $('.table-view').css({ 'width': document.querySelector('.attendance-table').clientWidth + 'px' });
     }
 
     let entry = document.createElement('tr');
@@ -113,7 +113,7 @@ async function buildTable(data, daily_attn) {
     entry.appendChild(troll);
     tableBody.appendChild(entry);
 
-    for (ss = 0; ss < daily_attn.length; ss++) {
+    for (let ss = 0; ss < daily_attn.length; ss++) {
         let dattn = document.createElement('td');
         dattn.className = 'table-row';
         dattn.innerHTML = daily_attn[ss];
@@ -154,13 +154,14 @@ async function req(sid) {
 
     let res = await fetch(url);
     let data = await res.json();
+    console.log(data);
     subject = toTitleCase(data.name);
     let heading = document.querySelector('h1');
     heading.innerHTML = subject;
 
     let students = data.students;
 
-    for (student of students) {
+    for (let student of students) {
         let hmm = {
             attn: [],
             student: student,
@@ -173,15 +174,15 @@ async function req(sid) {
     console.log('yyyyyy' + days);
 
     var m = 0;
-    for (day of days) {
+    for (let day of days) {
         let abs = day.absentStudents;
         let date = day.date;
         let id = day._id;
 
         var v = 0;
-        for (student of kek) {
+        for (let student of kek) {
             let present = true;
-            for (absent of abs) {
+            for (let absent of abs) {
                 if (student.student._id == absent) {
                     student.attn.push({
                         date: date,
@@ -260,7 +261,7 @@ function edit() {
     let cancel = document.querySelector('.button-cancel');
     cancel.hidden = false;
     let attns = document.querySelectorAll('.attn');
-    for (attn of attns) {
+    for (let attn of attns) {
         attn.addEventListener('click', (e) => {
             let target = e.srcElement;
             if (target.innerHTML == 'P') {
@@ -283,15 +284,15 @@ async function save() {
     //console.log('tes');
     var idList = new Set(list);
     console.log(idList);
-    for (id of idList) {
+    for (let id of idList) {
         let studentList = [];
         let column = document.querySelectorAll(`[aria-label="${id}"]`);
         // console.log(column);
-        for (row of column) {
+        for (let row of column) {
             if (row.innerHTML === 'A') studentList.push(row.id);
         }
         console.log(studentList);
-        data = {
+        let data = {
             absentStudents: studentList,
         };
         console.log(JSON.stringify(data));
@@ -299,11 +300,10 @@ async function save() {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                // 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: JSON.stringify(data),
         });
-        let resp = await res.json();
+        // let resp = await res.json();
         //console.log(resp);
     }
     // if(resp !== 200)
@@ -320,7 +320,7 @@ function del() {
     let cancel = document.querySelector('.button-cancel');
     cancel.hidden = false;
     let attns = document.querySelectorAll('.date');
-    for (attn of attns) {
+    for (let attn of attns) {
         attn.addEventListener('click', (e) => {
             let target = e.srcElement;
             let id = target.getAttribute('aria-label');
@@ -328,7 +328,7 @@ function del() {
                 list.pop(id);
                 target.classList.remove('todel');
                 let column = document.querySelectorAll(`[aria-label="${id}"]`);
-                for (row of column) {
+                for (let row of column) {
                     row.classList.remove('del-colm');
                 }
             } else {
@@ -337,7 +337,7 @@ function del() {
                 let column = document.querySelectorAll(
                     `td[aria-label="${id}"]`
                 );
-                for (row of column) {
+                for (let row of column) {
                     row.classList.add('del-colm');
                 }
             }
@@ -349,7 +349,7 @@ async function delsave() {
     //console.log('delsave');
     var idList = new Set(list);
     console.log(idList);
-    for (id of idList) {
+    for (let id of idList) {
         console.log(id);
         let res = await fetch('/abs/' + id, {
             method: 'DELETE',
@@ -371,7 +371,7 @@ async function share() {
         let resp = await req.json();
         console.log(resp);
         let users = document.querySelector('#userlist');
-        for (user of resp) {
+        for (let user of resp) {
             let entry = document.createElement('a');
             let subspan = document.createElement('span');
             entry.className = 'row user list-group-item list-group-item-action';
@@ -388,7 +388,7 @@ async function share() {
 
         for (var i = 0; i < userids.length; i++) {
             userids[i].addEventListener('click', async function (e) {
-                uid = this.getAttribute('aria-label');
+                let uid = this.getAttribute('aria-label');
                 let url = '/subjects' + subid + '/shared/' + uid;
                 console.log(url);
                 const response = await fetch(url, {
