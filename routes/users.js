@@ -67,7 +67,7 @@ router
             res.send(text);
         });
     })
-    .post((req, res, next) => {
+    .post(isAdmin, (req, res, next) => {
         User.register(
             new User({ username: req.body.username }),
             req.body.password,

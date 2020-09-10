@@ -355,8 +355,14 @@ async function delsave() {
             method: 'DELETE',
         });
         let resp = await res.json();
+        if(res.status === 200 && resp.date) {
+            alert('Attendance of ' + resp.date + ' deleted')
+        }
+        else {
+            alert('Warning: unknown error occured')
+        }
     }
-    // if(resp !== 200)
+    
     rebulidtable();
 }
 

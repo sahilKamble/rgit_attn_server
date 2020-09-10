@@ -67,7 +67,7 @@ absenteeRouter
             .catch((err) => next(err));
     })
     .delete(isAuth, (req, res, next) => {
-        Absentees.findOneAndDelete(req.params.studentId)
+        Absentees.findByIdAndDelete(req.params.absid)
             .then(
                 (resp) => {
                     res.statusCode = 200;
