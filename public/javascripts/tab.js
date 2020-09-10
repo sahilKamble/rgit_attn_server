@@ -64,13 +64,15 @@ async function buildTable(data, daily_attn) {
         var count = 0;
 
         for (let attn of student_info.attn) {
+            let tableAttn = document.createElement('td');
             const s = attn.present ? 'P' : 'A';
             if (attn.present) {
                 count++;
+            } else {
+                tableAttn.className = 'abs';
             }
 
-            let tableAttn = document.createElement('td');
-            tableAttn.className = 'colm attn';
+            tableAttn.className += ' colm attn';
             // this is attn or abslist id something
             tableAttn.setAttribute('aria-label', attn.id);
             tableAttn.innerHTML = s;
