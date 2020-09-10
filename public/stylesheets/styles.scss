@@ -4,151 +4,153 @@
 // }
 
 .table-wrapper {
-  // white-space: nowrap;
-  overflow: auto;
-  border-radius: 5px;
-  // padding: 0.6rem;
-  position: relative;
-  margin-bottom: 1rem;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+    // white-space: nowrap;
+    height: 75vh;
+    overflow: scroll;
+    border-radius: 5px;
+    // padding: 0.6rem;
+    position: relative;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
 
-  // @media (max-width: 767px) {
-  //   position: relative;
-  //   left: 0%;
-  //   transform: translate(0);
-  //   margin-bottom: 1rem;
-  // }
+    @media (max-width: 1024px) {
+        height: 69vh;
+    }
+
+
+
+    
 }
 
 .attendance-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 table,
 td,
 th {
-  border: 1px solid lightgray;
-  // outline: 1px solid lightgray;
-  // border: none;
-  text-align: left;
-  padding: 0.6rem 0.8rem;
-  // overflow: hidden;
+    border: 1px solid lightgray;
+    // outline: 1px solid lightgray;
+    // border: none;
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    // overflow: hidden;
 }
 
 th,
 td {
-  width: 6rem;
-  max-width: 6rem;
-  min-width: 6rem;
+    width: 6rem;
+    max-width: 6rem;
+    min-width: 6rem;
 }
 
 th {
-  color: white;
-  background-color: #4e73df;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 100;
-  outline: 1px solid #4e73df;
-  border: none;
+    color: white;
+    background-color: #4e73df;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 100;
+    outline: 1px solid #4e73df;
+    border: none;
 }
 
 tr {
-  &:hover {
-    background-color: #f5f5f5;
-  }
+    &:hover {
+        background-color: #f5f5f5;
+    }
 }
 
 thead {
-  // position: relative;
-  display: block;
-  // max-width: 81vw;
+    // position: relative;
+    display: block;
+    // max-width: 81vw;
 
-  @media (max-width: 767px) {
-    max-width: 100%;
-  }
+    @media (max-width: 767px) {
+        max-width: 100%;
+    }
 }
 
 thead th:nth-child(1) {
-  /*first cell in the header*/
-  position: -webkit-sticky;
-  position: sticky;
-  width: 15rem;
-  max-width: 15rem;
-  min-width: 15rem;
-  left: 0;
-  /*seperates the first cell in the header from the header*/
-  // overflow: hidden;
+    /*first cell in the header*/
+    position: -webkit-sticky;
+    position: sticky;
+    width: 15rem;
+    max-width: 15rem;
+    min-width: 15rem;
+    left: 0;
+    /*seperates the first cell in the header from the header*/
+    // overflow: hidden;
 
-  @media (max-width: 767px) {
-    display: none;
-  }
+    @media (max-width: 767px) {
+        display: none;
+    }
 }
 
 thead th:nth-child(2) {
-  /*first cell in the header*/
-  position: -webkit-sticky;
-  position: sticky;
-  width: 6rem;
-  min-width: 6rem;
-  max-width: 6rem;
-  left: 15rem;
-  // overflow: hidden;
+    /*first cell in the header*/
+    position: -webkit-sticky;
+    position: sticky;
+    width: 6rem;
+    min-width: 6rem;
+    max-width: 6rem;
+    left: 15rem;
+    // overflow: hidden;
 
-  @media (max-width: 767px) {
-    left: 0rem;
-  }
+    @media (max-width: 767px) {
+        left: 0rem;
+    }
 }
 
 tbody {
-  // position: relative;
-  display: block;
-  /*seperates the tbody from the header*/
-  // max-width: 81vw;
-  // max-height: 65vh;
-  // overflow-y: scroll;
-  // overflow-x: scroll;
+    // position: relative;
+    display: block;
+    /*seperates the tbody from the header*/
+    // max-width: 81vw;
+    // max-height: 65vh;
+    // overflow-y: scroll;
+    // overflow-x: scroll;
 
-  @media (max-width: 767px) {
-    max-width: 100%;
-    max-height: 100%;
-  }
+    @media (max-width: 767px) {
+        max-width: 100%;
+        max-height: 100%;
+    }
 }
 
 tbody td {
-  background-color: #fff;
-  min-width: 6rem;
+    background-color: #fff;
+    min-width: 6rem;
 }
 
 tbody tr td:nth-child(1) {
-  /*the first cell in each tr*/
-  position: -webkit-sticky;
-  position: sticky;
-  left: 0;
-  outline: 1px solid lightgray;
-  border: none;
+    /*the first cell in each tr*/
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    outline: 1px solid lightgray;
+    border: none;
 
-  @media (max-width: 767px) {
-    display: none;
-  }
+    @media (max-width: 767px) {
+        display: none;
+    }
 }
 
 tbody tr td:nth-child(2) {
-  /*the first cell in each tr*/
-  position: -webkit-sticky;
-  position: sticky;
-  left: 15rem;
-  outline: 1px solid lightgray;
-  border: none;
+    /*the first cell in each tr*/
+    position: -webkit-sticky;
+    position: sticky;
+    left: 15rem;
+    outline: 1px solid lightgray;
+    border: none;
 
-  @media (max-width: 767px) {
-    left: 0rem;
-  }
+    @media (max-width: 767px) {
+        left: 0rem;
+    }
 }
 
 .colm {
-  min-width: 6rem;
+    min-width: 6rem;
 }
 
 // .attn {
@@ -156,61 +158,71 @@ tbody tr td:nth-child(2) {
 // }
 
 .name {
-  min-width: 15rem !important;
+    min-width: 15rem !important;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 .subject-select {
-  padding: 1rem 0;
-  width: 95vw;
-  margin: auto;
+    padding: 1rem 0;
+    width: 95vw;
+    margin: auto;
 }
 
 #subjects {
-  width: 16rem;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  transition: all 0.2s;
+    width: 16rem;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s;
 }
 
 #subjects:focus,
 #subjects:hover {
-  outline: none;
-  // background-color: #b8daff;
-  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
+    outline: none;
+    // background-color: #b8daff;
+    box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
 }
 
-[class^="button-"],
-[class^="button-"]:link,
-[class^="button-"]:visited {
-  padding: 10px 1rem;
-  transition: all 0.2s;
+[class^='button-'],
+[class^='button-']:link,
+[class^='button-']:visited {
+    padding: 10px 1rem;
+    transition: all 0.2s;
 }
 
-[class^="button-"]:disabled {
-  outline: none;
-  box-shadow: none;
+[class^='button-']:disabled {
+    outline: none;
+    box-shadow: none;
 }
 
 .edited {
-  background-color: #fff3cd;
+    background-color: #fff3cd;
 }
 
 .todel {
-  background-color: #dc3545;
-  outline: 1px solid #dc3545;
-  border: none;
+    background-color: #dc3545;
+    outline: 1px solid #dc3545;
+    border: none;
 }
 
 .del-colm {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
-  outline: none;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    outline: none;
+}
+
+.abs {
+    background-color: #f8d7da;
+}
+
+.title-buttons {
+    @media (max-width: 1024px) {
+        display: block !important;
+    }
 }
