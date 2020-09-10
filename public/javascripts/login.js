@@ -30,7 +30,8 @@ document.addEventListener('submit', async function (event) {
         username: form.user.trim(),
         password: form.pass.trim(),
     };
-    var err = document.querySelector('.error');
+    var err = document.querySelector('#error');
+    err.classList.add('hidden');
     let res = await fetch(url, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         headers: myHeaders,
