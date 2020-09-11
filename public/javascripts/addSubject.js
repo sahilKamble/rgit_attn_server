@@ -98,7 +98,7 @@ function showStudents() {
 
 async function postClass() {
     let data = {};
-    sclass = [];
+    let sclass = [];
     let students = document.querySelectorAll('input[class=\'checkbox\']:checked');
 
     for(let student of students) {
@@ -122,9 +122,10 @@ async function postClass() {
     });
    
     if(res.status === 200)
-        alert('Subject created');
+        location.reload();
     else 
         alert('error... something went wrong');
+    
 }
 
 function showModal() {
@@ -135,7 +136,6 @@ function showModal() {
         let students = document.querySelectorAll('input[class=\'checkbox\']:checked');
         let lol = document.querySelector('#logout-modal-msg');
         lol.innerHTML = `Are you sure you want to create subject "${N_sub}" having ${students.length} students?`;
-    
         $('#addSubject').modal();
     } else {
         let error = document.querySelector('.alert');
