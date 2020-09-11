@@ -5,8 +5,8 @@
 
 .table-wrapper {
     // white-space: nowrap;
-    height: 75vh;
-    overflow: scroll;
+    max-height: 75vh;
+    overflow: auto;
     border-radius: 5px;
     // padding: 0.6rem;
     position: relative;
@@ -14,11 +14,8 @@
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
 
     @media (max-width: 1024px) {
-        height: 69vh;
+        max-height: 69vh;
     }
-
-
-
     
 }
 
