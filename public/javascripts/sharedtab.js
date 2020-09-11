@@ -65,7 +65,7 @@ async function buildTable(data, daily_attn) {
                 tableAttn.className = 'abs';
             }
 
-            tableAttn.className = 'colm attn';
+            tableAttn.className += ' colm attn';
             // this is attn or abslist id something
             tableAttn.setAttribute('aria-label', attn.id);
             tableAttn.innerHTML = s;
