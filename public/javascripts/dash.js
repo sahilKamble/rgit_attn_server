@@ -10,7 +10,7 @@ req.onload = function () {
         const uname = document.createTextNode(jsonObj.username);
         name.appendChild(uname);
         let subjects = jsonObj.subjects;
-        for (subject of subjects) {
+        for (let subject of subjects) {
             let entry = document.createElement('a');
             let tabico = document.createElement('i');
             let subspan = document.createElement('span');
@@ -53,7 +53,7 @@ req2.onload = function () {
             document.querySelector('#sharedhead').hidden = false;
         }
 
-        for (subject of subjects) {
+        for (let subject of subjects) {
             let entry = document.createElement('a');
             let tabico = document.createElement('i');
             let subspan = document.createElement('span');
