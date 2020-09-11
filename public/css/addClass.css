@@ -7,10 +7,10 @@
 }
 
 .students-table {
+    min-width: 400px;
     border-collapse: collapse;
     border-spacing: 0;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
-
 }
 
 table,
