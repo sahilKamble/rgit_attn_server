@@ -94,12 +94,6 @@ async function buildTable(data, daily_attn) {
     document.querySelector('.button-excel').disabled = false;
     document.querySelector('.button-edit').disabled = false;
     document.querySelector('.button-del').disabled = false;
-    if (document.querySelector('.container-fluid').clientWidth < document.querySelector('.attendance-table').clientWidth) {
-        let width = document.querySelector('.container-fluid').clientWidth;
-        document.querySelector('.table-view').clientWidth = width + 'px';
-    } else {
-        $('.table-view').css({ 'width': document.querySelector('.attendance-table').clientWidth + 'px' });
-    }
 
     let entry = document.createElement('tr');
     entry.className = 'table-row';
@@ -128,6 +122,7 @@ async function buildTable(data, daily_attn) {
     document.querySelector('.button-excel').disabled = false;
     document.querySelector('.button-edit').disabled = false;
     document.querySelector('.button-del').disabled = false;
+    
     if (
         document.querySelector('.container-fluid').clientWidth <
         document.querySelector('.attendance-table').clientWidth
@@ -137,8 +132,9 @@ async function buildTable(data, daily_attn) {
     } else {
         $('.table-view').css({
             width:
-                document.querySelector('.attendance-table').clientWidth + 'px',
+                (document.querySelector('.attendance-table').clientWidth) + 'px',
         });
+        document.querySelector('.table-wrapper').style.maxHeight = '100%';
     }
 }
 

@@ -89,10 +89,6 @@
     box-shadow: 0 0 0 0.2rem #f8d7da;
 }
 
-.alert {
-    display: inline-block;
-}
-
 /* used for styling login page error */
 
 #error {
