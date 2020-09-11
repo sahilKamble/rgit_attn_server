@@ -92,8 +92,6 @@ function showStudents() {
             }
         });
     });
-    
-
 }
 
 async function postClass() {

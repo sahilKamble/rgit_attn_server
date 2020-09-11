@@ -24,7 +24,7 @@ function handleFile(e) {
         );
         console.log(worksheet);
         ShowAndHide();
-        for (student of worksheet) {
+        for (let student of worksheet) {
             let abc = {
                 name: student.name,
                 roll: student.roll,
@@ -87,15 +87,6 @@ function showStudents() {
                     }
                 });
 
-                // let temp = '<tr><th>Roll number</th>';
-                // temp += '<th>Name</th>';
-
-                // data.forEach((u) => {
-                //     temp += '<tr>';
-                //     temp += `<td><input type="checkbox" name="value" id="c2" value="${u._id}" checked><label for="nroll">${u.div}${u.roll}</label></td>`;
-                //     temp += `<td>${u.name}</td>`;
-                // });
-
                 let tableHeader = document.querySelector('.table-header');
                 let tableBody = document.querySelector('.table-body');
                 tableHeader.innerHTML = '';
@@ -110,7 +101,6 @@ function showStudents() {
                 checkboxCell.className = 'checkbox';
                 checkboxCell.appendChild(checkbox);
                 tableHeader.appendChild(checkboxCell);
-
 
                 let roll = document.createElement('th');
                 roll.className = 'roll-no';
@@ -156,8 +146,6 @@ function showStudents() {
             }
         });
     });
-    
-
 }
 
 async function postClass() {

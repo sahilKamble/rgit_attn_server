@@ -1,4 +1,3 @@
-var list = [];
 var subject;
 
 function toTitleCase(str) {
@@ -21,7 +20,7 @@ async function buildTable(data, daily_attn) {
     tableRoll.innerHTML = 'Roll No.';
     tableHeader.appendChild(tableRoll);
 
-    for (attn of data[0].attn) {
+    for (let attn of data[0].attn) {
         let tableRoll = document.createElement('th');
         tableRoll.className = 'colm date';
         tableRoll.setAttribute('aria-label', attn.id);
@@ -39,7 +38,7 @@ async function buildTable(data, daily_attn) {
     tableTotal.innerHTML = 'Total/' + lect;
     tableHeader.appendChild(tableTotal);
 
-    for (student_info of data) {
+    for (let student_info of data) {
         const roll = student_info.student.roll;
         const name = student_info.student.name;
         const div = student_info.student.div;
@@ -57,13 +56,15 @@ async function buildTable(data, daily_attn) {
 
         var count = 0;
 
-        for (attn of student_info.attn) {
+        for (let attn of student_info.attn) {
+            let tableAttn = document.createElement('td');
             const s = attn.present ? 'P' : 'A';
             if (attn.present) {
                 count++;
+            } else {
+                tableAttn.className = 'abs';
             }
 
-            let tableAttn = document.createElement('td');
             tableAttn.className = 'colm attn';
             // this is attn or abslist id something
             tableAttn.setAttribute('aria-label', attn.id);
@@ -95,7 +96,7 @@ async function buildTable(data, daily_attn) {
     entry.appendChild(troll);
     tableBody.appendChild(entry);
 
-    for (ss = 0; ss < daily_attn.length; ss++) {
+    for (let ss = 0; ss < daily_attn.length; ss++) {
         let dattn = document.createElement('td');
         dattn.className = 'table-row';
         dattn.innerHTML = daily_attn[ss];
@@ -103,7 +104,7 @@ async function buildTable(data, daily_attn) {
         tableBody.appendChild(entry);
     }
 
-    table = document.querySelector('.table-wrapper');
+    let table = document.querySelector('.table-wrapper');
     table.classList.remove('hidden');
     document.querySelector('.button-excel').disabled = false;
 
@@ -116,8 +117,9 @@ async function buildTable(data, daily_attn) {
     } else {
         $('.table-view').css({
             width:
-                document.querySelector('.attendance-table').clientWidth + 'px',
+                (document.querySelector('.attendance-table').clientWidth) + 'px',
         });
+        document.querySelector('.table-wrapper').style.maxHeight = '100%';
     }
 }
 
@@ -143,7 +145,7 @@ async function req(sid) {
 
         let students = data.students;
 
-        for (student of students) {
+        for (let student of students) {
             let hmm = {
                 attn: [],
                 student: student,
@@ -155,15 +157,15 @@ async function req(sid) {
         let days = await attn.json();
 
         var m = 0;
-        for (day of days) {
+        for (let day of days) {
             let abs = day.absentStudents;
             let date = day.date;
             let id = day._id;
 
             var v = 0;
-            for (student of kek) {
+            for (let student of kek) {
                 let present = true;
-                for (absent of abs) {
+                for (let absent of abs) {
                     if (student.student._id == absent) {
                         student.attn.push({
                             date: date,
@@ -188,7 +190,6 @@ async function req(sid) {
         }
 
         buildTable(kek, daily_attn);
-    } else {
     }
 }
 
@@ -210,7 +211,7 @@ function convert() {
     });
 }
 
-url = window.location.href;
+let url = window.location.href;
 let subid = /\/[\w]+$/.exec(url);
 
 req(subid);
