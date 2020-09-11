@@ -57,11 +57,11 @@
       <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Nav Item - Add Students Dept Excel file-->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="/users/addstud">
           <i class="fas fa-fw fa-table"></i>
           <span>Add Students</span></a>
-      </li>
+      </li> -->
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
@@ -121,7 +121,7 @@
             <div class="card-body my-1 mx-3">
               <div class="form-group">
                 <label for="subject1">Subject</label>
-                <input id="subject1" type="text" name="filter" placeholder="Subject Name" class="form-control">
+                <input id="subject1" type="text" name="filter" placeholder="Subject Name" class="form-control" required>
               </div>
 
               <div class="form-group"><label class="" for="sub_div">Classes</label>
@@ -154,8 +154,12 @@
               </div>
             </div>
 
+            <div class="alert alert-danger" role="alert" hidden>
+              Subject name is required!!
+            </div><br>
+
             <div class="btn-group">
-              <button class="btn btn-primary save-attendance" id="save-class" onclick="postClass()">Add
+              <button class="btn btn-primary save-attendance" id="save-class" onclick="showModal()">Add
                 Students</button>
             </div>
 
@@ -208,6 +212,25 @@
     </div>
   </div>
 
+  <div class="modal fade" id="addSubject" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body" id="logout-modal-msg"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <button class="logout btn btn-primary" onclick="postClass()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -217,8 +240,8 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
-  <script src="./javascripts/addSubject.js"></script>
   <script src="./javascripts/getUsername.js"></script>
+  <script src="./javascripts/addSubject.js"></script>
 </body>
 
 </html>
