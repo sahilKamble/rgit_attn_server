@@ -23,17 +23,29 @@ function handleFile(e) {
             workbook.Sheets[sheetsList[0]]
         );
         console.log(worksheet);
-        ShowAndHide();
-        for (let student of worksheet) {
-            let abc = {
-                name: student.name,
-                roll: student.roll,
-                div: student.div,
-                dept: department,
-            };
-            list.push(abc);
+        let first = worksheet[0];
+        if(
+            first.hasOwnProperty('name') && 
+            first.hasOwnProperty('div') && 
+            first.hasOwnProperty('roll')
+        ) {
+            for (let student of worksheet) {
+                ShowAndHide();
+                let abc = {
+                    name: student.name,
+                    roll: student.roll,
+                    div: student.div,
+                    dept: department,
+                };
+                list.push(abc);
+                document.querySelector('.alert').hidden = true;
+                document.querySelector('.upload-button').disabled = false;
+            }
+            console.log(list);
+        } else {
+            document.querySelector('.alert').hidden = false;
+            document.querySelector('.upload-button').disabled = true;
         }
-        // console.log(list);
     };
     reader.readAsArrayBuffer(f);
 }

@@ -140,6 +140,10 @@
             <h1 class="h3 mb-0 text-gray-800">Upload Students</h1>
           </div>
 
+          <div class="alert alert-danger" role="alert" hidden>
+            There was a problem with your excel file. Please check the headings and/or the entries.
+          </div><br>
+
           <div class="card-row align-items-center card shadow">
             <div class="col-auto my-1 card-body">
               <label class="mr-sm-2" for="dept-dropdown">Department</label>
@@ -153,8 +157,8 @@
               </select>
 
               <div class="upload">
-                <input class="form-control-file mt-3 mb-3" type="file" name="xlfile" id="xlf">
-                <button class="btn btn-primary upload-button" onclick="addstud()">Upload</button>
+                <input class="form-control-file mt-3 mb-3" type="file" name="xlfile" id="xlf" accept=".xls,.xlsx">
+                <button class="btn btn-primary upload-button" onclick="addstud()" disabled>Upload</button>
               </div>
             </div>
           </div>
