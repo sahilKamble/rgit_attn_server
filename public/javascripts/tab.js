@@ -64,13 +64,15 @@ async function buildTable(data, daily_attn) {
         var count = 0;
 
         for (let attn of student_info.attn) {
+            let tableAttn = document.createElement('td');
             const s = attn.present ? 'P' : 'A';
             if (attn.present) {
                 count++;
+            } else {
+                tableAttn.className = 'abs';
             }
 
-            let tableAttn = document.createElement('td');
-            tableAttn.className = 'colm attn';
+            tableAttn.className += ' colm attn';
             // this is attn or abslist id something
             tableAttn.setAttribute('aria-label', attn.id);
             tableAttn.innerHTML = s;
@@ -92,12 +94,6 @@ async function buildTable(data, daily_attn) {
     document.querySelector('.button-excel').disabled = false;
     document.querySelector('.button-edit').disabled = false;
     document.querySelector('.button-del').disabled = false;
-    if (document.querySelector('.container-fluid').clientWidth < document.querySelector('.attendance-table').clientWidth) {
-        let width = document.querySelector('.container-fluid').clientWidth;
-        document.querySelector('.table-view').clientWidth = width + 'px';
-    } else {
-        $('.table-view').css({ 'width': document.querySelector('.attendance-table').clientWidth + 'px' });
-    }
 
     let entry = document.createElement('tr');
     entry.className = 'table-row';
@@ -126,6 +122,7 @@ async function buildTable(data, daily_attn) {
     document.querySelector('.button-excel').disabled = false;
     document.querySelector('.button-edit').disabled = false;
     document.querySelector('.button-del').disabled = false;
+    
     if (
         document.querySelector('.container-fluid').clientWidth <
         document.querySelector('.attendance-table').clientWidth
@@ -135,8 +132,9 @@ async function buildTable(data, daily_attn) {
     } else {
         $('.table-view').css({
             width:
-                document.querySelector('.attendance-table').clientWidth + 'px',
+                (document.querySelector('.attendance-table').clientWidth) + 'px',
         });
+        document.querySelector('.table-wrapper').style.maxHeight = '100%';
     }
 }
 
@@ -355,8 +353,14 @@ async function delsave() {
             method: 'DELETE',
         });
         let resp = await res.json();
+        if(res.status === 200 && resp.date) {
+            alert('Attendance of ' + resp.date + ' deleted')
+        }
+        else {
+            alert('Warning: unknown error occured')
+        }
     }
-    // if(resp !== 200)
+    
     rebulidtable();
 }
 

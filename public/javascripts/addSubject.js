@@ -92,8 +92,6 @@ function showStudents() {
             }
         });
     });
-    
-
 }
 
 async function postClass() {
@@ -122,10 +120,25 @@ async function postClass() {
     });
    
     if(res.status === 200)
-        alert('Subject created');
+        location.reload();
     else 
         alert('error... something went wrong');
     
+}
+
+function showModal() {
+    N_sub = document.getElementById('subject1').value;
+    if(N_sub){
+        let error = document.querySelector('.alert');
+        error.hidden = true;
+        let students = document.querySelectorAll('input[class=\'checkbox\']:checked');
+        let lol = document.querySelector('#logout-modal-msg');
+        lol.innerHTML = `Are you sure you want to create subject "${N_sub}" having ${students.length} students?`;
+        $('#addSubject').modal();
+    } else {
+        let error = document.querySelector('.alert');
+        error.hidden = false;
+    }
 }
 
 function logout() {
