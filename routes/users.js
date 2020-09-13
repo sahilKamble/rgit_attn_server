@@ -67,7 +67,7 @@ router
             res.send(text);
         });
     })
-    .post((req, res, next) => {
+    .post(isAdmin, (req, res, next) => {
         User.register(
             new User({ username: req.body.username }),
             req.body.password,
@@ -114,8 +114,15 @@ router.get('/dash', (req, res, next) => {
     });
 });
 
-router.get('/addsub', (req, res, next) => {
+router.get('/addstud', (req, res, next) => {
     dir = path.join(__dirname, '../public/addStudents.html');
+    fs.readFile(dir, 'utf8', (err, text) => {
+        res.send(text);
+    });
+});
+
+router.get('/addsub', (req, res, next) => {
+    dir = path.join(__dirname, '../public/addSubject.html');
     fs.readFile(dir, 'utf8', (err, text) => {
         res.send(text);
     });

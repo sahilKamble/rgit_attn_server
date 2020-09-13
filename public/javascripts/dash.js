@@ -10,7 +10,7 @@ req.onload = function () {
         const uname = document.createTextNode(jsonObj.username);
         name.appendChild(uname);
         let subjects = jsonObj.subjects;
-        for (subject of subjects) {
+        for (let subject of subjects) {
             let entry = document.createElement('a');
             let tabico = document.createElement('i');
             let subspan = document.createElement('span');
@@ -28,11 +28,11 @@ req.onload = function () {
         let addico = document.createElement('i');
         let addspan = document.createElement('span');
         addentry.className =
-            'row list-group-item list-group-item-action disabled';
+            'row list-group-item list-group-item-action';
         addspan.className = 'col';
         addico.className = 'col-1 fas fa-plus';
-        addspan.innerHTML = 'Add another class ...';
-        addentry.setAttribute('href', 'addClass.html');
+        addspan.innerHTML = 'Add another subject ...';
+        addentry.setAttribute('href', '/users/addsub');
         addentry.appendChild(addico);
         addentry.appendChild(addspan);
         subjectList.appendChild(addentry);
@@ -53,7 +53,7 @@ req2.onload = function () {
             document.querySelector('#sharedhead').hidden = false;
         }
 
-        for (subject of subjects) {
+        for (let subject of subjects) {
             let entry = document.createElement('a');
             let tabico = document.createElement('i');
             let subspan = document.createElement('span');
