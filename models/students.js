@@ -6,6 +6,10 @@ const studentSchema = new Schema({
         type: String,
         required: true
     },
+    year: {
+        type: Number,
+        required: true
+    },
     roll: {
         type: Number,
         required: true
@@ -17,8 +21,8 @@ const studentSchema = new Schema({
     dept: {
         type: String
     }
-},{ timestamps: true});
+}, { timestamps: true });
 
-const Students = mongoose.model('Student',studentSchema);
+const Students = mongoose.model('Student', studentSchema);
 
 module.exports = Students;
