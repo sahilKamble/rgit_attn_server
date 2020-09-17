@@ -27,16 +27,43 @@ studentRouter
             .catch((err) => next(err));
     })
     .post(isAuth, (req, res, next) => {
-        Students.insertMany(req.body)
-            .then(
-                (students) => {
-                    res.statusCode = 200;
-                    res.setHeader('Content-Type', 'application/json');
-                    res.json(students);
-                },
-                (err) => next(err)
-            )
-            .catch((err) => next(err));
+        for (let key in req.body) {
+            Students.findOne({
+                $and: [
+                    { roll: req.body[key].roll.toString() },
+                    { div: req.body[key].div.toString() },
+                    { dept: req.body[key].dept.toString() },
+                    { year: req.body[key].year.toString() },
+                ],
+            }).then((student) => {
+                if (student) {
+                    console.log(
+                        'PRESENT',
+                        req.body[key].name,
+                        req.body[key].roll
+                    );
+                } else {
+                    console.log(
+                        'NOT PRESENT',
+                        req.body[key].name,
+                        req.body[key].roll
+                    );
+                    Students.create(req.body[key])
+                        .then(
+                            (subject) => {
+                                res.statusCode = 200;
+                                res.setHeader(
+                                    'Content-Type',
+                                    'application/json'
+                                );
+                                // res.json(subject);
+                            },
+                            (err) => next(err)
+                        )
+                        .catch((err) => next(err));
+                }
+            });
+        }
     })
     .put(isAuth, (req, res, next) => {
         res.statusCode = 403;
