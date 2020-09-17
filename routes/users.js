@@ -107,7 +107,7 @@ router
         res.json({ success: true, status: 'You are successfully logged in!' });
     });
 
-router.get(isAuth, '/dash', (req, res, next) => {
+router.get('/dash', isAuth, (req, res, next) => {
     dir = path.join(__dirname, '../public/dash.html');
     fs.readFile(dir, 'utf8', (err, text) => {
         res.send(text);
