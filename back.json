@@ -1,1384 +1,1685 @@
 [{
-    "_id": "5f256c9841a7a1001705c612",
-    "name": "aniket aashra",
-    "roll": 501,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.583Z",
-    "updatedAt": "2020-08-01T13:22:32.583Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c613",
-    "name": "arun addagatla",
-    "roll": 502,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.586Z",
-    "updatedAt": "2020-08-01T13:22:32.586Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c60f",
-    "name": "aparna agnihotri",
-    "roll": 503,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.572Z",
-    "updatedAt": "2020-08-01T13:22:32.572Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9941a7a1001705c64e",
-    "name": "sanamdeepsingh anand",
-    "roll": 504,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:33.152Z",
-    "updatedAt": "2020-08-01T13:22:33.152Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c60d",
-    "name": "saumit andhari",
-    "roll": 505,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.537Z",
-    "updatedAt": "2020-08-01T13:22:32.537Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c606",
-    "name": "ajay arjunwadkar",
-    "roll": 506,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.414Z",
-    "updatedAt": "2020-08-01T13:22:32.414Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9941a7a1001705c64c",
-    "name": "bhavya badani",
-    "roll": 507,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:33.148Z",
-    "updatedAt": "2020-08-01T13:22:33.148Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c618",
-    "name": "priyanshi bavishi",
-    "roll": 508,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.603Z",
-    "updatedAt": "2020-08-01T13:22:32.603Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c61b",
-    "name": "hitesh bhalerao",
-    "roll": 509,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.615Z",
-    "updatedAt": "2020-08-01T13:22:32.615Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c60c",
-    "name": "shreyash bhamare",
-    "roll": 510,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.483Z",
-    "updatedAt": "2020-08-01T13:22:32.483Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9941a7a1001705c64d",
-    "name": "rishabh bhura",
-    "roll": 511,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:33.150Z",
-    "updatedAt": "2020-08-01T13:22:33.150Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c60e",
-    "name": "mayun bodele",
-    "roll": 512,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.556Z",
-    "updatedAt": "2020-08-01T13:22:32.556Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c610",
-    "name": "ca aakansha",
-    "roll": 513,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.577Z",
-    "updatedAt": "2020-08-01T13:22:32.577Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c615",
-    "name": "rahul chauhan",
-    "roll": 514,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.592Z",
-    "updatedAt": "2020-08-01T13:22:32.592Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c614",
-    "name": "anikait chavan",
-    "roll": 515,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.589Z",
-    "updatedAt": "2020-08-01T13:22:32.589Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c61c",
-    "name": "shivraj chavan",
-    "roll": 516,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.619Z",
-    "updatedAt": "2020-08-01T13:22:32.619Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c616",
-    "name": "rajvi chokshi",
-    "roll": 517,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.597Z",
-    "updatedAt": "2020-08-01T13:22:32.597Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c617",
-    "name": "mudit choksi",
-    "roll": 518,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.600Z",
-    "updatedAt": "2020-08-01T13:22:32.600Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c61a",
-    "name": "rucha chotalia",
-    "roll": 519,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.610Z",
-    "updatedAt": "2020-08-01T13:22:32.610Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c625",
-    "name": "kanchan choudhari",
-    "roll": 520,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.688Z",
-    "updatedAt": "2020-08-01T13:22:32.688Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c609",
-    "name": "sakshat darne",
-    "roll": 521,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.465Z",
-    "updatedAt": "2020-08-01T13:22:32.465Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c60b",
-    "name": "disha date",
-    "roll": 522,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.476Z",
-    "updatedAt": "2020-08-01T13:22:32.476Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c619",
-    "name": "khush dave",
-    "roll": 523,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.606Z",
-    "updatedAt": "2020-08-01T13:22:32.606Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c626",
-    "name": "ajay desai",
-    "roll": 524,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.690Z",
-    "updatedAt": "2020-08-01T13:22:32.690Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c608",
-    "name": "durva dev",
-    "roll": 525,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.460Z",
-    "updatedAt": "2020-08-01T13:22:32.460Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c607",
-    "name": "saket dhamapurkar",
-    "roll": 526,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.454Z",
-    "updatedAt": "2020-08-01T13:22:32.454Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c60a",
-    "name": "aditya dhaware",
-    "roll": 527,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.472Z",
-    "updatedAt": "2020-08-01T13:22:32.472Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c633",
-    "name": "ketaki dhotre",
-    "roll": 528,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.720Z",
-    "updatedAt": "2020-08-01T13:22:32.720Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c62c",
-    "name": "ujjwal dixit",
-    "roll": 529,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.704Z",
-    "updatedAt": "2020-08-01T13:22:32.704Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c611",
-    "name": "adrian dsouza",
-    "roll": 530,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.580Z",
-    "updatedAt": "2020-08-01T13:22:32.580Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c631",
-    "name": "ayush dubey",
-    "roll": 531,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.716Z",
-    "updatedAt": "2020-08-01T13:22:32.716Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c62a",
-    "name": "harsh gandhi",
-    "roll": 532,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.701Z",
-    "updatedAt": "2020-08-01T13:22:32.701Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c62d",
-    "name": "mahesh ghuge",
-    "roll": 533,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.708Z",
-    "updatedAt": "2020-08-01T13:22:32.708Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c630",
-    "name": "harshali ghumate",
-    "roll": 534,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.714Z",
-    "updatedAt": "2020-08-01T13:22:32.714Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c61f",
-    "name": "manan gosalia",
-    "roll": 535,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.625Z",
-    "updatedAt": "2020-08-01T13:22:32.625Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c62b",
-    "name": "karan gupta",
-    "roll": 536,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.703Z",
-    "updatedAt": "2020-08-01T13:22:32.703Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c624",
-    "name": "rutuja harne",
-    "roll": 537,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.637Z",
-    "updatedAt": "2020-08-01T13:22:32.637Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c632",
-    "name": "shubham hedavkar",
-    "roll": 538,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.718Z",
-    "updatedAt": "2020-08-01T13:22:32.718Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c62f",
-    "name": "mangesh jadhav",
-    "roll": 539,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.712Z",
-    "updatedAt": "2020-08-01T13:22:32.712Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c61e",
-    "name": "aryan jain",
-    "roll": 540,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.623Z",
-    "updatedAt": "2020-08-01T13:22:32.623Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c61d",
-    "name": "dhruvkumar jain",
-    "roll": 541,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.621Z",
-    "updatedAt": "2020-08-01T13:22:32.621Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c642",
-    "name": "naitik jain",
-    "roll": 542,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.749Z",
-    "updatedAt": "2020-08-01T13:22:32.749Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c622",
-    "name": "yash jaiswar",
-    "roll": 543,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.630Z",
-    "updatedAt": "2020-08-01T13:22:32.630Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c643",
-    "name": "kshitij jatekar",
-    "roll": 544,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.751Z",
-    "updatedAt": "2020-08-01T13:22:32.751Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c645",
-    "name": "karan kadayat",
-    "roll": 545,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.757Z",
-    "updatedAt": "2020-08-01T13:22:32.757Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c623",
-    "name": "paras kamble",
-    "roll": 546,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.634Z",
-    "updatedAt": "2020-08-01T13:22:32.634Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c62e",
-    "name": "sahil kamble",
-    "roll": 547,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.709Z",
-    "updatedAt": "2020-08-01T13:22:32.709Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c644",
-    "name": "aniket kankute",
-    "roll": 548,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.755Z",
-    "updatedAt": "2020-08-01T13:22:32.755Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c620",
-    "name": "sebin kannampuzha",
-    "roll": 549,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.627Z",
-    "updatedAt": "2020-08-01T13:22:32.627Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c63e",
-    "name": "devrishab karwa",
-    "roll": 550,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.741Z",
-    "updatedAt": "2020-08-01T13:22:32.741Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c647",
-    "name": "akshay kedar",
-    "roll": 551,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.762Z",
-    "updatedAt": "2020-08-01T13:22:32.762Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c627",
-    "name": "amreen khan",
-    "roll": 552,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.696Z",
-    "updatedAt": "2020-08-01T13:22:32.696Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c621",
-    "name": "mohammadsalik khan",
-    "roll": 553,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.629Z",
-    "updatedAt": "2020-08-01T13:22:32.629Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c646",
-    "name": "shreyash khodaskar",
-    "roll": 554,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.759Z",
-    "updatedAt": "2020-08-01T13:22:32.759Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c63d",
-    "name": "pranali khuspe",
-    "roll": 555,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.739Z",
-    "updatedAt": "2020-08-01T13:22:32.739Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c628",
-    "name": "sejal kore",
-    "roll": 556,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.698Z",
-    "updatedAt": "2020-08-01T13:22:32.698Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c629",
-    "name": "kushal kothari",
-    "roll": 557,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.700Z",
-    "updatedAt": "2020-08-01T13:22:32.700Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c63f",
-    "name": "sumedh kurhade",
-    "roll": 558,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.743Z",
-    "updatedAt": "2020-08-01T13:22:32.743Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c63c",
-    "name": "vedant lahane",
-    "roll": 559,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.738Z",
-    "updatedAt": "2020-08-01T13:22:32.738Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9941a7a1001705c64f",
-    "name": "vedant lanjewar",
-    "roll": 560,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:33.846Z",
-    "updatedAt": "2020-08-01T13:22:33.846Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9c41a7a1001705c654",
-    "name": "jeetendra madrecha",
-    "roll": 561,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:36.043Z",
-    "updatedAt": "2020-08-01T13:22:36.043Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c641",
-    "name": "kaustubh mahadik",
-    "roll": 562,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.747Z",
-    "updatedAt": "2020-08-01T13:22:32.747Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c640",
-    "name": "abhishek mahakal",
-    "roll": 563,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.745Z",
-    "updatedAt": "2020-08-01T13:22:32.745Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c634",
-    "name": "mayuri mane",
-    "roll": 564,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.723Z",
-    "updatedAt": "2020-08-01T13:22:32.723Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c635",
-    "name": "atharva mangaonkar",
-    "roll": 565,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.725Z",
-    "updatedAt": "2020-08-01T13:22:32.725Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c648",
-    "name": "sakshi manik",
-    "roll": 566,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.765Z",
-    "updatedAt": "2020-08-01T13:22:32.765Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c636",
-    "name": "deep mayekar",
-    "roll": 567,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.727Z",
-    "updatedAt": "2020-08-01T13:22:32.727Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c637",
-    "name": "prince mehta",
-    "roll": 568,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.728Z",
-    "updatedAt": "2020-08-01T13:22:32.728Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9c41a7a1001705c655",
-    "name": "safwan modak",
-    "roll": 569,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:36.049Z",
-    "updatedAt": "2020-08-01T13:22:36.049Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c649",
-    "name": "dhairya mody",
-    "roll": 570,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.767Z",
-    "updatedAt": "2020-08-01T13:22:32.767Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9b41a7a1001705c652",
-    "name": "ashitosh mohite",
-    "roll": 571,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:35.379Z",
-    "updatedAt": "2020-08-01T13:22:35.379Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c64a",
-    "name": "rugvedi more",
-    "roll": 572,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.769Z",
-    "updatedAt": "2020-08-01T13:22:32.769Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c638",
-    "name": "gauri morye",
-    "roll": 573,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.730Z",
-    "updatedAt": "2020-08-01T13:22:32.730Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c63a",
-    "name": "rahul mane",
-    "roll": 574,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.734Z",
-    "updatedAt": "2020-08-01T13:22:32.734Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9b41a7a1001705c651",
-    "name": "sumedh paikrao",
-    "roll": 575,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:35.233Z",
-    "updatedAt": "2020-08-01T13:22:35.233Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9a41a7a1001705c650",
-    "name": "saud behlim",
-    "roll": 576,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:34.301Z",
-    "updatedAt": "2020-08-01T13:22:34.301Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9c41a7a1001705c653",
-    "name": "rohan gaikwad",
-    "roll": 577,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:36.038Z",
-    "updatedAt": "2020-08-01T13:22:36.038Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c64b",
-    "name": "omkar gandhi",
-    "roll": 578,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.771Z",
-    "updatedAt": "2020-08-01T13:22:32.771Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c639",
-    "name": "sumedh desai",
-    "roll": 579,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.732Z",
-    "updatedAt": "2020-08-01T13:22:32.732Z",
-    "__v": 0
-},
-{
-    "_id": "5f256c9841a7a1001705c63b",
-    "name": "shubhankar chavan",
-    "roll": 580,
-    "div": "A",
-    "dept": "Computers",
-    "createdAt": "2020-08-01T13:22:32.736Z",
-    "updatedAt": "2020-08-01T13:22:32.736Z",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbef",
-    "name": "tarang padia",
-    "roll": 501,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a0019",
-    "name": "tejal palwankar",
-    "roll": 502,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a001a",
-    "name": "siddhesh panchal",
-    "roll": 503,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbf0",
-    "name": "aryan patel",
-    "roll": 504,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a001b",
-    "name": "parth patel",
-    "roll": 505,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbf1",
-    "name": "ronak patel",
-    "roll": 506,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbf2",
-    "name": "aakanksha patil",
-    "roll": 507,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbf3",
-    "name": "anagha patil",
-    "roll": 508,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a001c",
-    "name": "chinmay patil",
-    "roll": 509,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbf4",
-    "name": "prathamesh patil",
-    "roll": 510,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbf5",
-    "name": "ritik patil",
-    "roll": 511,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbf6",
-    "name": "rohan patil",
-    "roll": 512,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbf7",
-    "name": "shreyas patil",
-    "roll": 513,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a001d",
-    "name": "raj pawar",
-    "roll": 514,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a001e",
-    "name": "simran pawar",
-    "roll": 515,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbf8",
-    "name": "vikram phonde",
-    "roll": 516,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbf9",
-    "name": "varun pillai",
-    "roll": 517,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbfa",
-    "name": "shivprasad poojary",
-    "roll": 518,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbfb",
-    "name": "kinjal prabhu",
-    "roll": 519,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbfc",
-    "name": "abhishek prajapati",
-    "roll": 520,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a001f",
-    "name": "ahtesham qureshi",
-    "roll": 521,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbfd",
-    "name": "aakash rajawat",
-    "roll": 522,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc23",
-    "name": "priyanka rathod",
-    "roll": 523,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbfe",
-    "name": "kartik rokade",
-    "roll": 524,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dbff",
-    "name": "arpit sakhare",
-    "roll": 525,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc25",
-    "name": "omkar salkade",
-    "roll": 526,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc26",
-    "name": "jayshree salve",
-    "roll": 527,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc00",
-    "name": "disha sankhe",
-    "roll": 528,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a0020",
-    "name": "riya sankhe",
-    "roll": 529,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc01",
-    "name": "ninad satam",
-    "roll": 530,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc02",
-    "name": "sainam satam",
-    "roll": 531,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc03",
-    "name": "kabir shaikh",
-    "roll": 532,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc04",
-    "name": "keshav sharma",
-    "roll": 533,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc05",
-    "name": "manish sharma",
-    "roll": 534,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc06",
-    "name": "mohit sharma",
-    "roll": 535,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc07",
-    "name": "pradyum shetty",
-    "roll": 537,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc08",
-    "name": "rajith shetty",
-    "roll": 538,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a0021",
-    "name": "avinash shevare",
-    "roll": 539,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc09",
-    "name": "sayali shirke",
-    "roll": 540,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc0a",
-    "name": "siddhant shirodkar",
-    "roll": 541,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc0b",
-    "name": "ninad shirsat",
-    "roll": 542,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc0c",
-    "name": "sanchita shirur",
-    "roll": 543,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc0d",
-    "name": "mohammadyusuf siddiqi",
-    "roll": 544,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc0e",
-    "name": "anurag singh",
-    "roll": 545,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc0f",
-    "name": "rohit singh",
-    "roll": 546,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc10",
-    "name": "sumit singh",
-    "roll": 547,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc11",
-    "name": "varun singh",
-    "roll": 548,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc12",
-    "name": "rajveer solanki",
-    "roll": 549,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc13",
-    "name": "apurva somji",
-    "roll": 550,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc14",
-    "name": "chaitanya suralkar",
-    "roll": 551,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc15",
-    "name": "shivani surve",
-    "roll": 552,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc16",
-    "name": "prerana talwar",
-    "roll": 554,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc17",
-    "name": "sahil tanawade",
-    "roll": 555,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc18",
-    "name": "aniket taral",
-    "roll": 556,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc19",
-    "name": "urvashi thakre",
-    "roll": 557,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a0022",
-    "name": "husain thanawala",
-    "roll": 558,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc1a",
-    "name": "nitika thingalaya ",
-    "roll": 559,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a0023",
-    "name": "shubham thokal",
-    "roll": 560,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a0024",
-    "name": "sumedh thokal",
-    "roll": 561,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc1b",
-    "name": "rudra tiwari",
-    "roll": 562,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc1c",
-    "name": "abhay vekhande",
-    "roll": 563,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc1d",
-    "name": "jinay vora",
-    "roll": 564,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4c829b6e77970017b5bc34",
-    "name": "kashyap vyas",
-    "roll": 565,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc1e",
-    "name": "shrusti warekar",
-    "roll": 566,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a0025",
-    "name": "aishwarya warkhande",
-    "roll": 567,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc1f",
-    "name": "abhishek yadav",
-    "roll": 568,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc24",
-    "name": "devendra yadav",
-    "roll": 569,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a0026",
-    "name": "swapnil yadav",
-    "roll": 570,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc20",
-    "name": "udita shukla",
-    "roll": 571,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc21",
-    "name": "tanush shetty",
-    "roll": 572,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f2da0f3029f0d001738dc22",
-    "name": "nayan patil",
-    "roll": 573,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a0027",
-    "name": "arundhati raina",
-    "roll": 574,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-},
-{
-    "_id": "5f4e9994ac5aac00179a0028",
-    "name": "manthan rathod",
-    "roll": 576,
-    "div": "B",
-    "dept": "Computers",
-    "__v": 0
-}]
+        "_id": "5f256c9941a7a1001705c64e",
+        "name": "sanamdeepsingh anand",
+        "roll": 504,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:33.152Z",
+        "updatedAt": "2020-08-01T13:22:33.152Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c606",
+        "name": "ajay arjunwadkar",
+        "roll": 506,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.414Z",
+        "updatedAt": "2020-08-01T13:22:32.414Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c60d",
+        "name": "saumit andhari",
+        "roll": 505,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.537Z",
+        "updatedAt": "2020-08-01T13:22:32.537Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9941a7a1001705c64c",
+        "name": "bhavya badani",
+        "roll": 507,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:33.148Z",
+        "updatedAt": "2020-08-01T13:22:33.148Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c618",
+        "name": "priyanshi bavishi",
+        "roll": 508,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.603Z",
+        "updatedAt": "2020-08-01T13:22:32.603Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c61b",
+        "name": "hitesh bhalerao",
+        "roll": 509,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.615Z",
+        "updatedAt": "2020-08-01T13:22:32.615Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c60c",
+        "name": "shreyash bhamare",
+        "roll": 510,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.483Z",
+        "updatedAt": "2020-08-01T13:22:32.483Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9941a7a1001705c64d",
+        "name": "rishabh bhura",
+        "roll": 511,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:33.150Z",
+        "updatedAt": "2020-08-01T13:22:33.150Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c60e",
+        "name": "mayun bodele",
+        "roll": 512,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.556Z",
+        "updatedAt": "2020-08-01T13:22:32.556Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c610",
+        "name": "ca aakansha",
+        "roll": 513,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.577Z",
+        "updatedAt": "2020-08-01T13:22:32.577Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c615",
+        "name": "rahul chauhan",
+        "roll": 514,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.592Z",
+        "updatedAt": "2020-08-01T13:22:32.592Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c61a",
+        "name": "rucha chotalia",
+        "roll": 519,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.610Z",
+        "updatedAt": "2020-08-01T13:22:32.610Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c625",
+        "name": "kanchan choudhari",
+        "roll": 520,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.688Z",
+        "updatedAt": "2020-08-01T13:22:32.688Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c616",
+        "name": "rajvi chokshi",
+        "roll": 517,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.597Z",
+        "updatedAt": "2020-08-01T13:22:32.597Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c61c",
+        "name": "shivraj chavan",
+        "roll": 516,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.619Z",
+        "updatedAt": "2020-08-01T13:22:32.619Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c617",
+        "name": "mudit choksi",
+        "roll": 518,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.600Z",
+        "updatedAt": "2020-08-01T13:22:32.600Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c609",
+        "name": "sakshat darne",
+        "roll": 521,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.465Z",
+        "updatedAt": "2020-08-01T13:22:32.465Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c614",
+        "name": "anikait chavan",
+        "roll": 515,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.589Z",
+        "updatedAt": "2020-08-01T13:22:32.589Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c608",
+        "name": "durva dev",
+        "roll": 525,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.460Z",
+        "updatedAt": "2020-08-01T13:22:32.460Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c633",
+        "name": "ketaki dhotre",
+        "roll": 528,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.720Z",
+        "updatedAt": "2020-08-01T13:22:32.720Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c60a",
+        "name": "aditya dhaware",
+        "roll": 527,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.472Z",
+        "updatedAt": "2020-08-01T13:22:32.472Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c607",
+        "name": "saket dhamapurkar",
+        "roll": 526,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.454Z",
+        "updatedAt": "2020-08-01T13:22:32.454Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c626",
+        "name": "ajay desai",
+        "roll": 524,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.690Z",
+        "updatedAt": "2020-08-01T13:22:32.690Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c60b",
+        "name": "disha date",
+        "roll": 522,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.476Z",
+        "updatedAt": "2020-08-01T13:22:32.476Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c619",
+        "name": "khush dave",
+        "roll": 523,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.606Z",
+        "updatedAt": "2020-08-01T13:22:32.606Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c611",
+        "name": "adrian dsouza",
+        "roll": 530,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.580Z",
+        "updatedAt": "2020-08-01T13:22:32.580Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c631",
+        "name": "ayush dubey",
+        "roll": 531,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.716Z",
+        "updatedAt": "2020-08-01T13:22:32.716Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c62c",
+        "name": "ujjwal dixit",
+        "roll": 529,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.704Z",
+        "updatedAt": "2020-08-01T13:22:32.704Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c630",
+        "name": "harshali ghumate",
+        "roll": 534,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.714Z",
+        "updatedAt": "2020-08-01T13:22:32.714Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c62a",
+        "name": "harsh gandhi",
+        "roll": 532,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.701Z",
+        "updatedAt": "2020-08-01T13:22:32.701Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c62d",
+        "name": "mahesh ghuge",
+        "roll": 533,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.708Z",
+        "updatedAt": "2020-08-01T13:22:32.708Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c632",
+        "name": "shubham hedavkar",
+        "roll": 538,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.718Z",
+        "updatedAt": "2020-08-01T13:22:32.718Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c624",
+        "name": "rutuja harne",
+        "roll": 537,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.637Z",
+        "updatedAt": "2020-08-01T13:22:32.637Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c61f",
+        "name": "manan gosalia",
+        "roll": 535,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.625Z",
+        "updatedAt": "2020-08-01T13:22:32.625Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c62f",
+        "name": "mangesh jadhav",
+        "roll": 539,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.712Z",
+        "updatedAt": "2020-08-01T13:22:32.712Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c62b",
+        "name": "karan gupta",
+        "roll": 536,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.703Z",
+        "updatedAt": "2020-08-01T13:22:32.703Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c61d",
+        "name": "dhruvkumar jain",
+        "roll": 541,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.621Z",
+        "updatedAt": "2020-08-01T13:22:32.621Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c61e",
+        "name": "aryan jain",
+        "roll": 540,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.623Z",
+        "updatedAt": "2020-08-01T13:22:32.623Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c642",
+        "name": "naitik jain",
+        "roll": 542,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.749Z",
+        "updatedAt": "2020-08-01T13:22:32.749Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c643",
+        "name": "kshitij jatekar",
+        "roll": 544,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.751Z",
+        "updatedAt": "2020-08-01T13:22:32.751Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c622",
+        "name": "yash jaiswar",
+        "roll": 543,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.630Z",
+        "updatedAt": "2020-08-01T13:22:32.630Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c645",
+        "name": "karan kadayat",
+        "roll": 545,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.757Z",
+        "updatedAt": "2020-08-01T13:22:32.757Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c644",
+        "name": "aniket kankute",
+        "roll": 548,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.755Z",
+        "updatedAt": "2020-08-01T13:22:32.755Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c623",
+        "name": "paras kamble",
+        "roll": 546,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.634Z",
+        "updatedAt": "2020-08-01T13:22:32.634Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c62e",
+        "name": "sahil kamble",
+        "roll": 547,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.709Z",
+        "updatedAt": "2020-08-01T13:22:32.709Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c63e",
+        "name": "devrishab karwa",
+        "roll": 550,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.741Z",
+        "updatedAt": "2020-08-01T13:22:32.741Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c647",
+        "name": "akshay kedar",
+        "roll": 551,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.762Z",
+        "updatedAt": "2020-08-01T13:22:32.762Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c620",
+        "name": "sebin kannampuzha",
+        "roll": 549,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.627Z",
+        "updatedAt": "2020-08-01T13:22:32.627Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c627",
+        "name": "amreen khan",
+        "roll": 552,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.696Z",
+        "updatedAt": "2020-08-01T13:22:32.696Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c629",
+        "name": "kushal kothari",
+        "roll": 557,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.700Z",
+        "updatedAt": "2020-08-01T13:22:32.700Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c621",
+        "name": "mohammadsalik khan",
+        "roll": 553,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.629Z",
+        "updatedAt": "2020-08-01T13:22:32.629Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c63d",
+        "name": "pranali khuspe",
+        "roll": 555,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.739Z",
+        "updatedAt": "2020-08-01T13:22:32.739Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c628",
+        "name": "sejal kore",
+        "roll": 556,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.698Z",
+        "updatedAt": "2020-08-01T13:22:32.698Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c646",
+        "name": "shreyash khodaskar",
+        "roll": 554,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.759Z",
+        "updatedAt": "2020-08-01T13:22:32.759Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c63c",
+        "name": "vedant lahane",
+        "roll": 559,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.738Z",
+        "updatedAt": "2020-08-01T13:22:32.738Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c63f",
+        "name": "sumedh kurhade",
+        "roll": 558,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.743Z",
+        "updatedAt": "2020-08-01T13:22:32.743Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9941a7a1001705c64f",
+        "name": "vedant lanjewar",
+        "roll": 560,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:33.846Z",
+        "updatedAt": "2020-08-01T13:22:33.846Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9c41a7a1001705c654",
+        "name": "jeetendra madrecha",
+        "roll": 561,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:36.043Z",
+        "updatedAt": "2020-08-01T13:22:36.043Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c648",
+        "name": "sakshi manik",
+        "roll": 566,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.765Z",
+        "updatedAt": "2020-08-01T13:22:32.765Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c641",
+        "name": "kaustubh mahadik",
+        "roll": 562,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.747Z",
+        "updatedAt": "2020-08-01T13:22:32.747Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c634",
+        "name": "mayuri mane",
+        "roll": 564,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.723Z",
+        "updatedAt": "2020-08-01T13:22:32.723Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c635",
+        "name": "atharva mangaonkar",
+        "roll": 565,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.725Z",
+        "updatedAt": "2020-08-01T13:22:32.725Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c640",
+        "name": "abhishek mahakal",
+        "roll": 563,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.745Z",
+        "updatedAt": "2020-08-01T13:22:32.745Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c636",
+        "name": "deep mayekar",
+        "roll": 567,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.727Z",
+        "updatedAt": "2020-08-01T13:22:32.727Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c649",
+        "name": "dhairya mody",
+        "roll": 570,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.767Z",
+        "updatedAt": "2020-08-01T13:22:32.767Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9b41a7a1001705c652",
+        "name": "ashitosh mohite",
+        "roll": 571,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:35.379Z",
+        "updatedAt": "2020-08-01T13:22:35.379Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c637",
+        "name": "prince mehta",
+        "roll": 568,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.728Z",
+        "updatedAt": "2020-08-01T13:22:32.728Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9c41a7a1001705c655",
+        "name": "safwan modak",
+        "roll": 569,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:36.049Z",
+        "updatedAt": "2020-08-01T13:22:36.049Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c638",
+        "name": "gauri morye",
+        "roll": 573,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.730Z",
+        "updatedAt": "2020-08-01T13:22:32.730Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c63a",
+        "name": "rahul mane",
+        "roll": 574,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.734Z",
+        "updatedAt": "2020-08-01T13:22:32.734Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c64a",
+        "name": "rugvedi more",
+        "roll": 572,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.769Z",
+        "updatedAt": "2020-08-01T13:22:32.769Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9b41a7a1001705c651",
+        "name": "sumedh paikrao",
+        "roll": 575,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:35.233Z",
+        "updatedAt": "2020-08-01T13:22:35.233Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9c41a7a1001705c653",
+        "name": "rohan gaikwad",
+        "roll": 577,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:36.038Z",
+        "updatedAt": "2020-08-01T13:22:36.038Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9a41a7a1001705c650",
+        "name": "saud behlim",
+        "roll": 576,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:34.301Z",
+        "updatedAt": "2020-08-01T13:22:34.301Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c64b",
+        "name": "omkar gandhi",
+        "roll": 578,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.771Z",
+        "updatedAt": "2020-08-01T13:22:32.771Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c63b",
+        "name": "shubhankar chavan",
+        "roll": 580,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.736Z",
+        "updatedAt": "2020-08-01T13:22:32.736Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c639",
+        "name": "sumedh desai",
+        "roll": 579,
+        "div": "A",
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.732Z",
+        "updatedAt": "2020-08-01T13:22:32.732Z",
+        "__v": 0,
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a001a",
+        "name": "siddhesh panchal",
+        "roll": 503,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.209Z",
+        "updatedAt": "2020-09-10T12:57:28.209Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a001b",
+        "name": "parth patel",
+        "roll": 505,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.209Z",
+        "updatedAt": "2020-09-10T12:57:28.209Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a0019",
+        "name": "tejal palwankar",
+        "roll": 502,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.209Z",
+        "updatedAt": "2020-09-10T12:57:28.209Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbf1",
+        "name": "ronak patel",
+        "roll": 506,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.209Z",
+        "updatedAt": "2020-09-10T12:57:28.209Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbf2",
+        "name": "aakanksha patil",
+        "roll": 507,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.209Z",
+        "updatedAt": "2020-09-10T12:57:28.209Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbf3",
+        "name": "anagha patil",
+        "roll": 508,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.209Z",
+        "updatedAt": "2020-09-10T12:57:28.209Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbef",
+        "name": "tarang padia",
+        "roll": 501,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.209Z",
+        "updatedAt": "2020-09-10T12:57:28.209Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbf0",
+        "name": "aryan patel",
+        "roll": 504,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.209Z",
+        "updatedAt": "2020-09-10T12:57:28.209Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a001c",
+        "name": "chinmay patil",
+        "roll": 509,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.209Z",
+        "updatedAt": "2020-09-10T12:57:28.209Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbf4",
+        "name": "prathamesh patil",
+        "roll": 510,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.210Z",
+        "updatedAt": "2020-09-10T12:57:28.210Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a001d",
+        "name": "raj pawar",
+        "roll": 514,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.210Z",
+        "updatedAt": "2020-09-10T12:57:28.210Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbf5",
+        "name": "ritik patil",
+        "roll": 511,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.210Z",
+        "updatedAt": "2020-09-10T12:57:28.210Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbf7",
+        "name": "shreyas patil",
+        "roll": 513,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.210Z",
+        "updatedAt": "2020-09-10T12:57:28.210Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbf6",
+        "name": "rohan patil",
+        "roll": 512,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.210Z",
+        "updatedAt": "2020-09-10T12:57:28.210Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbf9",
+        "name": "varun pillai",
+        "roll": 517,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.210Z",
+        "updatedAt": "2020-09-10T12:57:28.210Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a001e",
+        "name": "simran pawar",
+        "roll": 515,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.210Z",
+        "updatedAt": "2020-09-10T12:57:28.210Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbf8",
+        "name": "vikram phonde",
+        "roll": 516,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.210Z",
+        "updatedAt": "2020-09-10T12:57:28.210Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbfa",
+        "name": "shivprasad poojary",
+        "roll": 518,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.210Z",
+        "updatedAt": "2020-09-10T12:57:28.210Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbfb",
+        "name": "kinjal prabhu",
+        "roll": 519,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.210Z",
+        "updatedAt": "2020-09-10T12:57:28.210Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbfd",
+        "name": "aakash rajawat",
+        "roll": 522,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.210Z",
+        "updatedAt": "2020-09-10T12:57:28.210Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a001f",
+        "name": "ahtesham qureshi",
+        "roll": 521,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.210Z",
+        "updatedAt": "2020-09-10T12:57:28.210Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc23",
+        "name": "priyanka rathod",
+        "roll": 523,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.210Z",
+        "updatedAt": "2020-09-10T12:57:28.210Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbfc",
+        "name": "abhishek prajapati",
+        "roll": 520,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.210Z",
+        "updatedAt": "2020-09-10T12:57:28.210Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc25",
+        "name": "omkar salkade",
+        "roll": 526,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.211Z",
+        "updatedAt": "2020-09-10T12:57:28.211Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbff",
+        "name": "arpit sakhare",
+        "roll": 525,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.211Z",
+        "updatedAt": "2020-09-10T12:57:28.211Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dbfe",
+        "name": "kartik rokade",
+        "roll": 524,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.211Z",
+        "updatedAt": "2020-09-10T12:57:28.211Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc26",
+        "name": "jayshree salve",
+        "roll": 527,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.211Z",
+        "updatedAt": "2020-09-10T12:57:28.211Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc00",
+        "name": "disha sankhe",
+        "roll": 528,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.211Z",
+        "updatedAt": "2020-09-10T12:57:28.211Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc01",
+        "name": "ninad satam",
+        "roll": 530,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.211Z",
+        "updatedAt": "2020-09-10T12:57:28.211Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a0020",
+        "name": "riya sankhe",
+        "roll": 529,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.211Z",
+        "updatedAt": "2020-09-10T12:57:28.211Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc04",
+        "name": "keshav sharma",
+        "roll": 533,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc03",
+        "name": "kabir shaikh",
+        "roll": 532,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.211Z",
+        "updatedAt": "2020-09-10T12:57:28.211Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc02",
+        "name": "sainam satam",
+        "roll": 531,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.211Z",
+        "updatedAt": "2020-09-10T12:57:28.211Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc05",
+        "name": "manish sharma",
+        "roll": 534,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a0021",
+        "name": "avinash shevare",
+        "roll": 539,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc07",
+        "name": "pradyum shetty",
+        "roll": 537,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc06",
+        "name": "mohit sharma",
+        "roll": 535,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc08",
+        "name": "rajith shetty",
+        "roll": 538,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc09",
+        "name": "sayali shirke",
+        "roll": 540,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc0a",
+        "name": "siddhant shirodkar",
+        "roll": 541,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc0c",
+        "name": "sanchita shirur",
+        "roll": 543,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc0b",
+        "name": "ninad shirsat",
+        "roll": 542,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc0e",
+        "name": "anurag singh",
+        "roll": 545,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc0d",
+        "name": "mohammadyusuf siddiqi",
+        "roll": 544,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc10",
+        "name": "sumit singh",
+        "roll": 547,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc11",
+        "name": "varun singh",
+        "roll": 548,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc12",
+        "name": "rajveer solanki",
+        "roll": 549,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc0f",
+        "name": "rohit singh",
+        "roll": 546,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.212Z",
+        "updatedAt": "2020-09-10T12:57:28.212Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc14",
+        "name": "chaitanya suralkar",
+        "roll": 551,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc13",
+        "name": "apurva somji",
+        "roll": 550,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc15",
+        "name": "shivani surve",
+        "roll": 552,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc16",
+        "name": "prerana talwar",
+        "roll": 554,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc17",
+        "name": "sahil tanawade",
+        "roll": 555,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc18",
+        "name": "aniket taral",
+        "roll": 556,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc19",
+        "name": "urvashi thakre",
+        "roll": 557,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a0023",
+        "name": "shubham thokal",
+        "roll": 560,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc1a",
+        "name": "nitika thingalaya ",
+        "roll": 559,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a0022",
+        "name": "husain thanawala",
+        "roll": 558,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc1b",
+        "name": "rudra tiwari",
+        "roll": 562,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a0024",
+        "name": "sumedh thokal",
+        "roll": 561,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc1c",
+        "name": "abhay vekhande",
+        "roll": 563,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4c829b6e77970017b5bc34",
+        "name": "kashyap vyas",
+        "roll": 565,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a0025",
+        "name": "aishwarya warkhande",
+        "roll": 567,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.214Z",
+        "updatedAt": "2020-09-10T12:57:28.214Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc1d",
+        "name": "jinay vora",
+        "roll": 564,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc1e",
+        "name": "shrusti warekar",
+        "roll": 566,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.213Z",
+        "updatedAt": "2020-09-10T12:57:28.213Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc1f",
+        "name": "abhishek yadav",
+        "roll": 568,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.214Z",
+        "updatedAt": "2020-09-10T12:57:28.214Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc24",
+        "name": "devendra yadav",
+        "roll": 569,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.214Z",
+        "updatedAt": "2020-09-10T12:57:28.214Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a0026",
+        "name": "swapnil yadav",
+        "roll": 570,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.214Z",
+        "updatedAt": "2020-09-10T12:57:28.214Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc21",
+        "name": "tanush shetty",
+        "roll": 572,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.214Z",
+        "updatedAt": "2020-09-10T12:57:28.214Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc20",
+        "name": "udita shukla",
+        "roll": 571,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.214Z",
+        "updatedAt": "2020-09-10T12:57:28.214Z",
+        "year": 3
+    },
+    {
+        "_id": "5f2da0f3029f0d001738dc22",
+        "name": "nayan patil",
+        "roll": 573,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.214Z",
+        "updatedAt": "2020-09-10T12:57:28.214Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a0027",
+        "name": "arundhati raina",
+        "roll": 574,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.214Z",
+        "updatedAt": "2020-09-10T12:57:28.214Z",
+        "year": 3
+    },
+    {
+        "_id": "5f4e9994ac5aac00179a0028",
+        "name": "manthan rathod",
+        "roll": 576,
+        "div": "B",
+        "dept": "Computers",
+        "__v": 0,
+        "createdAt": "2020-09-10T12:57:28.214Z",
+        "updatedAt": "2020-09-10T12:57:28.214Z",
+        "year": 3
+    },
+    {
+        "_id": "5f256c9841a7a1001705c613",
+        "name": "arun addagatla",
+        "roll": 502,
+        "div": "A",
+        "dept": "Computers",
+        "year": 3,
+        "createdAt": "2020-08-01T13:22:32.586Z",
+        "updatedAt": "2020-08-01T13:22:32.586Z",
+        "__v": 0
+    },
+    {
+        "_id": "5f256c9841a7a1001705c612",
+        "name": "aniket aashra",
+        "roll": 501,
+        "div": "A",
+        "year": 3,
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.583Z",
+        "updatedAt": "2020-08-01T13:22:32.583Z",
+        "__v": 0
+    },
+    {
+        "_id": "5f256c9841a7a1001705c60f",
+        "name": "aparna agnihotri",
+        "roll": 503,
+        "div": "A",
+        "year": 3,
+        "dept": "Computers",
+        "createdAt": "2020-08-01T13:22:32.572Z",
+        "updatedAt": "2020-08-01T13:22:32.572Z",
+        "__v": 0
+    }
+
+]
