@@ -1,10 +1,14 @@
 var list;
 var department;
+var year;
 
 function ShowAndHide() {
     var dept = document.querySelector('#dept-dropdown');
     department = dept.options[dept.selectedIndex].value;
     console.log(dept.options[dept.selectedIndex].value);
+    var ye = document.querySelector('#year-dropdown');
+    year = ye.options[ye.selectedIndex].value;
+    console.log(ye.options[ye.selectedIndex].value);
 }
 
 function handleFile(e) {
@@ -24,18 +28,19 @@ function handleFile(e) {
         );
         console.log(worksheet);
         let first = worksheet[0];
+        ShowAndHide();
         if(
             first.hasOwnProperty('name') && 
             first.hasOwnProperty('div') && 
             first.hasOwnProperty('roll')
         ) {
             for (let student of worksheet) {
-                ShowAndHide();
                 let abc = {
                     name: student.name,
                     roll: student.roll,
                     div: student.div,
                     dept: department,
+                    year: year
                 };
                 list.push(abc);
                 document.querySelector('.alert').hidden = true;
