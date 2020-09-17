@@ -13,8 +13,8 @@ const fs = require('fs');
 var compression = require('compression');
 
 mongoose.set('useUnifiedTopology', true);
- const url = process.env.DB || 'mongodb://localhost:27017/rgitAttn';
-//const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
+//const url = process.env.DB || 'mongodb://localhost:27017/rgitAttn';
+const url = 'mongodb+srv://sahil:sahil@cluster0.xclwr.mongodb.net/test?retryWrites=true&w=majority';
 const connect = mongoose.connect(url, { useNewUrlParser: true });
 
 connect.then(
@@ -84,12 +84,12 @@ app.use('/subjects', subjectRouter);
 app.use('/students', studentRouter);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     next(createError(404));
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};

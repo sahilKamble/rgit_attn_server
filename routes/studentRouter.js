@@ -27,42 +27,16 @@ studentRouter
             .catch((err) => next(err));
     })
     .post(isAuth, (req, res, next) => {
-        for (let key in req.body) {
-            Students.findOne({
-                $and: [
-                    { roll: req.body[key].roll.toString() },
-                    { div: req.body[key].div.toString() },
-                    { dept: req.body[key].dept.toString() },
-                ],
-            }).then((student) => {
-                if (student) {
-                    console.log(
-                        'PRESENT',
-                        req.body[key].name,
-                        req.body[key].roll
-                    );
-                } else {
-                    console.log(
-                        'NOT PRESENT',
-                        req.body[key].name,
-                        req.body[key].roll
-                    );
-                    Students.create(req.body[key])
-                        .then(
-                            (subject) => {
-                                res.statusCode = 200;
-                                res.setHeader(
-                                    'Content-Type',
-                                    'application/json'
-                                );
-                                // res.json(subject);
-                            },
-                            (err) => next(err)
-                        )
-                        .catch((err) => next(err));
-                }
-            });
-        }
+        Students.insertMany(req.body)
+            .then(
+                (students) => {
+                    res.statusCode = 200;
+                    res.setHeader('Content-Type', 'application/json');
+                    res.json(students);
+                },
+                (err) => next(err)
+            )
+            .catch((err) => next(err));
     })
     .put(isAuth, (req, res, next) => {
         res.statusCode = 403;
@@ -136,12 +110,10 @@ studentRouter
     })
     .put(isAuth, (req, res, next) => {
         Students.findByIdAndUpdate(
-            req.params.studentId,
-            {
-                $set: req.body,
-            },
-            { new: true }
-        )
+                req.params.studentId, {
+                    $set: req.body,
+                }, { new: true }
+            )
             .then(
                 (student) => {
                     res.statusCode = 200;
@@ -153,7 +125,7 @@ studentRouter
             .catch((err) => next(err));
     })
     .delete(isAuth, (req, res, next) => {
-        Students.findOneAndDelete(req.params.studentId)
+        Students.findByIdAndDelete(req.params.studentId)
             .then(
                 (resp) => {
                     res.statusCode = 200;

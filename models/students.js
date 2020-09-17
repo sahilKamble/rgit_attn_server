@@ -23,6 +23,8 @@ const studentSchema = new Schema({
     }
 }, { timestamps: true });
 
+studentSchema.index({ year: 1, roll: 1, div: 1, dept: 1 }, { unique: true });
+
 const Students = mongoose.model('Student', studentSchema);
 
 module.exports = Students;
