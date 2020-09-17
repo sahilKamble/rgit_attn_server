@@ -187,56 +187,56 @@ router
 //                 <br><br><input type="submit" value="Submit"></form>';
 
 //     res.send(form);
+//     })
 
-// })
-.post(function(req, res) {
-    // Search for user in database
-    User.findOne({ username: req.body.username }, (err, user) => {
-        // Check if error connecting
-        if (err) {
-            console.log('did not connect'),
+    .post(function (req, res) {
+        // Search for user in database
+        User.findOne({ username: req.body.username }, (err, user) => {
+            // Check if error connecting
+            if (err) {
+                console.log('did not connect'),
                 res.json({ success: false, message: 'did not connect' }); // Return error
-        } else {
-            // Check if user was found in database
-            if (!user) {
-                console.log('User not found'),
-                    res.json({ success: false, message: 'User not found' }); // Return error, user was not found in db
             } else {
-                user.changePassword(
-                    req.body.oldpassword,
-                    req.body.newpassword,
-                    function(err) {
-                        if (err) {
-                            if (err.name === 'IncorrectPasswordError') {
-                                console.log('Incorrect password');
-                                res.json({
-                                    success: false,
-                                    message: 'Incorrect password',
-                                }); // Return error
+                // Check if user was found in database
+                if (!user) {
+                    console.log('User not found'),
+                    res.json({ success: false, message: 'User not found' }); // Return error, user was not found in db
+                } else {
+                    user.changePassword(
+                        req.body.oldpassword,
+                        req.body.newpassword,
+                        function (err) {
+                            if (err) {
+                                if (err.name === 'IncorrectPasswordError') {
+                                    console.log('Incorrect password');
+                                    res.json({
+                                        success: false,
+                                        message: 'Incorrect password',
+                                    }); // Return error
+                                } else {
+                                    console.log(
+                                        'Something went wrong!! Please try again after sometimes.'
+                                    );
+                                    res.json({
+                                        success: false,
+                                        message: 'Something went wrong!! Please try again after sometimes.',
+                                    });
+                                }
                             } else {
                                 console.log(
-                                    'Something went wrong!! Please try again after sometimes.'
+                                    'Your password has been changed successfully'
                                 );
                                 res.json({
-                                    success: false,
-                                    message: 'Something went wrong!! Please try again after sometimes.',
+                                    success: true,
+                                    message: 'Your password has been changed successfully',
                                 });
                             }
-                        } else {
-                            console.log(
-                                'Your password has been changed successfully'
-                            );
-                            res.json({
-                                success: true,
-                                message: 'Your password has been changed successfully',
-                            });
                         }
-                    }
-                );
+                    );
+                }
             }
-        }
+        });
     });
-});
 
 router
     .route('/forgotpass')
@@ -253,7 +253,7 @@ router
 
         res.send(form);
     })
-    .post(function(req, res) {
+    .post(function (req, res) {
         if (req.body.password1 === req.body.password2) {
             // Search for user in database
             User.findByUsername(req.body.username, (err, user) => {
@@ -266,7 +266,7 @@ router
                     if (!user) {
                         res.json({ success: false, message: 'User not found' }); // Return error, user was not found in db
                     } else {
-                        user.setPassword(req.body.password1, function(
+                        user.setPassword(req.body.password1, function (
                             err,
                             user
                         ) {
@@ -353,8 +353,8 @@ router
     })
     .put((req, res, next) => {
         User.findByIdAndUpdate(req.params.userId, {
-                $set: req.body,
-            })
+            $set: req.body,
+        })
             .then(
                 (user) => {
                     res.statusCode = 200;
@@ -369,11 +369,11 @@ router
         User.findById(req.params.userId)
             .then(
                 (user) =>
-                user.remove().then((resp) => {
-                    res.statusCode = 200;
-                    res.setHeader('Content-Type', 'application/json');
-                    res.json(resp);
-                }),
+                    user.remove().then((resp) => {
+                        res.statusCode = 200;
+                        res.setHeader('Content-Type', 'application/json');
+                        res.json(resp);
+                    }),
                 (err) => next(err)
             )
             .catch((err) => next(err));
