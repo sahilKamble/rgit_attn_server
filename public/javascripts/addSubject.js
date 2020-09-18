@@ -1,10 +1,12 @@
 var teach_id;
-var filt;
+var div;
+var year;
 var N_sub;
 
 function showStudents() {
     document.querySelector('.students-list').hidden = false;
-    filt = document.getElementById('sub_div').value;
+    div = document.getElementById('sub_div').value;
+    year = document.getElementById('year_div').value;
     N_sub = document.getElementById('subject1').value;
 
     fetch('/users/me').then((res) => {
@@ -12,10 +14,13 @@ function showStudents() {
             teach_id = data._id;
         });
     });
-
-    fetch(`/students${filt}`).then((res) => {
+    fetch(`/students?${div}&${year}`).then((res) => {
         res.json().then((data) => {
             console.log(data);
+            let tableHeader = document.querySelector('.table-header');
+            let tableBody = document.querySelector('.table-body');
+            tableHeader.innerHTML = '';
+            tableBody.innerHTML = '';
             if (data.length > 0) {
                 data.sort(function (a, b) {
                     if (a.div == b.div) {
@@ -32,10 +37,7 @@ function showStudents() {
                 //     temp += `<td>${u.name}</td>`;
                 // });
 
-                let tableHeader = document.querySelector('.table-header');
-                let tableBody = document.querySelector('.table-body');
-                tableHeader.innerHTML = '';
-                tableBody.innerHTML = '';
+
 
                 let checkboxCell = document.createElement('th');
                 let checkbox = document.createElement('input');

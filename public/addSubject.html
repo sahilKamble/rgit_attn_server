@@ -119,15 +119,25 @@
 
           <div class="card mb-5 shadow card-row">
             <div class="card-body my-1 mx-3">
+              
               <div class="form-group">
                 <label for="subject1">Subject</label>
                 <input id="subject1" type="text" name="filter" placeholder="Subject Name" class="form-control" required>
               </div>
 
+              <div class="form-group"><label class="" for="year_div">Year</label>
+                <select class="form-control" id="year_div">
+                  <option value="year=1">FE</option>
+                  <option value="year=2">SE</option>
+                  <option value="year=3">TE</option>
+                  <option value="year=4">BE</option>
+                </select>
+              </div>
+
               <div class="form-group"><label class="" for="sub_div">Classes</label>
                 <select class="form-control" id="sub_div">
-                  <option value="?div=A">A</option>
-                  <option value="?div=B">B</option>
+                  <option value="div=A">A</option>
+                  <option value="div=B">B</option>
                   <option value="">Elective</option>
                 </select>
               </div>
@@ -159,8 +169,8 @@
             </div><br>
 
             <div class="btn-group">
-              <button class="btn btn-primary save-attendance" id="save-class" onclick="showModal()">Add
-                Students</button>
+              <button class="btn btn-primary save-attendance" id="save-class" onclick="showModal()">Create
+                Subject</button>
             </div>
 
             <div class="btn-group">
