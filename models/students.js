@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const studentSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
     },
     year: {
         type: Number,
@@ -26,5 +26,5 @@ const studentSchema = new Schema({
 studentSchema.index({ year: 1, roll: 1, div: 1, dept: 1 }, { unique: true });
 
 const Students = mongoose.model('Student', studentSchema);
-
+Students.syncIndexes();
 module.exports = Students;
