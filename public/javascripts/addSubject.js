@@ -3,6 +3,19 @@ var div;
 var year;
 var N_sub;
 
+
+function createNotification() {
+    const container = document.getElementById('container');
+    const notif = document.createElement('div');
+    notif.classList.add('toast-custom');
+    notif.innerText = 'No Students in database for given year and division!';
+    container.appendChild(notif);
+
+    setTimeout(() => {
+        notif.remove();
+    }, 3000);
+}
+
 function showStudents() {
     document.querySelector('.students-list').hidden = false;
     div = document.getElementById('sub_div').value;
@@ -91,10 +104,14 @@ function showStudents() {
                 }
 
                 document.querySelector('.toggle-checkbox').addEventListener('change', toggleSelects);
+            } else {
+                createNotification();
             }
         });
     });
 }
+
+
 
 async function postClass() {
     let data = {};
