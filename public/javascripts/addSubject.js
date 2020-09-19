@@ -4,10 +4,10 @@ var year;
 var N_sub;
 
 
-function createNotification() {
+function errorToast() {
     const container = document.getElementById('container');
     const notif = document.createElement('div');
-    notif.classList.add('toast-custom');
+    notif.classList.add('toast-error');
     notif.innerText = 'No Students in database for given year and division!';
     container.appendChild(notif);
 
@@ -105,7 +105,7 @@ function showStudents() {
 
                 document.querySelector('.toggle-checkbox').addEventListener('change', toggleSelects);
             } else {
-                createNotification();
+                errorToast();
             }
         });
     });
