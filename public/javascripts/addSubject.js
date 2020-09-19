@@ -3,6 +3,11 @@ var div;
 var year;
 var N_sub;
 
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+}
 
 function errorToast() {
     const container = document.getElementById('container');
@@ -96,7 +101,7 @@ function showStudents() {
                     roll.appendChild(label);
 
                     let name = document.createElement('td');
-                    name.innerHTML = student.name;
+                    name.innerHTML = toTitleCase(student.name);
                     name.className = 'student-name';
                     row.appendChild(roll);
                     row.appendChild(name);
