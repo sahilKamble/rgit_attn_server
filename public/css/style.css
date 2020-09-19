@@ -83,7 +83,6 @@
     display: inline-block;
 }
 
-
 #subject1:focus:invalid {
     border-color: #f5c6cb;
     box-shadow: 0 0 0 0.2rem #f8d7da;
@@ -107,11 +106,22 @@
     right: 10px;
 }
 
-.toast-custom {
-    color: black;
+.toast-error {
+    color: #721c24;
     background-color: #f8d7da;
+    border-color: #f5c6cb;
     border-radius: 5px;
     padding: 1rem;
     margin: 1rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58,59,69,0.15)
 }
 
+.toast-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58,59,69,0.15)
+}

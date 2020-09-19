@@ -3,12 +3,36 @@ var department;
 var year;
 
 function ShowAndHide() {
-    var dept = document.querySelector('#dept-dropdown');
+    const dept = document.querySelector('#dept-dropdown');
     department = dept.options[dept.selectedIndex].value;
     console.log(dept.options[dept.selectedIndex].value);
-    var ye = document.querySelector('#year-dropdown');
+    const ye = document.querySelector('#year-dropdown');
     year = ye.options[ye.selectedIndex].value;
     console.log(ye.options[ye.selectedIndex].value);
+}
+
+function errorToast() {
+    const container = document.getElementById('container');
+    const notif = document.createElement('p');
+    notif.classList.add('toast-error');
+    notif.innerText = 'Some Students couldn\'t be added. Perhaps they were already added?';
+    container.appendChild(notif);
+
+    setTimeout(() => {
+        notif.remove();
+    }, 3000);
+}
+
+function successToast() {
+    const container = document.getElementById('container');
+    const notif = document.createElement('div');
+    notif.classList.add('toast-success');
+    notif.innerText = 'All students added successfully.';
+    container.appendChild(notif);
+
+    setTimeout(() => {
+        notif.remove();
+    }, 3000);
 }
 
 function handleFile(e) {
@@ -58,10 +82,19 @@ function handleFile(e) {
 async function addstud() {
     if (list) {
         console.log(list);
-        let request = new XMLHttpRequest();
-        request.open('POST', '/students', true);
-        request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify(list));
+        let res = await fetch('/students', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(list)
+        });
+        if(res.status == 200) {
+            successToast();
+        } else {
+            console.log(res);
+            errorToast();
+            let resData = await res.json();
+            console.log(resData);~
+        }
     }
 }
 

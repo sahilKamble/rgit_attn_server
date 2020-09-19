@@ -27,18 +27,17 @@ studentRouter
             .catch((err) => next(err));
     })
     .post(isAuth, (req, res, next) => {
-
         Students.insertMany(req.body, { ordered: false })
             .then((students) => {
-                    res.statusCode = 200;
-                    res.setHeader('Content-Type', 'application/json');
-                    res.json(students);
-                },
-                (err) => {
-                    res.statusCode = 201;
-                    res.setHeader('Content-Type', 'application/json');
-                    res.json(err);
-                })
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.json(students);
+            },
+            (err) => {
+                res.statusCode = 201;
+                res.setHeader('Content-Type', 'application/json');
+                res.json(err);
+            })
             .catch((err) => {
                 res.statusCode = 201;
                 res.setHeader('Content-Type', 'application/json');
@@ -73,7 +72,7 @@ studentRouter.route('/subs').post(isAuth, (req, res, next) => {
         .then(
             (student) => {
                 if (req.body.subjects) {
-                    for (subject of req.body.subjects) {
+                    for (let subject of req.body.subjects) {
                         Subjects.findById(subject).then((sub) => {
                             sub.students.push(student);
                             sub.save();
@@ -117,10 +116,10 @@ studentRouter
     })
     .put(isAuth, (req, res, next) => {
         Students.findByIdAndUpdate(
-                req.params.studentId, {
-                    $set: req.body,
-                }, { new: true }
-            )
+            req.params.studentId, {
+                $set: req.body,
+            }, { new: true }
+        )
             .then(
                 (student) => {
                     res.statusCode = 200;
