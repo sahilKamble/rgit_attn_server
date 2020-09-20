@@ -60,7 +60,7 @@ function handleFile(e) {
         ) {
             for (let student of worksheet) {
                 let abc = {
-                    name: student.name,
+                    name: student.name.toLowerCase(),
                     roll: student.roll,
                     div: student.div,
                     dept: department,
