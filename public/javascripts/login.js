@@ -17,7 +17,7 @@ document.querySelector('.login').addEventListener('keyup', () => {
 document.addEventListener('submit', async function (event) {
     event.preventDefault();
     let form = {};
-    console.log(event.target);
+    // console.log(event.target);
     let formData = new FormData(event.target);
     for (let key of formData.keys()) {
         form[key] = formData.get(key);

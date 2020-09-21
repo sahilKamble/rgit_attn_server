@@ -94,6 +94,7 @@ async function buildTable(data, daily_attn) {
     document.querySelector('.button-excel').disabled = false;
     document.querySelector('.button-edit').disabled = false;
     document.querySelector('.button-del').disabled = false;
+    document.querySelector('.button-share').disabled = false;
 
     let entry = document.createElement('tr');
     entry.className = 'table-row';
@@ -116,12 +117,6 @@ async function buildTable(data, daily_attn) {
         entry.appendChild(dattn);
         tableBody.appendChild(entry);
     }
-
-    table = document.querySelector('.table-wrapper');
-    table.classList.remove('hidden');
-    document.querySelector('.button-excel').disabled = false;
-    document.querySelector('.button-edit').disabled = false;
-    document.querySelector('.button-del').disabled = false;
     
     if (
         document.querySelector('.container-fluid').clientWidth <

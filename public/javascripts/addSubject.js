@@ -34,7 +34,7 @@ function showStudents() {
     });
     fetch(`/students?${div}&${year}`).then((res) => {
         res.json().then((data) => {
-            console.log(data);
+            // console.log(data);
             let tableHeader = document.querySelector('.table-header');
             let tableBody = document.querySelector('.table-body');
             tableHeader.innerHTML = '';
@@ -46,17 +46,6 @@ function showStudents() {
                     }
                 });
 
-                // let temp = '<tr><th>Roll number</th>';
-                // temp += '<th>Name</th>';
-
-                // data.forEach((u) => {
-                //     temp += '<tr>';
-                //     temp += `<td><input type="checkbox" name="value" id="c2" value="${u._id}" checked><label for="nroll">${u.div}${u.roll}</label></td>`;
-                //     temp += `<td>${u.name}</td>`;
-                // });
-
-
-
                 let checkboxCell = document.createElement('th');
                 let checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
@@ -66,7 +55,6 @@ function showStudents() {
                 checkboxCell.className = 'checkbox';
                 checkboxCell.appendChild(checkbox);
                 tableHeader.appendChild(checkboxCell);
-
 
                 let roll = document.createElement('th');
                 roll.className = 'roll-no';
@@ -133,7 +121,7 @@ async function postClass() {
         students: sclass,
     };
 
-    console.log(data);
+    // console.log(data);
 
     let res = await fetch('/subjects', {
         method: 'POST',

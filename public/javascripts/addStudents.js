@@ -50,7 +50,7 @@ function handleFile(e) {
         var worksheet = XLSX.utils.sheet_to_json(
             workbook.Sheets[sheetsList[0]]
         );
-        console.log(worksheet);
+        // console.log(worksheet);
         let first = worksheet[0];
         ShowAndHide();
         if(
@@ -81,7 +81,7 @@ function handleFile(e) {
 
 async function addstud() {
     if (list) {
-        console.log(list);
+        // console.log(list);
         let res = await fetch('/students', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

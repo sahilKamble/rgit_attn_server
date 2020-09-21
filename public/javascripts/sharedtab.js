@@ -137,7 +137,7 @@ async function req(sid) {
 
     let res = await fetch(url);
     let data = await res.json();
-    console.log(data);
+    // console.log(data);
     if (data.name) {
         subject = toTitleCase(data.name);
         let heading = document.querySelector('h1');
